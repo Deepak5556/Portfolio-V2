@@ -6,6 +6,7 @@ import { ChevronLeft, Image as ImageIcon, Info } from "lucide-react";
 import Link from "next/link";
 import { SectionLabel } from "@/components/Shared";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { ShareAction } from "@/components/ShareAction";
 
 export function generateStaticParams() {
   return photos.map((p) => ({
@@ -32,7 +33,16 @@ export default function PhotoDetailsPage({ params }: { params: { id: string } })
         <div>
           <SectionLabel>Design Project</SectionLabel>
           <h1 className="text-4xl font-bold tracking-tight mb-4">{photo.title}</h1>
-          <Badge variant="secondary">Graphic Design</Badge>
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <Badge variant="secondary">Graphic Design</Badge>
+            <ShareAction 
+              title={photo.title} 
+              variant="outline" 
+              size="default" 
+              className="rounded-xl h-8 border-border/50 text-xs gap-2"
+              iconOnly={false} 
+            />
+          </div>
         </div>
 
         {/* Carousel Display */}

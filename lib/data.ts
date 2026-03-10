@@ -72,26 +72,26 @@ export const photoTools  = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
 export const videos = [
   { 
     id: "event-highlights",
-    title: "Event Highlights Reel", 
+    title: "Cinematic Event Highlights", 
     tools: ["Premiere Pro", "After Effects"],
-    description: "A cinematic recap of a major college event, featuring high-energy transitions, color grading, and synchronized sound design.",
-    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4", // Sample mp4
+    description: "A high-impact event recap focused on cinematic aesthetics, featuring advanced color grading, synchronized audio-to-visual editing, and dynamic motion graphics overlays.",
+    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4", 
     poster: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800"
   },
   { 
     id: "social-media",
-    title: "Social Media Reels",    
+    title: "Viral Social Media Sequences",    
     tools: ["CapCut", "After Effects"],
-    description: "Short-form engaging content designed for Instagram and TikTok, optimized for viral reach and audience retention.",
-    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", // Sample mp4
+    description: "Fast-paced, high-retention short-form content optimized for modern social platforms. Includes motion tracking, creative text animations, and trend-specific editing styles.",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", 
     poster: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
   },
   { 
     id: "college-fest",
-    title: "College Fest Promo",    
+    title: "Annual Fest Promotional Trailer",    
     tools: ["DaVinci Resolve", "Premiere Pro"],
-    description: "A promotional trailer for the annual college festival, using motion graphics and fast-paced editing to build excitement.",
-    videoSrc: "https://www.w3schools.com/html/movie.mp4", // Sample mp4
+    description: "An energetic promotional campaign video utilizing 3D motion graphics, complex masking techniques, and custom sound design to build hype and brand awareness.",
+    videoSrc: "https://www.w3schools.com/html/movie.mp4", 
     poster: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800"
   },
 ];

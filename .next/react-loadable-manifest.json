@@ -1,9 +1,8 @@
 {
   "node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js": {
-    "id": 9387,
+    "id": "node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js",
     "files": [
-      "static/chunks/c16f53c3.4ba0a03532dd180a.js",
-      "static/chunks/257.7d89431e69998fef.js"
+      "static/chunks/_app-pages-browser_node_modules_react-activity-calendar_build_chunks_Tooltip-BAxPWbMb_js.js"
     ]
   }
 }

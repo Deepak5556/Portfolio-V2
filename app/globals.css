@@ -69,6 +69,10 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
   :focus-visible { outline: 2px solid hsl(var(--accent) / 0.6); outline-offset: 2px; }
+  .theme {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  }
 }
 
 /* ─── Animations ─── */
@@ -124,7 +128,7 @@
   button, [role="button"], a {
     min-height: 36px;
   }
-  
+
   /* Better spacing for mobile */
   .card-hover {
     transition: none;
@@ -135,4 +139,23 @@
 @media (max-width: 640px) {
   h1 { font-size: 1.875rem !important; }
   h2 { font-size: 1.5rem !important; }
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }

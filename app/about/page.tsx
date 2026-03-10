@@ -26,8 +26,8 @@ export default function AboutPage() {
           {[
             { icon: Monitor, title: "Web Development", desc: "React, Next.js, Node.js, full-stack MERN applications.", tools: ["React", "Next.js", "Node.js", "MongoDB"], href: "/webdev" },
             { icon: Smartphone, title: "App Development", desc: "Cross-platform mobile apps with Flutter and FlutterFlow.", tools: ["Flutter", "FlutterFlow", "Firebase"], href: "/appdev" },
-            { icon: Camera, title: "Photography", desc: "Professional photography, retouching, and creative compositions.", tools: ["Photoshop", "Lightroom", "Canva"], href: "/photo" },
-            { icon: Video, title: "Videography", desc: "Cinematic videography, motion graphics, and social content.", tools: ["Premiere Pro", "After Effects", "CapCut"], href: "/video" },
+            { icon: Camera, title: "Photography", desc: "Professional architectural, portrait and event photography with advanced retouching.", tools: ["Photoshop", "Lightroom", "Canva"], href: "/photo" },
+            { icon: Video, title: "Videography", desc: "End-to-end video production including cinematic shooting, narrative editing, and motion graphics.", tools: ["Premiere Pro", "After Effects", "CapCut"], href: "/video" },
           ].map((item) => {
             const Icon = item.icon;
             return (

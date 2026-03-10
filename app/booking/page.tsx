@@ -87,7 +87,7 @@ export default function BookingPage() {
         </div>
 
         {/* Booking Form */}
-        <Card className="lg:col-span-2 shadow-xl border-border/50">
+        <Card id="booking-form" className="lg:col-span-2 shadow-xl border-border/50 scroll-mt-24">
           <CardHeader className="px-4 sm:px-6">
             <CardTitle className="text-base sm:text-lg">Schedule Time</CardTitle>
             <CardDescription className="text-xs sm:text-sm">Select your preferred slot below.</CardDescription>
