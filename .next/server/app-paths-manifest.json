@@ -1,0 +1,10 @@
+{
+  "/page": "app/page.js",
+  "/webdev/page": "app/webdev/page.js",
+  "/figma/page": "app/figma/page.js",
+  "/photo/page": "app/photo/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/achievements/[id]/page": "app/achievements/[id]/page.js",
+  "/photo/[id]/page": "app/photo/[id]/page.js",
+  "/video/page": "app/video/page.js"
+}
