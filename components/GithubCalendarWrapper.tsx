@@ -17,28 +17,28 @@ export function GithubCalendarWrapper({ username }: { username: string }) {
 
   return (
     <Card className="border-border/50 shadow-sm overflow-hidden bg-card/50 backdrop-blur-sm">
-      <CardHeader className="pb-4">
+      <CardHeader className="pb-3 sm:pb-4 px-4 sm:px-6">
         <SectionLabel>Contribution Activity</SectionLabel>
-        <CardTitle className="text-xl">Open Source Journey</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-lg sm:text-xl">Open Source Journey</CardTitle>
+        <CardDescription className="text-xs sm:text-sm">
           Tracking my daily commits and code contributions on GitHub.
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-6 overflow-hidden">
+      <CardContent className="py-4 sm:py-6 px-2 sm:px-6 overflow-hidden">
         <div className="flex flex-col items-center">
             <div className="w-full overflow-x-auto no-scrollbar pb-2">
-                <div className="min-w-[700px] sm:min-w-0 flex justify-center scale-[0.85] sm:scale-90 md:scale-100 origin-center transition-transform">
+                <div className="min-w-[650px] sm:min-w-0 flex justify-center scale-[0.75] sm:scale-[0.85] md:scale-100 origin-left sm:origin-center transition-transform">
                     <GitHubCalendar 
                       username={username} 
-                      fontSize={12}
-                      blockSize={12}
-                      blockMargin={4}
+                      fontSize={11}
+                      blockSize={11}
+                      blockMargin={3}
                       theme={themeColors}
                       colorScheme={resolvedTheme === 'dark' ? 'dark' : 'light'}
                     />
                 </div>
             </div>
-            <p className="text-[10px] text-muted-foreground mt-4 sm:hidden italic">
+            <p className="text-[10px] text-muted-foreground mt-3 sm:mt-4 md:hidden italic">
               Scroll horizontally to see full activity ↔
             </p>
         </div>
