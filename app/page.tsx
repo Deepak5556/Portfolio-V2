@@ -18,7 +18,6 @@ import { RoleCarousel } from "@/components/RoleCarousel";
 import { ShareAction } from "@/components/ShareAction";
 import { 
   ScrollVelocitySection, 
-  MarqueeSection, 
   BentoSection, 
   GlobeSection 
 } from "@/components/HomeMagicUI";
@@ -214,9 +213,7 @@ export default function Home() {
              <BentoSection />
           </div>
 
-          <div className="col-span-full">
-             <MarqueeSection />
-          </div>
+
 
           <div className="col-span-full">
              <GlobeSection />
