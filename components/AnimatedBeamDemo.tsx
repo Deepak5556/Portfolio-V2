@@ -6,16 +6,24 @@ import { AnimatedBeam } from "@/components/ui/animated-beam"
 import { Smartphone, Monitor, Palette, Film, Camera, Code2 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { profile } from "@/lib/data"
+import Link from "next/link"
 
 const Circle = forwardRef<
   HTMLDivElement,
-  { className?: string; children?: React.ReactNode; label?: string; labelPosition?: "top" | "bottom" | "left" | "right" }
->(({ className, children, label, labelPosition = "bottom" }, ref) => {
-  return (
+  {
+    className?: string;
+    children?: React.ReactNode;
+    label?: string;
+    labelPosition?: "top" | "bottom" | "left" | "right";
+    href?: string;
+  }
+>(({ className, children, label, labelPosition = "bottom", href }, ref) => {
+  const content = (
     <div
       ref={ref}
       className={cn(
-        "z-10 relative flex size-12 sm:size-14 items-center justify-center rounded-full border-2 bg-background p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 relative flex size-12 sm:size-14 items-center justify-center rounded-full border-2 bg-background p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] transition-all",
+        href && "cursor-pointer hover:shadow-primary/30",
         className
       )}
     >
@@ -23,7 +31,7 @@ const Circle = forwardRef<
       {label && (
         <span
           className={cn(
-            "absolute text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground text-center",
+            "absolute text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground transition-colors text-center group-hover/circle:text-foreground",
             labelPosition === "bottom" && "-bottom-6 sm:-bottom-8 whitespace-nowrap",
             labelPosition === "top" && "-top-6 sm:-top-8 whitespace-nowrap",
             labelPosition === "left" && "-left-2 sm:-left-4 -translate-x-full text-right w-16 sm:w-24 leading-tight break-words",
@@ -34,8 +42,18 @@ const Circle = forwardRef<
         </span>
       )}
     </div>
-  )
-})
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className="group/circle">
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className="group/circle">{content}</div>;
+});
 
 Circle.displayName = "Circle"
 
@@ -56,32 +74,32 @@ export function AnimatedBeamDemo() {
     >
       <div className="flex size-full max-h-[300px] max-w-2xl flex-col items-stretch justify-between gap-12 sm:gap-16 px-16 md:px-20">
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div1Ref} label="App Development" labelPosition="top" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div1Ref} label="App Development" labelPosition="top" href="/appdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Smartphone size={32} className="text-emerald-500" />
           </Circle>
-          <Circle ref={div5Ref} label="Web Development" labelPosition="top" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div5Ref} label="Web Development" labelPosition="top" href="/webdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Monitor size={32} className="text-blue-500" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div2Ref} label="UI/UX Designing" labelPosition="left" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div2Ref} label="UI/UX Designing" labelPosition="left" href="/uiux" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Palette size={32} className="text-pink-500" />
           </Circle>
-          <Circle ref={div4Ref} label="Deepakkumar" labelPosition="bottom" className="size-20 sm:size-24 bg-card border-primary/50 overflow-hidden p-0 shadow-lg shadow-primary/20 group hover:scale-110 transition-transform z-20">
+          <Circle ref={div4Ref} label="Deepakkumar" labelPosition="bottom" href="/contact" className="size-20 sm:size-24 bg-card border-primary/50 overflow-hidden p-0 shadow-lg shadow-primary/20 hover:scale-110 transition-transform z-20">
              <Avatar className="size-full">
                <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" />
                <AvatarFallback className="text-xl font-bold">{profile.initials}</AvatarFallback>
              </Avatar>
           </Circle>
-          <Circle ref={div6Ref} label="Video Editing" labelPosition="right" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div6Ref} label="Video Editing" labelPosition="right" href="/video" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Film size={32} className="text-purple-500" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref} label="Engineering" labelPosition="bottom" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div3Ref} label="Engineering" labelPosition="bottom" href="/webdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Code2 size={32} className="text-orange-500" />
           </Circle>
-          <Circle ref={div7Ref} label="Photo Editing" labelPosition="bottom" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
+          <Circle ref={div7Ref} label="Photo Editing" labelPosition="bottom" href="/photo" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Camera size={32} className="text-yellow-500" />
           </Circle>
         </div>

@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Deepakkumar V — Full Stack Developer",
-  description: "Portfolio of Deepakkumar V, a Full Stack Developer specialising in React, Next.js, Flutter, and the MERN stack.",
-  keywords: ["Full Stack Developer", "React", "Next.js", "Flutter", "MERN", "Deepakkumar"],
+  metadataBase: new URL("https://deepakkumarportfolio.web.app"),
+  title: "Deepakkumar V — Developer",
+  description: "Portfolio of Deepakkumar V, a Developer specialising in React, Next.js, Flutter, and the MERN stack.",
+  keywords: ["Developer", "React", "Next.js", "Flutter", "MERN", "Deepakkumar"],
   authors: [{ name: "Deepakkumar V" }],
+  openGraph: {
+    images: ["/opengraph-image.png"],
+  },
 };
 
 export const viewport = {
@@ -28,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PageBackground />
           <LoadingProvider>
             <Navbar />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-20">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 sm:pb-12 space-y-16 sm:space-y-20">
               {children}
             </main>
             <Footer />

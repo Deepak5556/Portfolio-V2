@@ -8,8 +8,8 @@ import {
 
 export const profile = {
   name: "Deepakkumar V",
-  role: "Full Stack Developer",
-  tagline: "Building elegant web & mobile experiences with React, UI/UX Design & Video Editing.",
+  role: "Developer",
+  tagline: "Web · App · UI/UX · Videography · Photography",
   location: "Karpagam College, Coimbatore",
   avatar: "/Deepak.webp",
   initials: "DV",
@@ -22,10 +22,11 @@ export const profile = {
 export const navItems = [
   { id: "/",        label: "Home", icon: Home },
   { id: "/about",   label: "About", icon: User },
-  { id: "/webdev",  label: "Web Development", icon: Code2 },
+  { id: "/webdev",  label: "Web", icon: Code2 },
+  { id: "/appdev",  label: "App", icon: Smartphone },
+  { id: "/uiux",    label: "UI/UX", icon: Palette },
   { id: "/video",   label: "Videography", icon: Film },
   { id: "/photo",   label: "Photography", icon: Camera },
-  { id: "/figma",   label: "UI/UX Design", icon: Palette },
   { id: "/contact", label: "Contact", icon: Mail },
 ];
 

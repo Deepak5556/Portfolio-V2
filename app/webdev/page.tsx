@@ -73,7 +73,7 @@ export default function WebDevPage() {
       <div className="mb-8 sm:mb-12">
         <SectionLabel>Engineering</SectionLabel>
         <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-2">
-          Web Development<span className="text-orange-500">.</span>
+          Web<span className="text-orange-500">.</span>
         </h2>
         <p className="text-sm sm:text-lg text-muted-foreground mt-3 max-w-2xl font-medium leading-relaxed">
             I craft performant, accessible web experiences using modern frameworks and best practices. 

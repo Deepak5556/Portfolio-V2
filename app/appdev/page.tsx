@@ -16,7 +16,7 @@ export default function AppDevPage() {
       <div className="mb-6 sm:mb-8">
         <SectionLabel>Engineering</SectionLabel>
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-          App Development<span className="accent-dot">.</span>
+          App<span className="accent-dot">.</span>
         </h2>
         <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl">
           Cross-platform mobile applications built with Flutter and FlutterFlow — designed for performance and beautiful user experiences.

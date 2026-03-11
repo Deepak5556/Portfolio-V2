@@ -4,12 +4,11 @@ import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const roles = [
-  "Full Stack Developer",
-  "App Developer",
+  "Developer",
+  "App Dev",
+  "UI/UX",
   "Photographer",
-  "Photo Editor",
   "Videographer",
-  "Video Editor"
 ];
 
 export function RoleCarousel({ className }: { className?: string }) {

@@ -24,7 +24,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4 md:gap-8">
         {/* Left — avatar + name */}
         <div className="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -125,7 +125,7 @@ export default function Navbar() {
                   <Button asChild className="w-full gap-2 h-11 rounded-xl font-bold shadow-lg">
                     <Link href="/booking">
                       <Calendar size={16} />
-                      Book a 1:1 Session
+                      Book Now
                     </Link>
                   </Button>
                 </SheetClose>

@@ -28,7 +28,7 @@ export default function PhotoPage() {
       <div className="mb-8 sm:mb-12">
         <SectionLabel>Creative Portfolio</SectionLabel>
         <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-2">
-          Photography & Editing<span className="text-orange-500">.</span>
+          Photography<span className="text-orange-500">.</span>
         </h2>
         <p className="text-sm sm:text-lg text-muted-foreground mt-3 max-w-2xl leading-relaxed font-medium">
           Professional photography, portrait retouching, and creative compositions — bringing stories to life through the lens.

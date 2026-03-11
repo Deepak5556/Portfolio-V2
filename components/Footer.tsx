@@ -15,7 +15,7 @@ const markers = [
   { lat: -33.8688, lng: 151.2093, size: 0.3 }, // Sydney
   { lat: 48.8566, lng: 2.3522, size: 0.3 }, // Paris
   { lat: 35.6762, lng: 139.6503, size: 0.3 }, // Tokyo
-  { lat: 13.0827, lng: 80.2707, size: 0.8, color: "#22c55e" }, // Chennai, Tamil Nadu (Highlighted Home Base)
+  { lat: 13.0827, lng: 80.2707, size: 1.5, color: "#22c55e", avatar: "/Deepak.webp" }, // Chennai, Tamil Nadu (Highlighted Home Base)
   { lat: 1.3521, lng: 103.8198, size: 0.3 }, // Singapore
 ];
 

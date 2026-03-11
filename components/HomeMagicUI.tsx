@@ -21,10 +21,10 @@ export function ScrollVelocitySection() {
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-10 sm:py-20 z-20">
       <ScrollVelocityContainer className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.05em] leading-[1.3] opacity-20 uppercase pb-2">
         <ScrollVelocityRow baseVelocity={5} direction={1}>
-          FULL STACK DEVELOPER • UI/UX DESIGNER • APP DEVELOPER • &nbsp;
+          WEB • APP • UI/UX • &nbsp;
         </ScrollVelocityRow>
         <ScrollVelocityRow baseVelocity={5} direction={-1}>
-          MERN • FLUTTER • PHOTOSHOP • AFTER EFFECTS • &nbsp;
+          VIDEOGRAPHY • PHOTOGRAPHY • &nbsp;
         </ScrollVelocityRow>
       </ScrollVelocityContainer>
     </div>

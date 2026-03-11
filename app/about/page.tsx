@@ -4,7 +4,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Monitor, Smartphone, Camera, Video, ArrowRight, GraduationCap, Briefcase, Award, ExternalLink
+  Monitor, Camera, Video, ArrowRight, GraduationCap, Briefcase, Award, ExternalLink,
+  TabletSmartphone, Palette
 } from "lucide-react";
 import { SectionLabel } from "@/components/Shared";
 import { profile, education, workExperience, internships, certifications } from "@/lib/data";
@@ -23,12 +24,13 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { icon: Monitor, title: "Web Development", desc: "React, Next.js, Node.js, full-stack MERN applications.", tools: ["React", "Next.js", "Node.js", "MongoDB"], href: "/webdev" },
-            { icon: Smartphone, title: "App Development", desc: "Cross-platform mobile apps with Flutter and FlutterFlow.", tools: ["Flutter", "FlutterFlow", "Firebase"], href: "/appdev" },
-            { icon: Camera, title: "Photography", desc: "Professional architectural, portrait and event photography with advanced retouching.", tools: ["Photoshop", "Lightroom", "Canva"], href: "/photo" },
-            { icon: Video, title: "Videography", desc: "End-to-end video production including cinematic shooting, narrative editing, and motion graphics.", tools: ["Premiere Pro", "After Effects", "CapCut"], href: "/video" },
+            { icon: Monitor, title: "Web", desc: "React, Next.js, Node.js, full-stack MERN applications.", tools: ["React", "Next.js", "Node.js", "MongoDB"], href: "/webdev" },
+            { icon: TabletSmartphone, title: "App", desc: "Cross-platform mobile apps with Flutter and React Native.", tools: ["Flutter", "Dart", "Firebase"], href: "/appdev" },
+            { icon: Palette, title: "UI/UX", desc: "User-centric design systems, wireframing and high-fidelity prototyping.", tools: ["Figma", "User Research", "Adobe XD"], href: "/uiux" },
+            { icon: Camera, title: "Photography", desc: "Professional photography with high-end retouching and correction.", tools: ["Photoshop", "Lightroom", "Snapseed"], href: "/photo" },
+            { icon: Video, title: "Videography", desc: "Cinematic production and professional video post-production editing.", tools: ["Premiere Pro", "After Effects", "CapCut"], href: "/video" },
           ].map((item) => {
             const Icon = item.icon;
             return (

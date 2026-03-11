@@ -69,9 +69,16 @@ export default function Home() {
 
           {/* About card */}
           <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 overflow-hidden relative group">
-            <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8">
-              <SectionLabel>About</SectionLabel>
-              <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
+            <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
+              <div className="flex items-center justify-between">
+                <div>
+                  <SectionLabel>About</SectionLabel>
+                  <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
+                </div>
+                <Button variant="ghost" size="sm" asChild className="hidden sm:flex gap-1.5 text-muted-foreground hover:text-primary transition-all font-bold uppercase text-[10px] tracking-widest">
+                   <Link href="/about">Learn More <ArrowRight size={14} /></Link>
+                </Button>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4 px-4 sm:px-6">
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
@@ -159,7 +166,7 @@ export default function Home() {
                   <CardTitle className="text-lg sm:text-xl font-black mt-2">Selected Works<span className="text-orange-500">.</span></CardTitle>
                 </div>
                 <Button variant="ghost" size="sm" asChild className="hidden sm:flex gap-1.5 text-muted-foreground hover:text-primary transition-all font-bold uppercase text-[10px] tracking-widest">
-                   <Link href="/webdev">View Archive <ArrowRight size={14} /></Link>
+                   <Link href="/projects">View Archive <ArrowRight size={14} /></Link>
                 </Button>
               </div>
               <CardDescription className="text-xs font-bold text-muted-foreground/60 mt-1 uppercase tracking-widest">A curated selection of my latest engineering projects.</CardDescription>
@@ -211,7 +218,7 @@ export default function Home() {
             </CardContent>
             <CardFooter className="px-4 sm:px-6 pb-6 pt-2 sm:hidden">
                <Button variant="outline" className="w-full gap-2 text-[10px] font-black uppercase tracking-widest h-11 rounded-xl" asChild>
-                 <Link href="/webdev">See Full Archive <ArrowRight size={14} /></Link>
+                 <Link href="/projects">See Full Archive <ArrowRight size={14} /></Link>
                </Button>
             </CardFooter>
           </Card>

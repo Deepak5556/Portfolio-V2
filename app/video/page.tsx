@@ -29,7 +29,7 @@ export default function VideoPage() {
       <div className="mb-10 sm:mb-14">
         <SectionLabel>Creative Portfolio</SectionLabel>
         <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4">
-          Videography & Post-Production<span className="text-orange-500">.</span>
+          Videography<span className="text-orange-500">.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium">

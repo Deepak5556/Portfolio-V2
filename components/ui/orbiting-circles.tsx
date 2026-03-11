@@ -53,11 +53,13 @@ export function OrbitingCircles({
                 "--radius": radius,
                 "--angle": angle,
                 "--icon-size": `${iconSize}px`,
+                width: `${iconSize}px`,
+                height: `${iconSize}px`,
               } as React.CSSProperties
             }
             className={cn(
-              `animate-orbit absolute flex size-(--icon-size) transform-gpu items-center justify-center rounded-full`,
-              { "[animation-direction:reverse]": reverse },
+              "absolute flex transform-gpu items-center justify-center rounded-full animate-orbit",
+              reverse && "[animation-direction:reverse]",
               className
             )}
             {...props}
