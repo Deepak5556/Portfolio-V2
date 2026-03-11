@@ -1,1 +1,10 @@
-{}
+{
+  "node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js": {
+    "id": 79387,
+    "files": [
+      "static/chunks/c16f53c3.738d15092940ba3b.js",
+      "static/chunks/674-1776d8d4bdbcc158.js",
+      "static/chunks/257.c5799d936c5bd4f4.js"
+    ]
+  }
+}

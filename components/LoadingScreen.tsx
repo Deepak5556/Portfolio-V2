@@ -13,7 +13,7 @@ export function LoadingScreen() {
           clearInterval(interval);
           return 100;
         }
-        return prev + 1.2;
+        return prev + 1.5;
       });
     }, 20);
 
@@ -22,35 +22,41 @@ export function LoadingScreen() {
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background pointer-events-none">
-      <div className="flex flex-col items-center justify-center scale-110 sm:scale-150 mb-12">
-        <p className="scan-loader text-[50px] font-black italic relative text-foreground transition-colors duration-500">
-          <span className="animate-scan-cut inline-block">Deepak</span>
+      <div className="flex flex-col items-center justify-center mb-12">
+        {/* iOS Style Spinner */}
+        <div className="ios-loader relative w-12 h-12 mb-8">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute left-[44.5%] top-0 w-[11%] h-[28%] bg-foreground/30 rounded-full origin-[center_180%]"
+              style={{
+                transform: `rotate(${i * 30}deg)`,
+                animation: `ios-fade 1.2s linear infinite`,
+                animationDelay: `${-1.2 + i * 0.1}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        <p className="text-xl font-semibold tracking-tighter text-foreground/80 animate-pulse">
+          Loading Portfolio
         </p>
       </div>
 
-      {/* Progress Data (Keeping existing progress bar for better UX) */}
+      {/* Progress Data (Optional, but kept for consistency) */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
         className="mt-4 w-64 flex flex-col items-center space-y-4"
       >
-        <div className="text-[10px] uppercase font-black tracking-[0.4em] text-muted-foreground/60">
-          Processing Data
-        </div>
-
-        <div className="w-full h-[2px] bg-muted/20 overflow-hidden relative rounded-full">
+        <div className="w-full h-[3px] bg-muted/20 overflow-hidden relative rounded-full max-w-[120px]">
           <motion.div
-            className="absolute inset-y-0 left-0 bg-[#ff8282] shadow-[0_0_10px_rgba(255,130,130,0.5)]"
+            className="absolute inset-y-0 left-0 bg-foreground/60"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
-            transition={{ duration: 1.8, ease: "easeInOut" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
           />
-        </div>
-
-        <div className="flex justify-between w-full text-[9px] font-mono font-bold text-muted-foreground/40 tracking-widest">
-          <span>{Math.min(100, Math.round(progress))}% SCANNING</span>
-          <span>STABLE</span>
         </div>
       </motion.div>
     </div>

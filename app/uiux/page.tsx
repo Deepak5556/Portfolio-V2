@@ -12,6 +12,7 @@ import { ShareAction } from "@/components/ShareAction";
 import { Pagination } from "@/components/Pagination";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import { Meteors } from "@/components/ui/meteors";
+import { WordRotate } from "@/components/ui/word-rotate";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -88,9 +89,25 @@ export default function UiUxPage() {
         {/* Meteors Card */}
         <div className="relative flex h-[400px] sm:h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-card/20 backdrop-blur-sm">
           <Meteors number={30} />
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-center text-5xl sm:text-7xl font-black leading-none text-transparent">
-            Creative
-          </span>
+          <WordRotate
+            className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-center text-5xl sm:text-7xl font-black leading-none text-transparent"
+            words={[
+              "Understand",
+              "Gather",
+              "Research",
+              "Define",
+              "Plan",
+              "Sketch",
+              "Wireframe",
+              "Explore",
+              "Design",
+              "Prototype",
+              "Test",
+              "Iterate",
+              "Handoff",
+              "Improve"
+            ]}
+          />
           <p className="mt-4 text-xs sm:text-sm text-muted-foreground font-medium text-center max-w-xs px-4">
             Pixel-perfect interfaces crafted with passion and precision.
           </p>

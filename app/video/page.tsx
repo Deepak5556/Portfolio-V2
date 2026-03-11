@@ -12,6 +12,7 @@ import { SectionLabel, Pill } from "@/components/Shared";
 import { videoTools, videos } from "@/lib/data";
 import { ShareAction } from "@/components/ShareAction";
 import { Pagination } from "@/components/Pagination";
+import MotionEditor from "@/components/MotionEditor";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -50,6 +51,26 @@ export default function VideoPage() {
                     </div>
                 ))}
             </div>
+        </div>
+      </div>
+
+      <div className="mb-12 sm:mb-20 overflow-hidden rounded-3xl border border-border/50 bg-card/20 backdrop-blur-sm p-4 sm:p-8 relative group">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-[120px] pointer-events-none" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shadow-xl shadow-primary/10">
+               <Layout size={20} />
+            </div>
+            <div>
+              <h3 className="text-xl font-black tracking-tight">Motion Design Engine<span className="text-orange-500">.</span></h3>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mt-0.5">Interactive Creative Workspace</p>
+            </div>
+          </div>
+          <div className="max-w-full overflow-x-auto pb-4 scrollbar-hide">
+            <div className="min-w-[1000px] lg:scale-95 origin-top transition-transform duration-500 hover:scale-100">
+              <MotionEditor />
+            </div>
+          </div>
         </div>
       </div>
 

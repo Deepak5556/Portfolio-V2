@@ -1,6 +1,18 @@
 {
+  "/appdev/page": "app/appdev/page.js",
+  "/about/page": "app/about/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/booking/page": "app/booking/page.js",
+  "/certificates/page": "app/certificates/page.js",
+  "/contact/page": "app/contact/page.js",
   "/uiux/page": "app/uiux/page.js",
+  "/icon.png/route": "app/icon.png/route.js",
   "/page": "app/page.js",
-  "/icon.png/route": "app/icon.png/route.js"
+  "/projects/page": "app/projects/page.js",
+  "/webdev/page": "app/webdev/page.js",
+  "/photo/page": "app/photo/page.js",
+  "/video/page": "app/video/page.js",
+  "/achievements/[id]/page": "app/achievements/[id]/page.js",
+  "/video/[id]/page": "app/video/[id]/page.js",
+  "/photo/[id]/page": "app/photo/[id]/page.js"
 }
