@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
-  Layout, Terminal, Database, Wrench
+  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail
 } from "lucide-react";
 import Link from "next/link";
 import { profile, techStack, projects } from "@/lib/data";
@@ -21,6 +21,7 @@ import {
   BentoSection, 
   GlobeSection 
 } from "@/components/HomeMagicUI";
+import { AnimatedBeamDemo } from "@/components/AnimatedBeamDemo";
 
 export default function Home() {
   return (
@@ -98,6 +99,12 @@ export default function Home() {
           {/* New Interactive Sections */}
           <div className="col-span-full py-8">
              <ScrollVelocitySection />
+          </div>
+
+
+          {/* Core Expertise Visualizer */}
+          <div className="col-span-full">
+            <AnimatedBeamDemo />
           </div>
 
           {/* Tech stack card */}

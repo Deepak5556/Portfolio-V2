@@ -37,6 +37,19 @@ const config: Config = {
         display: ["Fraunces", "Georgia", "serif"],
         sans: ["DM Sans", "-apple-system", "sans-serif"],
       },
+      keyframes: {
+        orbit: {
+          "0%": {
+            transform: "rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg))",
+          },
+          "100%": {
+            transform: "rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg))",
+          },
+        },
+      },
+      animation: {
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

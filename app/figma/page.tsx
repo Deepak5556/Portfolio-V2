@@ -10,7 +10,6 @@ import { SectionLabel } from "@/components/Shared";
 import { figmaProjects } from "@/lib/data";
 import { ShareAction } from "@/components/ShareAction";
 import { Pagination } from "@/components/Pagination";
-
 const ITEMS_PER_PAGE = 10;
 
 export default function FigmaPage() {
