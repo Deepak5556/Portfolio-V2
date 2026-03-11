@@ -23,11 +23,11 @@ const Circle = forwardRef<
       {label && (
         <span
           className={cn(
-            "absolute text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground whitespace-nowrap transition-colors group-hover:text-foreground",
-            labelPosition === "bottom" && "-bottom-6 sm:-bottom-8",
-            labelPosition === "top" && "-top-6 sm:-top-8",
-            labelPosition === "left" && "-left-4 -translate-x-full",
-            labelPosition === "right" && "-right-4 translate-x-full",
+            "absolute text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground text-center",
+            labelPosition === "bottom" && "-bottom-6 sm:-bottom-8 whitespace-nowrap",
+            labelPosition === "top" && "-top-6 sm:-top-8 whitespace-nowrap",
+            labelPosition === "left" && "-left-2 sm:-left-4 -translate-x-full text-right w-16 sm:w-24 leading-tight break-words",
+            labelPosition === "right" && "-right-2 sm:-right-4 translate-x-full text-left w-16 sm:w-24 leading-tight break-words",
           )}
         >
           {label}
@@ -51,10 +51,10 @@ export function AnimatedBeamDemo() {
 
   return (
     <div
-      className="relative flex w-full max-w-[800px] mx-auto items-center justify-center overflow-hidden py-14 sm:py-20"
+      className="relative flex w-full max-w-[900px] mx-auto items-center justify-center overflow-hidden py-14 sm:py-20"
       ref={containerRef}
     >
-      <div className="flex size-full max-h-[300px] max-w-2xl flex-col items-stretch justify-between gap-12 sm:gap-16">
+      <div className="flex size-full max-h-[300px] max-w-2xl flex-col items-stretch justify-between gap-12 sm:gap-16 px-16 md:px-20">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref} label="App Development" labelPosition="top" className="bg-card border-primary/20 group hover:scale-110 transition-transform">
             <Smartphone size={32} className="text-emerald-500" />

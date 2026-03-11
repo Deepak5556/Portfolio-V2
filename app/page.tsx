@@ -97,7 +97,7 @@ export default function Home() {
           </Card>
 
           {/* New Interactive Sections */}
-          <div className="col-span-full py-8">
+          <div className="col-span-full py-8 relative z-20">
              <ScrollVelocitySection />
           </div>
 

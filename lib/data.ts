@@ -1,5 +1,5 @@
 import {
-  Mail, Github, Linkedin, Globe, MapPin, ExternalLink,
+  Mail, Github, Linkedin, Globe, MapPin, ExternalLink, Home, User,
   Code2, Layers, Smartphone, Video, Camera, Figma,
   ArrowRight, Award, Star, GitBranch, CheckCircle2,
   Monitor, Palette, Film, Phone, Send, Calendar,
@@ -11,7 +11,7 @@ export const profile = {
   role: "Full Stack Developer",
   tagline: "Building elegant web & mobile experiences with React, UI/UX Design & Video Editing.",
   location: "Karpagam College, Coimbatore",
-  avatar: "https://deepakportfolioo.web.app/assets/ProfileImage-DvYnejqx.jpg",
+  avatar: "/Deepak.webp",
   initials: "DV",
   email: "deepakv.dev@gmail.com",
   github: "https://github.com/Deepak5556",
@@ -20,13 +20,13 @@ export const profile = {
 };
 
 export const navItems = [
-  { id: "/",        label: "Home" },
-  { id: "/about",   label: "About" },
-  { id: "/webdev",  label: "Web Development" },
-  { id: "/video",   label: "Videography" },
-  { id: "/photo",   label: "Photography" },
-  { id: "/figma",   label: "UI/UX Design" },
-  { id: "/contact", label: "Contact" },
+  { id: "/",        label: "Home", icon: Home },
+  { id: "/about",   label: "About", icon: User },
+  { id: "/webdev",  label: "Web Development", icon: Code2 },
+  { id: "/video",   label: "Videography", icon: Film },
+  { id: "/photo",   label: "Photography", icon: Camera },
+  { id: "/figma",   label: "UI/UX Design", icon: Palette },
+  { id: "/contact", label: "Contact", icon: Mail },
 ];
 
 export const techStack = [

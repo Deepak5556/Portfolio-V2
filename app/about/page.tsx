@@ -9,6 +9,7 @@ import {
 import { SectionLabel } from "@/components/Shared";
 import { profile, education, workExperience, internships, certifications } from "@/lib/data";
 import Link from "next/link";
+import { AnimatedListDemo } from "@/components/AnimatedListDemo";
 
 export default function AboutPage() {
   return (
@@ -66,6 +67,19 @@ export default function AboutPage() {
             Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack —
             constantly learning, shipping, and improving. I am based in {profile.location}.
           </p>
+        </div>
+      </section>
+
+      {/* ─── Real Time Activity ─── */}
+      <section className="scroll-mt-20">
+        <div className="mb-6 sm:mb-8">
+          <SectionLabel>Activity</SectionLabel>
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+            Current Focus<span className="accent-dot">.</span>
+          </h2>
+        </div>
+        <div className="w-full relative">
+          <AnimatedListDemo />
         </div>
       </section>
 

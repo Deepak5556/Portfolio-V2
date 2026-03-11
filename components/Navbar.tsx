@@ -49,9 +49,10 @@ export default function Navbar() {
               key={item.id}
               href={item.id}
               data-active={pathname === item.id || (pathname?.startsWith(item.id) && item.id !== "/")}
-              className="nav-link px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all duration-200 whitespace-nowrap data-[active=true]:text-foreground data-[active=true]:bg-muted/50 rounded-md"
+              className="nav-link flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all duration-200 whitespace-nowrap data-[active=true]:text-foreground data-[active=true]:bg-muted/50 rounded-md"
             >
-              {item.label}
+              {item.icon && <item.icon size={16} className="shrink-0" />}
+              <span>{item.label}</span>
             </Link>
           ))}
         </nav>
@@ -105,10 +106,13 @@ export default function Navbar() {
                     <Link
                       href={item.id}
                       data-active={pathname === item.id || (pathname?.startsWith(item.id) && item.id !== "/")}
-                      className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-200 data-[active=true]:text-foreground data-[active=true]:bg-muted/60 data-[active=true]:border-l-2 data-[active=true]:border-primary animate-slide-in-right"
+                      className="group flex items-center justify-between px-4 py-3 text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-200 data-[active=true]:text-foreground data-[active=true]:bg-muted/60 data-[active=true]:border-l-2 data-[active=true]:border-primary animate-slide-in-right"
                       style={{ animationDelay: `${i * 50}ms`, opacity: 0 }}
                     >
-                      {item.label}
+                      <div className="flex items-center gap-2">
+                        {item.icon && <item.icon size={18} className="shrink-0" />}
+                        <span>{item.label}</span>
+                      </div>
                       <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
                   </SheetClose>
