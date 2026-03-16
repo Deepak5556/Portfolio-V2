@@ -11,7 +11,7 @@ interface ThemeToggleProps {
   duration?: number;
 }
 
-export function ThemeToggle({ className, duration = 400 }: ThemeToggleProps) {
+export function ThemeToggle({ className, duration = 500 }: ThemeToggleProps) {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const buttonRef = React.useRef<HTMLButtonElement>(null);

@@ -3,7 +3,7 @@ import {
   Code2, Layers, Smartphone, Video, Camera, Figma,
   ArrowRight, Award, Star, GitBranch, CheckCircle2,
   Monitor, Palette, Film, Phone, Send, Calendar,
-  ShieldCheck, Layout, TabletSmartphone
+  ShieldCheck, Layout, TabletSmartphone, History
 } from "lucide-react";
 
 export const profile = {
@@ -13,6 +13,7 @@ export const profile = {
   location: "Karpagam College, Coimbatore",
   avatar: "/Deepak.webp",
   initials: "DV",
+  username: "deepak",
   email: "deepakv.dev@gmail.com",
   github: "https://github.com/Deepak5556",
   linkedin: "https://linkedin.com/in/deepakkumarv",
@@ -22,6 +23,7 @@ export const profile = {
 export const navItems = [
   { id: "/",        label: "Home", icon: Home },
   { id: "/about",   label: "About", icon: User },
+  { id: "/posts",   label: "Activity", icon: History },
   { id: "/webdev",  label: "Web", icon: Code2 },
   { id: "/appdev",  label: "App", icon: Smartphone },
   { id: "/uiux",    label: "UI/UX", icon: Palette },
@@ -243,6 +245,68 @@ export const certifications = [
     issuer: "freeCodeCamp",
     date: "2023",
     link: "#",
+  }
+];
+
+export const posts = [
+  {
+    id: 1,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "Just finalized the new 3D globe component for my portfolio! Using Cobe and Framer Motion for that smooth rotation. It's built to be high-performance and mobile-friendly. 🌍✨",
+    date: "2026-03-16",
+    tags: ["Development", "Next.js", "Design"],
+    images: ["https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"],
+    tweetId: "1441032681968212480"
+  },
+  {
+    id: 2,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "Building a new UI system for my latest project. Moving all custom animations into the Tailwind config was a great decision for maintainability and performance. 🎨",
+    date: "2026-03-15",
+    tags: ["Design", "Figma", "UI/UX"],
+    images: [
+      "https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1541462608141-ad4d74b321a4?auto=format&fit=crop&q=80&w=1200"
+    ],
+  },
+  {
+    id: 3,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "Behind the scenes: Cinematic event highlights editing in Premiere Pro. Working on color grading to give it that premium feel. 🎥🎬",
+    date: "2026-03-14",
+    tags: ["Videography", "Editing", "Creative"],
+    video: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
+    poster: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 4,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "Deep dive into Next.js App Router and Server Components. The way it handles data streaming is a game changer for performance. ⚡",
+    date: "2026-03-13",
+    tags: ["Development", "Next.js", "React"],
+    tweetId: "1745812921501819389"
+  },
+  {
+    id: 5,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "Exploring the intersection of AI and design. Generating unique brand assets using Midjourney and refining them in Illustrator. 🤖🎨",
+    date: "2026-03-12",
+    tags: ["AI", "Design", "Process"],
+    images: ["https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=1200"]
+  },
+  {
+    id: 6,
+    username: "deepak",
+    avatar: "/Deepak.webp",
+    content: "First time trying out FlutterFlow for a rapid prototype. The speed of iteration is impressive for MVP development. 📱",
+    date: "2026-03-11",
+    tags: ["AppDev", "FlutterFlow", "MVP"],
+    images: ["https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1200"]
   }
 ];
 

@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://deepakkumarportfolio.web.app"),
@@ -26,8 +41,8 @@ import { PageBackground } from "@/components/PageBackground";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-300 overflow-x-hidden relative">
+    <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${fraunces.variable}`}>
+      <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-500 overflow-x-hidden relative">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <PageBackground />
           <LoadingProvider>

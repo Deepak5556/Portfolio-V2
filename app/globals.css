@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap');
 @import "tw-animate-css";
 
 @tailwind base;
@@ -55,7 +54,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-family: var(--font-dm-sans), -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -64,17 +63,11 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
-  h1, h2, h3, .font-display { font-family: 'Fraunces', Georgia, serif; }
+  h1, h2, h3, .font-display { font-family: var(--font-fraunces), Georgia, serif; }
   ::selection { background: hsl(var(--accent) / 0.18); }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
   :focus-visible { outline: 2px solid hsl(var(--accent) / 0.6); outline-offset: 2px; }
-  .theme {
-    --animate-marquee: marquee var(--duration) infinite linear;
-    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-    --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
-    --animate-meteor: meteor 5s linear infinite;
-  }
 }
 
 /* ─── Animations ─── */
@@ -143,52 +136,24 @@
   h2 { font-size: 1.5rem !important; }
 }
 
-@theme inline {
-  @keyframes marquee {
-  from {
-    transform: translateX(0);
-    }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-    }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes orbit {
-  0% {
-    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
-    }
-  100% {
-    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
-  }
-  @keyframes meteor {
-  0% {
-    transform: rotate(var(--angle)) translateX(0);
-    opacity: 1;
-    }
-  70% {
-    opacity: 1;
-    }
-  100% {
-    transform: rotate(var(--angle)) translateX(-500px);
-    opacity: 0;
-    }
-  }
-
-  @keyframes ios-fade {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-}
 
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    z-index: 2147483646;
+}
+
+.dark::view-transition-old(root) {
+    z-index: 2147483646;
+}
+
+.dark::view-transition-new(root) {
+    z-index: 1;
 }
