@@ -12,7 +12,7 @@ import { Globe } from "@/components/ui/globe";
 import { Calendar } from "@/components/ui/calendar";
 
 import {
-  FileTextIcon, BellIcon
+  FileTextIcon, BellIcon, Calendar as CalendarIcon
 } from "lucide-react";
 
 // --- Velocity Scroll Component ---
@@ -21,10 +21,10 @@ export function ScrollVelocitySection() {
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-10 sm:py-20 z-20">
       <ScrollVelocityContainer className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.05em] leading-[1.3] opacity-20 uppercase pb-2">
         <ScrollVelocityRow baseVelocity={5} direction={1}>
-          WEB • APP • UI/UX • &nbsp;
+          WEB • APP • DESIGNS • &nbsp;
         </ScrollVelocityRow>
         <ScrollVelocityRow baseVelocity={5} direction={-1}>
-          VIDEOGRAPHY • PHOTOGRAPHY • &nbsp;
+          MEDIA • VISUAL ARTS • &nbsp;
         </ScrollVelocityRow>
       </ScrollVelocityContainer>
     </div>
@@ -48,7 +48,7 @@ const features = [
     description: "Detailed technical documentation for every architectural decision.",
     href: "/projects",
     cta: "Learn more",
-    className: "col-span-3",
+    className: "col-span-3 lg:col-span-1",
     background: (
       <Marquee
         pauseOnHover
@@ -74,6 +74,32 @@ const features = [
           </figure>
         ))}
       </Marquee>
+    ),
+  },
+  {
+    Icon: BellIcon,
+    name: "Real-time Systems",
+    description: "Event-driven architectures with WebSocket and Push integrations.",
+    href: "/webdev",
+    cta: "Learn more",
+    className: "col-span-3 lg:col-span-2",
+    background: (
+      <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+         <BellIcon size={120} className="text-primary animate-pulse" />
+      </div>
+    ),
+  },
+  {
+    Icon: CalendarIcon,
+    name: "Agile Management",
+    description: "Delivering high-quality code through iterative cycles and rapid prototyping.",
+    href: "/about",
+    cta: "View Process",
+    className: "col-span-3 lg:col-span-3",
+    background: (
+        <div className="absolute top-10 left-10 opacity-10 group-hover:opacity-20 transition-opacity">
+            <CalendarIcon size={180} className="text-primary -rotate-12" />
+        </div>
     ),
   },
 ];

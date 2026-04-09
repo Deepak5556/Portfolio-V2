@@ -47,27 +47,24 @@ export function ThemeToggle({ className, duration = 500 }: ThemeToggleProps) {
     }
 
     const transition = document.startViewTransition(() => {
-      flushSync(applyTheme);
+      applyTheme();
     });
 
-    const ready = transition?.ready;
-    if (ready && typeof ready.then === "function") {
-      ready.then(() => {
-        document.documentElement.animate(
-          {
-            clipPath: [
-              `circle(0px at ${x}px ${y}px)`,
-              `circle(${maxRadius}px at ${x}px ${y}px)`,
-            ],
-          },
-          {
-            duration,
-            easing: "ease-in-out",
-            pseudoElement: "::view-transition-new(root)",
-          }
-        );
-      });
-    }
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0% at ${x}px ${y}px)`,
+            `circle(150% at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 650,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
   }, [resolvedTheme, setTheme, duration]);
 
   if (!mounted) return <div className="w-9 h-9" />;

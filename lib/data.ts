@@ -14,95 +14,107 @@ export const profile = {
   avatar: "/Deepak.webp",
   initials: "DV",
   username: "deepak",
-  email: "deepakv.dev@gmail.com",
+  email: "deepakviji5556@gmail.com",
   github: "https://github.com/Deepak5556",
   linkedin: "https://linkedin.com/in/deepakkumarv",
   website: "deepakportfolioo.web.app",
 };
 
 export const navItems = [
-  { id: "/",        label: "Home", icon: Home },
-  { id: "/about",   label: "About", icon: User },
-  { id: "/posts",   label: "Activity", icon: History },
-  { id: "/webdev",  label: "Web", icon: Code2 },
-  { id: "/appdev",  label: "App", icon: Smartphone },
-  { id: "/uiux",    label: "UI/UX", icon: Palette },
-  { id: "/video",   label: "Videography", icon: Film },
-  { id: "/photo",   label: "Photography", icon: Camera },
+  { id: "/", label: "Home", icon: Home },
+  { id: "/about", label: "About", icon: User },
+  { id: "/software", label: "Software", icon: Layers },
+  { id: "/designs", label: "Designs", icon: Palette },
+  { id: "/media", label: "Visual Arts", icon: Film },
   { id: "/contact", label: "Contact", icon: Mail },
 ];
 
 export const techStack = [
-  { category: "Frontend",  items: ["React.js", "Next.js", "Tailwind CSS", "TypeScript", "FlutterFlow"] },
-  { category: "Backend",   items: ["Node.js", "Express.js", "REST APIs"] },
-  { category: "Database",  items: ["MongoDB", "Firebase"] },
-  { category: "Tools",     items: ["Git & GitHub", "VS Code", "Figma"] },
+  { 
+    category: "Software Development", 
+    items: ["Frontend", "Backend", "Database", "Tools"] 
+  },
+  { 
+    category: "Video Editing", 
+    items: ["After Effects", "Premiere Pro", "CapCut"] 
+  },
+  { 
+    category: "Photo Editing", 
+    items: ["Photoshop", "Illustrator", "Lightroom", "Canva", "Picsart"] 
+  },
+  { 
+    category: "UI/UX Designing", 
+    items: ["Figma", "Adobe XD", "Framer"] 
+  },
 ];
 
 export const projects = [
   {
-    title: "React Portfolio",
-    description: "Detailed professional and academic journey showcases. Includes projects, internships, and skill demonstrations in Full Stack & App Development.",
-    tech: ["React", "Firebase", "JavaScript", "Tailwind"],
-    link: "https://deepakportfolioo.web.app",
-    image: "/portfolio.png",
-    icon: Globe,
-  },
-  {
-    title: "Smart Identity Validator",
-    description: "AI-powered identity validation system. Robust backend integration for security and automated verification workflows.",
-    tech: ["Python", "Machine Learning", "FastAPI"],
-    image: "/val.png",
+    title: "Dhruva",
+    description: "The CATOM team developed kcedhruva.in, the official website for our college's Dhruva event, improving user engagement and accessibility. It offers event details, schedules, and registration features. I'm proud to be part of this team and contribute to its success.",
+    tech: ["React", "Tailwind CSS", "SEO"],
+    image: "https://deepakportfolioo.web.app/assets/dhruva-BYimjnIf.webp",
     icon: ShieldCheck,
   },
   {
-    title: "SIV Management UI",
-    description: "Modern administrative dashboard for the Smart Identity Validator system. Real-time monitoring and verification management.",
-    tech: ["TypeScript", "Next.js", "Tailwind CSS"],
-    image: "/ui.png",
+    title: "Blood Donation App",
+    description: "A user-friendly Flutter-based Blood Donation App designed to streamline the process of finding blood donors and requesting donations. The app features donor registration, search for nearby donors, request forms, and emergency contact options for quick assistance.",
+    tech: ["Flutter", "Firebase", "Dart"],
+    link: "https://deepakportfolioo.web.app",
+    image: "https://deepakportfolioo.web.app/assets/bloodDonationApp-B9GIfnV1.webp",
+    icon: Globe,
+  },
+  {
+    title: "SnapLearn",
+    description: "SnapLearn App is a Flutter-based mobile application that uses image recognition to describe what's in a photo. Users can upload or snap pictures, and the app instantly provides a simple explanation. Designed for learning, accessibility, and fun, it makes visual discovery easy and engaging.",
+    tech: ["Flutter", "Firebase", "Dart","Claude API "],
+    link: "https://deepakportfolioo.web.app",
+    image: "https://deepakportfolioo.web.app/assets/snaplearn-ZHnt1vW8.webp",
     icon: Layout,
   },
 ];
 
 export const achievements = [
   { id: "hackathon-2024", event: "Hackathon Winner", org: "Karpagam College", desc: "1st place in inter-department web dev hackathon.", year: "2024" },
-  { id: "techfest-2023",  event: "Best Project Award",  org: "Tech Fest 2023",  desc: "Recognised for outstanding full-stack project presentation.", year: "2023" },
+  { id: "techfest-2023", event: "Best Project Award", org: "Tech Fest 2023", desc: "Recognised for outstanding full-stack project presentation.", year: "2023" },
 ];
 
-export const videoTools  = ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"];
-export const photoTools  = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
+export const videoTools = ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"];
+export const photoTools = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
 
 export const videos = [
-  { 
+  {
     id: "event-highlights",
-    title: "Cinematic Event Highlights", 
+    title: "Cinematic Event Highlights",
     tools: ["Premiere Pro", "After Effects"],
     description: "A high-impact event recap focused on cinematic aesthetics, featuring advanced color grading, synchronized audio-to-visual editing, and dynamic motion graphics overlays.",
-    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4", 
+    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
     poster: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800"
   },
-  { 
+  {
     id: "social-media",
-    title: "Viral Social Media Sequences",    
+    title: "Viral Social Media Sequences",
     tools: ["CapCut", "After Effects"],
     description: "Fast-paced, high-retention short-form content optimized for modern social platforms. Includes motion tracking, creative text animations, and trend-specific editing styles.",
-    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", 
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
     poster: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
   },
-  { 
+  {
     id: "college-fest",
-    title: "Annual Fest Promotional Trailer",    
+    title: "Annual Fest Promotional Trailer",
     tools: ["DaVinci Resolve", "Premiere Pro"],
     description: "An energetic promotional campaign video utilizing 3D motion graphics, complex masking techniques, and custom sound design to build hype and brand awareness.",
-    videoSrc: "https://www.w3schools.com/html/movie.mp4", 
+    videoSrc: "https://www.w3schools.com/html/movie.mp4",
     poster: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800"
   },
 ];
 
 export const photos = [
-  { 
+  {
     id: "event-poster",
-    title: "Event Poster", 
+    title: "Event Poster",
+    tools: ["Photoshop", "Lightroom", "Canva"],
+    location: "Coimbatore, TN",
     description: "A professional event poster designed for a technical symposium, focusing on typography and minimalist layout.",
     images: [
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
@@ -110,27 +122,33 @@ export const photos = [
       "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800"
     ]
   },
-  { 
+  {
     id: "photo-retouch",
-    title: "Photo Retouch", 
+    title: "Photo Retouch",
+    tools: ["Photoshop", "Snapseed"],
+    location: "Creative Studio",
     description: "High-end portrait retouching including skin cleanup, color correction, and lighting enhancements.",
     images: [
       "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&q=80&w=800"
     ]
   },
-  { 
+  {
     id: "social-banner",
-    title: "Social Banner", 
+    title: "Social Banner",
+    tools: ["Canva", "Photoshop"],
+    location: "Digital Lab",
     description: "Custom social media banners for YouTube and LinkedIn that align with personal branding guidelines.",
     images: [
       "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=800"
     ]
   },
-  { 
+  {
     id: "before-after",
-    title: "Before / After Edit", 
+    title: "Before / After Edit",
+    tools: ["Lightroom", "Photoshop"],
+    location: "Karpagam Campus",
     description: "A comparison showcase of raw footage vs the final color-graded and edited output.",
     images: [
       "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
@@ -141,10 +159,26 @@ export const photos = [
 
 
 export const figmaProjects = [
-  { name: "E-Commerce UI Kit",    desc: "Clean, accessible component set for online stores." },
-  { name: "SaaS Dashboard",       desc: "Analytics dashboard with dark mode and data viz." },
-  { name: "Mobile App Design",    desc: "Flutter app screens designed and prototyped in Figma." },
-  { name: "Portfolio V2 Concept", desc: "Next iteration of personal portfolio — minimal & bold." },
+  { 
+    name: "E-Commerce UI Kit", 
+    desc: "Clean, accessible component set for online stores.",
+    figmaLink: "https://www.figma.com/proto/ecommerce-ui-kit"
+  },
+  { 
+    name: "SaaS Dashboard", 
+    desc: "Analytics dashboard with dark mode and data viz.",
+    figmaLink: "https://www.figma.com/proto/saas-dashboard"
+  },
+  { 
+    name: "Mobile App Design", 
+    desc: "Flutter app screens designed and prototyped in Figma.",
+    figmaLink: "https://www.figma.com/proto/mobile-app-design"
+  },
+  { 
+    name: "Portfolio V2 Concept", 
+    desc: "Next iteration of personal portfolio — minimal & bold.",
+    figmaLink: "https://www.figma.com/proto/portfolio-v2"
+  },
 ];
 
 export const appProjects = [
@@ -248,65 +282,6 @@ export const certifications = [
   }
 ];
 
-export const posts = [
-  {
-    id: 1,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "Just finalized the new 3D globe component for my portfolio! Using Cobe and Framer Motion for that smooth rotation. It's built to be high-performance and mobile-friendly. 🌍✨",
-    date: "2026-03-16",
-    tags: ["Development", "Next.js", "Design"],
-    images: ["https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"],
-    tweetId: "1441032681968212480"
-  },
-  {
-    id: 2,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "Building a new UI system for my latest project. Moving all custom animations into the Tailwind config was a great decision for maintainability and performance. 🎨",
-    date: "2026-03-15",
-    tags: ["Design", "Figma", "UI/UX"],
-    images: [
-      "https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1541462608141-ad4d74b321a4?auto=format&fit=crop&q=80&w=1200"
-    ],
-  },
-  {
-    id: 3,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "Behind the scenes: Cinematic event highlights editing in Premiere Pro. Working on color grading to give it that premium feel. 🎥🎬",
-    date: "2026-03-14",
-    tags: ["Videography", "Editing", "Creative"],
-    video: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
-    poster: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: 4,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "Deep dive into Next.js App Router and Server Components. The way it handles data streaming is a game changer for performance. ⚡",
-    date: "2026-03-13",
-    tags: ["Development", "Next.js", "React"],
-    tweetId: "1745812921501819389"
-  },
-  {
-    id: 5,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "Exploring the intersection of AI and design. Generating unique brand assets using Midjourney and refining them in Illustrator. 🤖🎨",
-    date: "2026-03-12",
-    tags: ["AI", "Design", "Process"],
-    images: ["https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=1200"]
-  },
-  {
-    id: 6,
-    username: "deepak",
-    avatar: "/Deepak.webp",
-    content: "First time trying out FlutterFlow for a rapid prototype. The speed of iteration is impressive for MVP development. 📱",
-    date: "2026-03-11",
-    tags: ["AppDev", "FlutterFlow", "MVP"],
-    images: ["https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1200"]
-  }
-];
+export const posts: any[] = [];
+
 

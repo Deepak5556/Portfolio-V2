@@ -1,4 +1,4 @@
-// File: C:\Users\deepa\Downloads\deepak-portfolio-enhanced\app\achievements\[id]\page.tsx
+// File: D:\Portfolio\Portfolio-V2\app\achievements\[id]\page.tsx
 import * as entry from '../../../../../app/achievements/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

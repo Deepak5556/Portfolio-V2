@@ -59,9 +59,9 @@ export default function Footer() {
                 { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
                 { icon: Globe, href: `https://${profile.website}`, label: "Website" }
             ].map((social) => (
-                <Button key={social.label} variant="outline" size="icon" className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl border-border/50 hover:border-primary/50 transition-all hover:bg-primary/5 shadow-sm" asChild>
+                <Button key={social.label} variant="outline" size="icon" className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all shadow-sm group/social" asChild>
                   <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                    <social.icon size={18} />
+                    <social.icon size={18} className="group-hover/social:scale-110 transition-transform" />
                   </a>
                 </Button>
             ))}
@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">
-                Next.js · Tailwind · MagicUI
+                Since 2026
               </p>
           </div>
         </div>

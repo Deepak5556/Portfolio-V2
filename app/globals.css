@@ -68,6 +68,9 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
   :focus-visible { outline: 2px solid hsl(var(--accent) / 0.6); outline-offset: 2px; }
+  .theme {
+    --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  }
 }
 
 /* ─── Animations ─── */
@@ -136,24 +139,27 @@
   h2 { font-size: 1.5rem !important; }
 }
 
-
-::view-transition-old(root), ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 ::view-transition-old(root) {
-    z-index: 1;
+  z-index: 1;
 }
 
 ::view-transition-new(root) {
-    z-index: 2147483646;
+  z-index: 9999;
 }
 
-.dark::view-transition-old(root) {
-    z-index: 2147483646;
-}
-
-.dark::view-transition-new(root) {
-    z-index: 1;
+@theme inline {
+  @keyframes ripple {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
 }

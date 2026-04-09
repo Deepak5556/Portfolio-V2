@@ -33,7 +33,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
 
           {/* Profile card */}
-          <Card className="md:col-span-2 lg:col-span-5 card-hover animate-fade-up delay-100 border-border/50 overflow-hidden group">
+          <Card className="md:col-span-2 lg:col-span-5 card-hover animate-fade-up delay-100 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden group">
             <CardHeader className="pb-3 px-4 sm:px-6 pt-6 sm:pt-8 text-center sm:text-left">
               <div className="mb-4 flex justify-center sm:justify-start">
                 <Avatar className="h-16 w-16 sm:h-20 sm:w-20 ring-4 ring-primary/5 ring-offset-4 ring-offset-card shadow-xl transition-transform hover:scale-105 duration-500">
@@ -55,7 +55,7 @@ export default function Home() {
             </CardContent>
             <CardFooter className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 px-4 sm:px-6 pb-6 sm:pb-8">
               <Button size="lg" asChild className="gap-2 flex-1 shadow-lg shadow-primary/10 transition-all hover:translate-y-[-2px] text-sm md:text-base h-10 md:h-11 font-black uppercase tracking-widest text-[10px]">
-                <Link href="/webdev">
+                <Link href="/software">
                   View Projects <ArrowRight size={18} />
                 </Link>
               </Button>
@@ -68,14 +68,14 @@ export default function Home() {
           </Card>
 
           {/* About card */}
-          <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 overflow-hidden relative group">
+          <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden relative group">
             <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
               <div className="flex items-center justify-between">
                 <div>
                   <SectionLabel>About</SectionLabel>
                   <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
                 </div>
-                <Button variant="ghost" size="sm" asChild className="hidden sm:flex gap-1.5 text-muted-foreground hover:text-primary transition-all font-bold uppercase text-[10px] tracking-widest">
+                <Button variant="outline" size="sm" asChild className="hidden sm:flex h-9 px-4 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all font-black uppercase text-[10px] tracking-widest gap-2">
                    <Link href="/about">Learn More <ArrowRight size={14} /></Link>
                 </Button>
               </div>
@@ -96,10 +96,10 @@ export default function Home() {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] font-black text-muted-foreground uppercase tracking-[0.2em] border-t border-border/50 pt-4 sm:pt-6 px-4 sm:px-6 pb-6 sm:pb-8">
-              <span className="flex items-center gap-2 transition-colors hover:text-foreground"><Code2 size={14} className="text-orange-500" />Full Stack</span>
-              <span className="flex items-center gap-2 transition-colors hover:text-foreground"><Smartphone size={14} className="text-orange-500" />Mobile Dev</span>
-              <span className="flex items-center gap-2 transition-colors hover:text-foreground col-span-2 sm:col-auto"><MapPin size={14} className="text-orange-500" />{profile.location}</span>
+            <CardFooter className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-black text-muted-foreground uppercase tracking-widest border-t border-border/50 pt-4 sm:pt-6 px-4 sm:px-6 pb-6 sm:pb-8">
+              <span className="flex items-center gap-2.5 transition-colors hover:text-foreground"><Code2 size={16} className="text-primary" />Full Stack</span>
+              <span className="flex items-center gap-3 transition-colors hover:text-foreground"><Smartphone size={16} className="text-primary" />Mobile Dev</span>
+              <span className="flex items-center gap-3 transition-colors hover:text-foreground col-span-2 sm:col-auto"><MapPin size={16} className="text-primary" />{profile.location}</span>
             </CardFooter>
           </Card>
 
@@ -114,59 +114,63 @@ export default function Home() {
             <AnimatedBeamDemo />
           </div>
 
-          {/* Tech stack card */}
-          <Card className="md:col-span-1 lg:col-span-4 card-hover animate-fade-up border-border/50 bg-muted/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
-            
-            <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
-              <SectionLabel>Skills</SectionLabel>
-              <CardTitle className="text-lg sm:text-xl font-black mt-2">Core Arsenal<span className="text-orange-500">.</span></CardTitle>
-              <CardDescription className="text-xs font-bold text-muted-foreground/60 uppercase tracking-widest">Engineering Capabilities.</CardDescription>
-            </CardHeader>
-            <CardContent className="px-4 sm:px-6 pb-6 sm:pb-8 relative z-10">
-              <div className="grid grid-cols-1 gap-5">
+          {/* ── FULL-WIDTH SKILLS ARCHITECTURE ── */}
+          <div className="col-span-full py-12 px-6 sm:px-10 rounded-[3rem] border border-border/40 bg-card/40 backdrop-blur-3xl relative overflow-hidden group shadow-2xl">
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-48 -mt-48 opacity-40 group-hover:bg-primary/10 transition-colors duration-1000" />
+             
+             <div className="mb-12">
+                <SectionLabel>Core Arsenal</SectionLabel>
+                <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
+                   Professional Capabilities<span className="text-primary not-italic">.</span>
+                </h2>
+                <div className="h-px w-24 bg-primary/20 mt-6" />
+             </div>
+
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
                 {techStack.map((group) => {
                   const CategoryIcon = {
-                    "Frontend": Layout,
-                    "Backend": Terminal,
-                    "Database": Database,
-                    "Tools": Wrench
-                  }[group.category as "Frontend" | "Backend" | "Database" | "Tools"] || Code2;
+                    "Software Development": Code2,
+                    "Video Editing": Film,
+                    "Photo Editing": Camera,
+                    "UI/UX Designing": Palette
+                  }[group.category] || Code2;
                   
                   return (
-                    <div key={group.category} className="group/item">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-1.5 rounded-lg bg-primary/10 text-primary transition-transform group-hover/item:scale-110">
-                            <CategoryIcon size={14} />
-                        </div>
-                        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">
-                          {group.category}
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {group.items.map((item) => (
-                          <Pill key={item} className="text-[10px] sm:text-[11px] px-2.5 py-1 bg-background hover:border-primary/30 transition-colors duration-200 font-bold uppercase tracking-wider">
-                             {item}
-                          </Pill>
-                        ))}
-                      </div>
+                    <div key={group.category} className="space-y-6 group/item">
+                       <div className="flex items-center gap-4">
+                          <div className="p-2.5 rounded-xl bg-primary/10 text-primary transition-transform group-hover/item:scale-110 border border-primary/20 shadow-lg shadow-primary/5">
+                             <CategoryIcon size={18} />
+                          </div>
+                          <h4 className="text-[11px] font-black text-foreground uppercase tracking-[0.25em] leading-none">
+                            {group.category}
+                          </h4>
+                       </div>
+                       <div className="flex flex-col gap-3 pl-1">
+                          {group.items.map((item) => (
+                            <div key={item} className="flex items-center gap-3 group/skill">
+                               <div className="w-1 h-1 rounded-full bg-primary/40 group-hover/skill:bg-primary group-hover/skill:scale-150 transition-all" />
+                               <span className="text-xs sm:text-sm font-medium text-muted-foreground/80 group-hover/skill:text-primary transition-colors">
+                                  {item}
+                               </span>
+                            </div>
+                          ))}
+                       </div>
                     </div>
                   );
                 })}
-              </div>
-            </CardContent>
-          </Card>
+             </div>
+          </div>
 
           {/* Projects card */}
-          <Card className="md:col-span-1 lg:col-span-8 card-hover animate-fade-up border-border/50 bg-card/50 overflow-hidden relative group">
+          <Card className="md:col-span-2 lg:col-span-12 card-hover animate-fade-up border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden relative group mt-8">
             <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
               <div className="flex items-center justify-between">
                 <div>
                   <SectionLabel>Work</SectionLabel>
                   <CardTitle className="text-lg sm:text-xl font-black mt-2">Selected Works<span className="text-orange-500">.</span></CardTitle>
                 </div>
-                <Button variant="ghost" size="sm" asChild className="hidden sm:flex gap-1.5 text-muted-foreground hover:text-primary transition-all font-bold uppercase text-[10px] tracking-widest">
-                   <Link href="/projects">View Archive <ArrowRight size={14} /></Link>
+                <Button variant="outline" size="sm" asChild className="hidden sm:flex h-9 px-4 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all font-black uppercase text-[10px] tracking-widest gap-2">
+                   <Link href="/software">View Archive <ArrowRight size={14} /></Link>
                 </Button>
               </div>
               <CardDescription className="text-xs font-bold text-muted-foreground/60 mt-1 uppercase tracking-widest">A curated selection of my latest engineering projects.</CardDescription>
@@ -217,9 +221,9 @@ export default function Home() {
               </div>
             </CardContent>
             <CardFooter className="px-4 sm:px-6 pb-6 pt-2 sm:hidden">
-               <Button variant="outline" className="w-full gap-2 text-[10px] font-black uppercase tracking-widest h-11 rounded-xl" asChild>
-                 <Link href="/projects">See Full Archive <ArrowRight size={14} /></Link>
-               </Button>
+                <Button variant="outline" className="w-full gap-2 text-[10px] font-black uppercase tracking-widest h-11 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all shadow-lg" asChild>
+                  <Link href="/software">See Full Archive <ArrowRight size={14} /></Link>
+                </Button>
             </CardFooter>
           </Card>
 

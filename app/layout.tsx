@@ -18,12 +18,37 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://deepakkumarportfolio.web.app"),
-  title: "Deepakkumar V — Developer",
-  description: "Portfolio of Deepakkumar V, a Developer specialising in React, Next.js, Flutter, and the MERN stack.",
-  keywords: ["Developer", "React", "Next.js", "Flutter", "MERN", "Deepakkumar"],
+  title: {
+    default: "Deepakkumar V — Developer",
+    template: "%s | Deepakkumar V"
+  },
+  description: "Portfolio of Deepakkumar V, a Developer specializing in React, Next.js, Flutter, and the MERN stack.",
+  keywords: ["Deepakkumar V", "Developer", "Portfolio", "MERN Stack", "Flutter Developer", "React Developer", "Next.js", "UI/UX", "India"],
   authors: [{ name: "Deepakkumar V" }],
+  creator: "Deepakkumar V",
   openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://deepakkumarportfolio.web.app",
+    title: "Deepakkumar V — Developer",
+    description: "Portfolio of Deepakkumar V, specializing in full-stack web and mobile development.",
+    siteName: "Deepakkumar V Portfolio",
+    images: [{
+      url: "/opengraph-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Deepakkumar V — Portfolio",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deepakkumar V — Developer",
+    description: "Portfolio of Deepakkumar V, specializing in full-stack web and mobile development.",
     images: ["/opengraph-image.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
 };
 
@@ -42,7 +67,7 @@ import { PageBackground } from "@/components/PageBackground";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${dmSans.variable} ${fraunces.variable}`}>
-      <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-500 overflow-x-hidden relative">
+      <body className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden relative">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <PageBackground />
           <LoadingProvider>

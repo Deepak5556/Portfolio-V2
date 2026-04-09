@@ -4,168 +4,262 @@ import { motion } from "motion/react"
 import Image from "next/image"
 import { 
   Mail, Hand, Search, Pencil, Settings, 
-  Camera, Box, Shapes, Layers 
+  Camera, Box, Shapes, Layers, Activity,
+  Cpu, Zap, Database, Terminal
 } from "lucide-react"
 
 export default function MotionEditor() {
   return (
-    <div className="flex items-center justify-center p-2 sm:p-5 w-full">
-      {/* Main Editor */}
-      <div className="w-full max-w-[1200px] h-[550px] sm:h-[650px] rounded-2xl bg-[#0b0e15] border border-white/10 shadow-[0_0_60px_rgba(0,150,255,0.15)] overflow-hidden relative flex flex-col font-sans">
+    <div className="flex items-center justify-center p-2 sm:p-5 w-full bg-transparent">
+      {/* Main Console Container */}
+      <div className="w-full max-w-[1240px] h-[600px] sm:h-[700px] rounded-[2.5rem] bg-[#05060b] border border-white/10 shadow-[0_0_100px_rgba(var(--primary),0.1)] overflow-hidden relative flex flex-col font-mono text-xs">
+        
+        {/* Glow Effects */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] -mr-48 -mt-48 opacity-50" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 blur-[80px] -ml-32 -mb-32 opacity-30" />
 
-        {/* Top Bar */}
-        <div className="h-12 flex items-center justify-between px-4 bg-[#0d1117] border-b border-white/10 shrink-0">
-          <div className="flex items-center gap-3">
-            {/* Mac buttons */}
-            <div className="flex gap-2">
-              <div className="w-3 h-3 bg-red-500/80 rounded-full"/>
-              <div className="w-3 h-3 bg-yellow-500/80 rounded-full"/>
-              <div className="w-3 h-3 bg-green-500/80 rounded-full"/>
+        {/* Console Header */}
+        <div className="h-14 flex items-center justify-between px-6 bg-[#0a0d14] border-b border-white/5 shrink-0 z-10">
+          <div className="flex items-center gap-6">
+            {/* System Status */}
+            <div className="flex items-center gap-3 pr-6 border-r border-white/5">
+                <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 bg-red-500/40 rounded-full border border-red-500/50" />
+                    <div className="w-2.5 h-2.5 bg-yellow-500/40 rounded-full border border-yellow-500/50" />
+                    <div className="w-2.5 h-2.5 bg-green-500/40 rounded-full border border-green-500/50 text-[6px] flex items-center justify-center text-green-500 font-black">L</div>
+                </div>
+                <div className="flex items-center gap-2 text-[10px] text-white/40 font-black uppercase tracking-widest">
+                   <Terminal size={12} className="text-primary" /> Core_Sentry
+                </div>
             </div>
 
-            {/* Tools */}
-            <div className="hidden sm:flex gap-4 ml-6 text-gray-400">
-              <Mail size={18} className="cursor-pointer hover:text-cyan-400 transition-colors" />
-              <Hand size={18} className="cursor-pointer hover:text-cyan-400 transition-colors" />
-              <Search size={18} className="cursor-pointer hover:text-cyan-400 transition-colors" />
-              <Pencil size={18} className="cursor-pointer hover:text-cyan-400 transition-colors" />
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-300">
-            <span className="bg-black/40 px-3 py-1 rounded border border-white/5">100%</span>
-            <Settings size={16} className="cursor-pointer hover:rotate-90 transition-transform duration-500" />
-          </div>
-        </div>
-
-        {/* Workspace Container */}
-        <div className="flex flex-1 overflow-hidden">
-          {/* Left Panel */}
-          <div className="hidden md:block w-[220px] border-r border-white/10 bg-[#0b0e15] text-gray-400 text-xs sm:text-sm">
-            <div className="p-4 space-y-4">
-              <div className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Layers</div>
-              <div className="flex items-center gap-2 hover:text-gray-200 cursor-pointer">
-                <Camera size={14} className="text-blue-400" /> Camera 1
-              </div>
-              <div className="flex items-center gap-2 hover:text-gray-200 cursor-pointer">
-                <Box size={14} className="text-purple-400" /> Null Object
-              </div>
-              <div className="bg-primary/20 px-3 py-2 rounded-lg text-white border border-primary/30 flex items-center gap-2">
-                <Shapes size={14} className="text-cyan-400" /> 3D Shape
-              </div>
-              <div className="flex items-center gap-2 hover:text-gray-200 cursor-pointer opacity-50">
-                <Layers size={14} /> Background
-              </div>
+            {/* Application Tools */}
+            <div className="hidden md:flex gap-6 text-white/30">
+               <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-crosshair group">
+                  <Mail size={16} /> <span className="text-[9px] group-hover:tracking-widest transition-all">COMM_LINK</span>
+               </div>
+               <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-crosshair group">
+                  <Hand size={16} /> <span className="text-[9px] group-hover:tracking-widest transition-all">INTERACT</span>
+               </div>
+               <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-crosshair group">
+                  <Search size={16} /> <span className="text-[9px] group-hover:tracking-widest transition-all">DEEP_SCAN</span>
+               </div>
             </div>
           </div>
 
-          {/* Center Preview */}
-          <div className="flex-1 flex items-center justify-center relative bg-[#05060b] group">
-             {/* Grid background effect */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none" 
-                 style={{backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px'}} />
-            
-            <motion.div
-              animate={{ 
-                rotate: 360,
-                y: [0, -15, 0]
-              }}
-              transition={{ 
-                rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-              className="w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] relative drop-shadow-[0_0_30px_rgba(0,255,255,0.2)]"
-            >
-              <Image
-                src="/shape.png"
-                alt="3d shape"
-                fill
-                className="object-contain"
-                priority
-              />
-            </motion.div>
-          </div>
-
-          {/* Right Transform Panel */}
-          <div className="hidden lg:block w-[220px] border-l border-white/10 p-5 text-sm text-gray-300">
-            <div className="bg-[#0f1624] rounded-xl p-4 border border-white/10 shadow-inner">
-              <div className="flex justify-between items-center mb-4">
-                <span className="font-bold text-[11px] uppercase tracking-widest text-gray-400">Transform</span>
-                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"/>
-              </div>
-
-              <div className="space-y-4 text-[11px] sm:text-xs text-gray-400 font-mono">
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                  <span>POSITION X</span>
-                  <span className="text-cyan-400">940.0</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                  <span>POSITION Y</span>
-                  <span className="text-cyan-400">540.0</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                  <span>SCALE</span>
-                  <span className="text-cyan-400">100.0%</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                  <span>ROTATION</span>
-                  <span className="text-cyan-400">45.0°</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-1">
-                  <span>OPACITY</span>
-                  <span className="text-cyan-400">100%</span>
-                </div>
-              </div>
+          <div className="flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-4 text-[9px] font-bold text-white/20 uppercase tracking-widest">
+               <div className="flex items-center gap-2">
+                  <Cpu size={12} className="text-purple-500" /> CPU: 12%
+               </div>
+               <div className="flex items-center gap-2">
+                  <Database size={12} className="text-blue-500" /> RAM: 4.2GB
+               </div>
+            </div>
+            <div className="bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 text-primary text-[10px] font-black tracking-widest flex items-center gap-2">
+               <Activity size={12} className="animate-pulse" /> ENGINE_SYNC
             </div>
           </div>
         </div>
 
-        {/* Timeline Section */}
-        <div className="h-[140px] sm:h-[180px] border-t border-white/10 bg-[#0a0d14] relative shrink-0">
-          {/* Time ruler */}
-          <div className="text-[9px] sm:text-[10px] text-gray-500 flex gap-10 sm:gap-14 px-6 pt-3 font-mono">
-            <span>00:00f</span>
-            <span>00:15f</span>
-            <span>00:30f</span>
-            <span>00:45f</span>
-            <span>01:00f</span>
-            <span className="hidden sm:inline">01:15f</span>
-            <span className="hidden sm:inline">01:30f</span>
+        {/* Workspace Split */}
+        <div className="flex flex-1 overflow-hidden z-0">
+          {/* Layer Hierarchy (Left) */}
+          <div className="hidden md:flex w-[240px] border-r border-white/5 bg-[#05060b] flex-col overflow-y-auto scrollbar-hide">
+            <div className="p-6 space-y-8">
+               <div className="space-y-4">
+                  <div className="flex items-center justify-between text-[9px] font-black uppercase tracking-[0.3em] text-white/20">
+                     <span>Layer Matrix</span>
+                     <Settings size={12} className="animate-spin-slow" />
+                  </div>
+                  <div className="space-y-2">
+                     <div className="flex items-center gap-3 p-3 rounded-xl bg-primary/5 border border-primary/20 text-white shadow-lg shadow-primary/5">
+                        <Shapes size={14} className="text-primary animate-pulse" /> 
+                        <div className="flex flex-col">
+                           <span className="text-[10px] font-black tracking-widest uppercase">3D_Vector_01</span>
+                           <span className="text-[8px] text-white/40 uppercase">Rendering...</span>
+                        </div>
+                     </div>
+                     <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 border border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100">
+                        <Camera size={14} className="text-blue-400" /> 
+                        <span className="text-[10px] font-black tracking-widest uppercase">Optics_Node</span>
+                     </div>
+                     <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 border border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100">
+                        <Box size={14} className="text-purple-400" /> 
+                        <span className="text-[10px] font-black tracking-widest uppercase">Null_Track</span>
+                     </div>
+                     <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 border border-transparent transition-all cursor-pointer opacity-40 hover:opacity-100">
+                        <Layers size={14} className="text-white/40" /> 
+                        <span className="text-[10px] font-black tracking-widest uppercase">BG_Compositor</span>
+                     </div>
+                  </div>
+               </div>
+
+               {/* Project Assets */}
+               <div className="space-y-4 pt-12 border-t border-white/5">
+                  <div className="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">Active_Buffers</div>
+                  <div className="grid grid-cols-2 gap-3 opacity-60">
+                     <div className="aspect-square rounded-xl bg-zinc-900 border border-white/5 p-2 flex flex-col justify-end text-[7px] font-black uppercase tracking-widest">
+                        <Zap size={10} className="mb-auto text-orange-400" />
+                        FX_1
+                     </div>
+                     <div className="aspect-square rounded-xl bg-zinc-900 border border-white/5 p-2 flex flex-col justify-end text-[7px] font-black uppercase tracking-widest">
+                        <Database size={10} className="mb-auto text-cyan-400" />
+                        DATA_B
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+          {/* Main Viewport (Center) */}
+          <div className="flex-1 flex flex-col relative bg-zinc-950 group">
+             {/* Dynamic Grid Overlay */}
+             <div className="absolute inset-0 opacity-[0.15] pointer-events-none" 
+                  style={{
+                    backgroundImage: 'linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px)',
+                    backgroundSize: '40px 40px'
+                  }} />
+             
+             {/* Viewport UI */}
+             <div className="absolute top-6 left-6 z-10 flex gap-4 text-[9px] font-black uppercase tracking-[0.4em] text-white/20">
+                <span className="text-primary/60">[ ACTIVE_NODE ]</span>
+                <span className="border-l border-white/10 pl-4">Z_AXIS: 1440.0</span>
+             </div>
+
+             <div className="flex-1 flex items-center justify-center relative">
+                <motion.div
+                  animate={{ 
+                    rotateY: 360,
+                    y: [0, -20, 0],
+                    scale: [1, 1.05, 1]
+                  }}
+                  transition={{ 
+                    rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
+                    y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  }}
+                  className="w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] relative transition-all duration-700 sm:hover:scale-110"
+                  style={{ perspective: "1000px" }}
+                >
+                  {/* Floating geometric glow */}
+                  <div className="absolute inset-[-40px] bg-primary/20 blur-[60px] rounded-full opacity-40 animate-pulse" />
+                  
+                  <Image
+                    src="/shape.png"
+                    alt="3d shape"
+                    fill
+                    className="object-contain drop-shadow-[0_0_50px_rgba(var(--primary),0.4)]"
+                    priority
+                  />
+                </motion.div>
+             </div>
+
+             {/* Viewport Bottom Info */}
+             <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-[8px] font-black uppercase tracking-[0.5em] text-white/30 italic">
+                <span>Rendering Context: Unreal_Optics v4</span>
+                <span className="flex items-center gap-3">
+                   <div className="h-1 w-24 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: "0%" }}
+                        animate={{ width: "75%" }}
+                        className="h-full bg-primary"
+                      />
+                   </div>
+                   Buffers: 100%
+                </span>
+             </div>
+          </div>
+
+          {/* Properties Panel (Right) */}
+          <div className="hidden lg:flex w-[240px] border-l border-white/5 p-6 flex-col gap-8 text-[10px] text-white/40 bg-[#05060b]">
+             <div className="space-y-4">
+                <div className="font-black uppercase tracking-[0.3em] flex items-center gap-4">
+                   Transform <div className="h-px bg-white/5 flex-1" />
+                </div>
+                <div className="space-y-3 font-mono">
+                   {['POS_X', 'POS_Y', 'POS_Z', 'SCALE', 'OPACITY'].map((prop, i) => (
+                      <div key={prop} className="flex flex-col gap-1 group/prop">
+                         <div className="flex justify-between items-center group-hover/prop:text-white transition-colors">
+                            <span>{prop}</span>
+                            <span className="text-primary italic">[{Math.floor(Math.random() * 1000)}.00]</span>
+                         </div>
+                         <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
+                            <div 
+                                className="h-full bg-primary/40 group-hover:bg-primary transition-all duration-500" 
+                                style={{ width: `${Math.random() * 60 + 20}%` }} 
+                            />
+                         </div>
+                      </div>
+                   ))}
+                </div>
+             </div>
+
+             <div className="space-y-4">
+                <div className="font-black uppercase tracking-[0.3em] flex items-center gap-4">
+                   Effects <div className="h-px bg-white/5 flex-1" />
+                </div>
+                <div className="space-y-2">
+                   {['Bloom', 'Chrom_Ab', 'Grain', 'Lens_Flare'].map(fx => (
+                      <div key={fx} className="flex items-center justify-between p-2 rounded-lg bg-zinc-900 border border-white/5 hover:border-primary/40 transition-all cursor-pointer">
+                         <span>{fx}</span>
+                         <div className="w-6 h-3 bg-primary/20 rounded-full relative">
+                            <div className="absolute right-1 top-1 w-1 h-1 bg-primary rounded-full" />
+                         </div>
+                      </div>
+                   ))}
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* Timeline (Bottom) */}
+        <div className="h-40 border-t border-white/5 bg-[#0a0d14] relative shrink-0 overflow-hidden">
+          {/* Timeline Grids */}
+          <div className="absolute inset-0 opacity-[0.05]" 
+               style={{backgroundImage: 'linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '20px 100%'}} />
+
+          {/* Ruler */}
+          <div className="relative z-10 h-8 flex items-end px-8 gap-14 text-[8px] font-black text-white/20 uppercase tracking-widest border-b border-white/5 bg-zinc-950/40">
+            {['00s', '01s', '02s', '03s', '04s', '05s', '06s', '07s', '08s'].map(t => (
+               <span key={t} className="flex flex-col items-center">
+                  <div className="h-2 w-[1px] bg-white/20 mb-1" />
+                  {t}
+               </span>
+            ))}
           </div>
 
           {/* Playhead */}
           <motion.div
-            animate={{ left: ["5%", "90%", "5%"] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_15px_#00ffff] z-20 pointer-events-none"
+            animate={{ left: ["0%", "100%", "0%"] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 bottom-0 w-[1px] bg-primary z-30 shadow-[0_0_20px_rgba(var(--primary),1)]"
           >
-            <div className="absolute -top-1 -left-[5px] w-3 h-3 bg-cyan-400 rotate-45" />
+            <div className="absolute -top-1 -left-[5px] w-2.5 h-2.5 bg-primary rotate-45" />
+            <div className="absolute -bottom-1 -left-[5px] w-2.5 h-2.5 bg-primary rotate-45" />
           </motion.div>
 
-          {/* Tracks */}
-          <div className="absolute top-12 left-6 right-6 space-y-3 sm:space-y-4">
-            <div className="flex items-center gap-3">
-               <div className="w-2 h-2 rounded-full bg-purple-600 shrink-0" />
-               <div className="h-1.5 bg-purple-600/20 rounded-full flex-1 overflow-hidden">
-                  <div className="h-full bg-purple-600 rounded-full w-[85%]" />
+          {/* Tracks Data */}
+          <div className="p-8 space-y-4">
+            {[
+               { color: 'bg-purple-600', width: '85%', label: 'Motion_Path' },
+               { color: 'bg-red-500', width: '45%', label: 'Luma_Key' },
+               { color: 'bg-cyan-400', width: '75%', label: 'Final_Render' }
+            ].map(track => (
+               <div key={track.label} className="flex items-center gap-6 group/track">
+                  <span className="w-24 text-[8px] font-black uppercase tracking-widest text-white/20 group-hover/track:text-white transition-colors">{track.label}</span>
+                  <div className="flex-1 h-2 bg-white/5 rounded-full relative overflow-hidden">
+                     <motion.div 
+                        initial={{ left: "-100%" }}
+                        animate={{ left: "0%" }}
+                        className={`absolute inset-0 ${track.color} opacity-40`}
+                        style={{ width: track.width }}
+                     />
+                     <div className={`h-full ${track.color} rounded-full relative shadow-lg shadow-white/5`} style={{ width: track.width }} />
+                  </div>
                </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <div className="w-2 h-2 rounded-full bg-red-500 shrink-0" />
-               <div className="h-1.5 bg-red-500/20 rounded-full flex-1 overflow-hidden">
-                  <div className="h-full bg-red-500 rounded-full w-[45%]" />
-               </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <div className="w-2 h-2 rounded-full bg-cyan-400 shrink-0" />
-               <div className="h-1.5 bg-cyan-400/20 rounded-full flex-1 overflow-hidden">
-                  <div className="h-full bg-cyan-400 rounded-full w-[75%]" />
-               </div>
-            </div>
+            ))}
           </div>
-
-          {/* Bottom neon glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 blur-sm opacity-50"/>
         </div>
       </div>
     </div>

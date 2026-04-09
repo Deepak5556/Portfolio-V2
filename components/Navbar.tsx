@@ -49,9 +49,9 @@ export default function Navbar() {
               key={item.id}
               href={item.id}
               data-active={pathname === item.id || (pathname?.startsWith(item.id) && item.id !== "/")}
-              className="nav-link flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-all duration-200 whitespace-nowrap data-[active=true]:text-foreground data-[active=true]:bg-muted/50 rounded-md"
+              className="flex items-center gap-2.5 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-all duration-300 whitespace-nowrap data-[active=true]:text-primary data-[active=true]:bg-primary/5 data-[active=true]:border-primary/20 border border-transparent hover:border-primary/10 rounded-xl"
             >
-              {item.icon && <item.icon size={16} className="shrink-0" />}
+              {item.icon && <item.icon size={14} className="shrink-0" />}
               <span>{item.label}</span>
             </Link>
           ))}
@@ -64,11 +64,12 @@ export default function Navbar() {
           {/* Book 1:1 button — hidden on mobile */}
           <Button
             size="sm"
+            variant="outline"
             asChild
-            className="hidden md:flex text-[11px] font-bold h-8 gap-2 rounded-full px-4 shadow-sm"
+            className="hidden md:flex text-[10px] font-black uppercase tracking-widest h-9 gap-2 rounded-xl px-5 border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary shadow-sm"
           >
             <Link href="/booking">
-              <Calendar size={13} />
+              <Calendar size={14} />
               Book 1:1
             </Link>
           </Button>
@@ -122,7 +123,7 @@ export default function Navbar() {
               {/* Mobile Book button */}
               <div className="mt-8 px-1">
                 <SheetClose asChild>
-                  <Button asChild className="w-full gap-2 h-11 rounded-xl font-bold shadow-lg">
+                  <Button asChild variant="outline" className="w-full gap-2 h-11 rounded-xl font-black uppercase tracking-widest text-[11px] border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary shadow-lg transition-all">
                     <Link href="/booking">
                       <Calendar size={16} />
                       Book Now
