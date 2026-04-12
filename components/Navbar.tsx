@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* Left — logo text */}
         <div className="flex items-center shrink-0">
           <Link href="/" className="group flex items-center gap-1.5 py-1 px-2 -ml-2 rounded-lg hover:bg-white/5 transition-all">
-            <span className="text-xl sm:text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors uppercase">
+            <span className="text-xl sm:text-2xl font-display font-black tracking-tight text-foreground group-hover:text-primary transition-colors uppercase">
               DK<span className="text-orange-500 tracking-normal">.</span>
             </span>
           </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
             <SheetContent side="right" className="w-[280px] sm:w-[320px] pt-12">
               <SheetHeader className="mb-8 pl-1">
                 <div className="flex items-center gap-2">
-                   <span className="text-3xl font-black tracking-tight text-foreground uppercase">
+                   <span className="text-3xl font-display font-black tracking-tight text-foreground uppercase">
                     DK<span className="text-orange-500 tracking-normal">.</span>
                   </span>
                 </div>
