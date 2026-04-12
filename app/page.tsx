@@ -54,12 +54,12 @@ export default function Home() {
               <CardDescription className="leading-relaxed text-xs sm:text-sm">{profile.tagline}</CardDescription>
             </CardContent>
             <CardFooter className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 px-4 sm:px-6 pb-6 sm:pb-8">
-              <Button size="lg" asChild className="gap-2 flex-1 shadow-lg shadow-primary/10 transition-all hover:translate-y-[-2px] text-sm md:text-base h-10 md:h-11 font-black uppercase tracking-widest text-[10px]">
+              <Button size="lg" asChild className="flex-1 hover:translate-y-[-2px] transition-all">
                 <Link href="/software">
                   View Projects <ArrowRight size={18} />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="flex-1 transition-all hover:bg-muted/50 text-sm md:text-base h-10 md:h-11 font-black uppercase tracking-widest text-[10px]">
+              <Button size="lg" variant="outline" asChild className="flex-1">
                 <Link href="/contact">
                   Connect
                 </Link>
@@ -75,7 +75,7 @@ export default function Home() {
                   <SectionLabel>About</SectionLabel>
                   <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
                 </div>
-                <Button variant="outline" size="sm" asChild className="hidden sm:flex h-9 px-4 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all font-black uppercase text-[10px] tracking-widest gap-2">
+                <Button variant="outline" size="sm" asChild className="hidden sm:flex">
                    <Link href="/about">Learn More <ArrowRight size={14} /></Link>
                 </Button>
               </div>

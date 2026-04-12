@@ -9,7 +9,7 @@ import {
 export const profile = {
   name: "Deepakkumar V",
   role: "Developer",
-  tagline: "Web · App · UI/UX · Videography · Photography",
+  tagline: "Software Development • Designs • Visual Arts",
   location: "Karpagam College, Coimbatore",
   avatar: "/Deepak.webp",
   initials: "DV",

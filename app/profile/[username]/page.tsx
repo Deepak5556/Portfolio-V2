@@ -1,10 +1,14 @@
 import React from "react";
-import { posts } from "@/lib/data";
+import { posts, profile } from "@/lib/data";
 import ProfileClient from "./ProfileClient";
 
 export async function generateStaticParams() {
-  // Return all usernames that exist in our posts data
-  const usernames = Array.from(new Set(posts.map((post) => post.username)));
+  // Return all usernames that exist in our posts data, plus the main profile username
+  const usernames = Array.from(new Set([
+    ...posts.map((post) => post.username),
+    profile.username
+  ].filter(Boolean)));
+
   return usernames.map((username) => ({
     username: username,
   }));

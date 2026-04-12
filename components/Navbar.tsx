@@ -3,20 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetTrigger,
   SheetContent,
   SheetHeader,
-  SheetTitle,
-  SheetDescription,
   SheetClose,
 } from "@/components/ui/sheet";
 import { Calendar, Menu, ArrowRight } from "lucide-react";
 import { profile, navItems } from "@/lib/data";
-import { RoleCarousel } from "@/components/RoleCarousel";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
@@ -26,19 +22,12 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4 md:gap-8">
-        {/* Left — avatar + name */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-            <Avatar className="h-8 w-8 ring-1 ring-border ring-offset-1 ring-offset-background shadow-sm">
-              <AvatarImage src={profile.avatar} alt={profile.name} />
-              <AvatarFallback className="text-[10px]">{profile.initials}</AvatarFallback>
-            </Avatar>
-            <div className="hidden sm:flex flex-col -space-y-0.5 min-w-[120px]">
-              <span className="text-sm font-bold text-foreground leading-tight">
-                {profile.name}
-              </span>
-              <RoleCarousel className="text-[9px] text-primary font-bold uppercase tracking-wider h-3 overflow-hidden" />
-            </div>
+        {/* Left — logo text */}
+        <div className="flex items-center shrink-0">
+          <Link href="/" className="group flex items-center gap-1.5 py-1 px-2 -ml-2 rounded-lg hover:bg-white/5 transition-all">
+            <span className="text-xl sm:text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors uppercase">
+              DK<span className="text-orange-500 tracking-normal">.</span>
+            </span>
           </Link>
         </div>
 
@@ -87,16 +76,11 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] sm:w-[320px] pt-12">
-              <SheetHeader className="mb-6">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-10 w-10 ring-2 ring-border ring-offset-2 ring-offset-background shadow-md">
-                    <AvatarImage src={profile.avatar} alt={profile.name} />
-                    <AvatarFallback className="text-xs font-bold">{profile.initials}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <SheetTitle className="text-base font-bold">{profile.name}</SheetTitle>
-                    <SheetDescription className="text-xs font-medium">{profile.role}</SheetDescription>
-                  </div>
+              <SheetHeader className="mb-8 pl-1">
+                <div className="flex items-center gap-2">
+                   <span className="text-3xl font-black tracking-tight text-foreground uppercase">
+                    DK<span className="text-orange-500 tracking-normal">.</span>
+                  </span>
                 </div>
               </SheetHeader>
 

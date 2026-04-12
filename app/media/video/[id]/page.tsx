@@ -49,7 +49,7 @@ export default function VideoDetailsPage({ params }: { params: { id: string } })
           </div>
         </div>
 
-        <div className="rounded-[2.5rem] shadow-2xl overflow-hidden ring-1 ring-white/10">
+        <div className="rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl overflow-hidden ring-1 ring-white/10 mx-[-4px] sm:mx-0">
           <PremiumVideoPlayer src={video.videoSrc} poster={video.poster} />
         </div>
 

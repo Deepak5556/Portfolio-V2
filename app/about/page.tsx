@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Monitor, Camera, Video, ArrowRight, GraduationCap, Briefcase, Award, ExternalLink,
-  TabletSmartphone, Palette
+  TabletSmartphone, Palette, Code2, Sparkles, Layout
 } from "lucide-react";
 import { SectionLabel } from "@/components/Shared";
 import { profile, education, workExperience, internships, certifications } from "@/lib/data";
@@ -18,28 +18,48 @@ export default function AboutPage() {
       <section id="about" className="scroll-mt-20">
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Background</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            About Me<span className="accent-dot">.</span>
+          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            About Me<span className="text-primary not-italic">.</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { icon: Monitor, title: "Web", desc: "React, Next.js, Node.js, full-stack MERN applications.", tools: ["React", "Next.js", "Node.js", "MongoDB"], href: "/webdev" },
-            { icon: TabletSmartphone, title: "App", desc: "Cross-platform mobile apps with Flutter and React Native.", tools: ["Flutter", "Dart", "Firebase"], href: "/appdev" },
-            { icon: Palette, title: "UI/UX", desc: "User-centric design systems, wireframing and high-fidelity prototyping.", tools: ["Figma", "User Research", "Adobe XD"], href: "/uiux" },
-            { icon: Camera, title: "Photography", desc: "Professional photography with high-end retouching and correction.", tools: ["Photoshop", "Lightroom", "Snapseed"], href: "/photo" },
-            { icon: Video, title: "Videography", desc: "Cinematic production and professional video post-production editing.", tools: ["Premiere Pro", "After Effects", "CapCut"], href: "/video" },
+            { 
+              icon: Code2, 
+              title: "Software Development", 
+              desc: "Building scalable web and cross-platform mobile applications with modern stacks.", 
+              tools: ["React", "Next.js", "Flutter", "Node.js", "Dart"], 
+              href: "/software" 
+            },
+            { 
+              icon: Layout, 
+              title: "Designs", 
+              desc: "Crafting pixel-perfect designs and intuitive User Experiences for all platforms.", 
+              tools: ["Figma", "UI/UX", "Adobe XD", "Branding"], 
+              href: "/designs" 
+            },
+            { 
+              icon: Sparkles, 
+              title: "Visual Art", 
+              desc: "Cinematic video production and professional photography with post-processing.", 
+              tools: ["Premiere Pro", "After Effects", "Photoshop", "Lightroom"], 
+              href: "/media" 
+            },
           ].map((item) => {
             const Icon = item.icon;
             return (
               <Card key={item.title} className="card-hover">
                 <CardHeader className="pb-2 px-4 sm:px-6">
-                  <div className="w-9 h-9 rounded-xl bg-muted border border-border flex items-center justify-center mb-3">
-                    <Icon size={16} className="text-muted-foreground" />
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 shadow-lg shadow-primary/5 transition-transform group-hover:scale-110">
+                    <Icon size={20} className="text-primary" />
                   </div>
-                  <CardTitle className="text-sm">{item.title}</CardTitle>
-                  <CardDescription className="text-xs">{item.desc}</CardDescription>
+                  <CardTitle className="text-base sm:text-lg font-black uppercase italic tracking-tight mb-2">
+                    {item.title}<span className="text-primary not-italic">.</span>
+                  </CardTitle>
+                  <CardDescription className="text-xs sm:text-sm text-muted-foreground/60 leading-relaxed font-medium">
+                    {item.desc}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pb-4 px-4 sm:px-6">
                   <div className="flex flex-wrap gap-1.5">
@@ -47,9 +67,9 @@ export default function AboutPage() {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-0 px-4 sm:px-6">
-                  <Button variant="ghost" size="sm" className="text-xs h-8 sm:h-7 px-3 sm:px-2 text-muted-foreground" asChild>
+                  <Button variant="outline" size="sm" asChild>
                     <Link href={item.href}>
-                      View Details <ArrowRight size={10} className="ml-1" />
+                      View Details <ArrowRight size={12} />
                     </Link>
                   </Button>
                 </CardFooter>
@@ -77,8 +97,8 @@ export default function AboutPage() {
       <section className="scroll-mt-20">
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Professional</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            Work Experience<span className="accent-dot">.</span>
+          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            Work Experience<span className="text-primary not-italic">.</span>
           </h2>
         </div>
         <div className="space-y-4">
@@ -106,8 +126,8 @@ export default function AboutPage() {
       <section className="scroll-mt-20">
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Training</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            Internships<span className="accent-dot">.</span>
+          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            Internships<span className="text-primary not-italic">.</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -133,8 +153,8 @@ export default function AboutPage() {
       <section className="scroll-mt-20">
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Academic</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            Education<span className="accent-dot">.</span>
+          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            Education<span className="text-primary not-italic">.</span>
           </h2>
         </div>
         <div className="space-y-4">
@@ -164,13 +184,18 @@ export default function AboutPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
           <div>
             <SectionLabel>Recognition</SectionLabel>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-              Certifications<span className="accent-dot">.</span>
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            Certifications<span className="text-primary not-italic">.</span>
+          </h2>
           </div>
-          <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground group w-fit">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            asChild 
+            className="shadow-sm"
+          >
             <Link href="/certificates">
-              View All <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
+              View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
         </div>
@@ -186,7 +211,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardFooter className="pt-0 border-t border-border/50 mt-auto flex justify-between items-center py-3 px-4 sm:px-6">
                 <span className="text-[10px] text-muted-foreground font-medium">{cert.date}</span>
-                <Button variant="ghost" size="sm" className="h-8 sm:h-7 text-[10px] sm:text-xs gap-1" asChild>
+                <Button variant="outline" size="sm" asChild>
                   <a href={cert.link} target="_blank" rel="noopener noreferrer">
                     Verify <ExternalLink size={10} />
                   </a>

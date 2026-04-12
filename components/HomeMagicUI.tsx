@@ -12,8 +12,10 @@ import { Globe } from "@/components/ui/globe";
 import { Calendar } from "@/components/ui/calendar";
 
 import {
-  FileTextIcon, BellIcon, Calendar as CalendarIcon
+  Code2, Palette, Sparkles, FileCode2, Layout, Image as ImageIcon
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 // --- Velocity Scroll Component ---
 export function ScrollVelocitySection() {
@@ -21,10 +23,10 @@ export function ScrollVelocitySection() {
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-10 sm:py-20 z-20">
       <ScrollVelocityContainer className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.05em] leading-[1.3] opacity-20 uppercase pb-2">
         <ScrollVelocityRow baseVelocity={5} direction={1}>
-          WEB • APP • DESIGNS • &nbsp;
+          CODE • DESIGN • PIXELS • &nbsp;
         </ScrollVelocityRow>
         <ScrollVelocityRow baseVelocity={5} direction={-1}>
-          MEDIA • VISUAL ARTS • &nbsp;
+          DEVELOPMENT • VISUAL ART • &nbsp;
         </ScrollVelocityRow>
       </ScrollVelocityContainer>
     </div>
@@ -35,19 +37,19 @@ export function ScrollVelocitySection() {
 
 // --- Bento Grid Demo ---
 const files = [
-  { name: "System_Arch.pdf", body: "High-level design docs for scalable microservices." },
-  { name: "API_Endpoints.json", body: "RESTful and GraphQL schema configurations." },
-  { name: "App_Wireframes.fig", body: "Figma mockups and user journey flows." },
-  { name: "CI_CD_Pipeline.yml", body: "Automated build and testing deployments." },
+  { name: "Fullstack_App.tsx", body: "Scalable React & Next.js architectures." },
+  { name: "Backend_API.go", body: "High-performance microservices and logic." },
+  { name: "Database_Schema.sql", body: "Optimized data structures and relations." },
+  { name: "CI_CD_Build.yml", body: "Automated deployment pipelines." },
 ];
 
 const features = [
   {
-    Icon: FileTextIcon,
-    name: "Architecture & Docs",
-    description: "Detailed technical documentation for every architectural decision.",
-    href: "/projects",
-    cta: "Learn more",
+    Icon: Code2,
+    name: "Software Development",
+    description: "Architecting robust, scalable, and high-performance applications with modern stacks.",
+    href: "/software",
+    cta: "View Projects",
     className: "col-span-3 lg:col-span-1",
     background: (
       <Marquee
@@ -64,6 +66,7 @@ const features = [
             )}
           >
             <div className="flex flex-row items-center gap-2">
+               <FileCode2 size={12} className="text-primary" />
               <div className="flex flex-col">
                 <figcaption className="text-[10px] font-black uppercase tracking-tight truncate">
                   {f.name}
@@ -77,29 +80,29 @@ const features = [
     ),
   },
   {
-    Icon: BellIcon,
-    name: "Real-time Systems",
-    description: "Event-driven architectures with WebSocket and Push integrations.",
-    href: "/webdev",
-    cta: "Learn more",
+    Icon: Palette,
+    name: "Designs",
+    description: "Crafting pixel-perfect user interfaces and intuitive user experiences.",
+    href: "/designs",
+    cta: "Explore Gallery",
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
-         <BellIcon size={120} className="text-primary animate-pulse" />
+         <Layout size={120} className="text-primary animate-pulse" />
       </div>
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Agile Management",
-    description: "Delivering high-quality code through iterative cycles and rapid prototyping.",
-    href: "/about",
-    cta: "View Process",
+    Icon: Sparkles,
+    name: "Visual Art",
+    description: "Merging creativity with technology through photography and digital arts.",
+    href: "/media",
+    cta: "Watch Reels",
     className: "col-span-3 lg:col-span-3",
     background: (
-        <div className="absolute top-10 left-10 opacity-10 group-hover:opacity-20 transition-opacity">
-            <CalendarIcon size={180} className="text-primary -rotate-12" />
-        </div>
+      <div className="absolute top-10 left-10 opacity-10 group-hover:opacity-20 transition-opacity">
+          <ImageIcon size={180} className="text-primary -rotate-12" />
+      </div>
     ),
   },
 ];
@@ -121,21 +124,32 @@ export function GlobeSection() {
   return (
     <div className="relative flex flex-col md:flex-row items-center gap-10 py-20 overflow-hidden">
       <div className="flex-1 space-y-6">
-        <h3 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">Global Engineering<br /><span className="text-orange-500">Connectivity.</span></h3>
-        <p className="text-sm sm:text-base text-muted-foreground font-medium leading-relaxed max-w-lg">
-          I architect 100% cloud-native solutions that are geo-distributed and highly available.
-          My applications leverage global edge networks for low-latency performance worldwide.
+        <h3 className="text-3xl sm:text-5xl font-black italic uppercase tracking-tight leading-[0.9]">
+          Freelance Developer<br /><span className="text-orange-500 not-italic">Available 24/7.</span>
+        </h3>
+        <p className="text-xs sm:text-sm text-muted-foreground/60 font-medium leading-relaxed max-w-lg border-l-2 border-orange-500/20 pl-6 italic">
+          I help businesses and individuals build high-quality web and mobile applications. 
+          Available anytime for freelance projects with fast response and reliable delivery.
         </p>
-        <div className="flex gap-8 pt-4">
+        <div className="flex gap-8 pt-2">
           <div className="text-left">
-            <p className="text-3xl font-black text-primary">0ms</p>
-            <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest mt-1">Edge Latency</p>
+            <p className="text-2xl sm:text-3xl font-black text-orange-500 uppercase italic">24/7</p>
+            <p className="text-[9px] uppercase font-black text-muted-foreground/40 tracking-[0.2em] mt-1">Availability</p>
           </div>
-          <div className="h-10 w-px bg-border my-auto opacity-50" />
+          <div className="h-10 w-px bg-white/5 my-auto" />
           <div className="text-left">
-            <p className="text-3xl font-black text-primary">24/7</p>
-            <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest mt-1">Reliability</p>
+            <p className="text-2xl sm:text-3xl font-black text-orange-500 uppercase italic">1-2 Hour</p>
+            <p className="text-[9px] uppercase font-black text-muted-foreground/40 tracking-[0.2em] mt-1">Response Time</p>
           </div>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+           <Button size="lg" asChild className="sm:px-10 h-12 rounded-xl">
+             <Link href="/contact">Hire Me Now</Link>
+           </Button>
+           <Button variant="outline" size="lg" asChild className="sm:px-10 h-12 rounded-xl">
+             <Link href="/contact">Contact Me</Link>
+           </Button>
         </div>
       </div>
       <div className="relative w-full md:w-1/2 aspect-square flex items-center justify-center overflow-hidden rounded-[2rem] border border-border/40 bg-card/10 backdrop-blur-xl shadow-2xl p-10 group">
