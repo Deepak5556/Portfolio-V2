@@ -9,9 +9,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
-  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail
+  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail,
+  Github, Linkedin, Twitter, Instagram, Link as LinkIcon
 } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { profile, techStack, projects } from "@/lib/data";
 import { SectionLabel, Pill } from "@/components/Shared";
 import { RoleCarousel } from "@/components/RoleCarousel";
@@ -30,10 +32,10 @@ export default function Home() {
           HERO
       ══════════════════════════════════════════ */}
       <section id="home" className="scroll-mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
 
           {/* Profile card */}
-          <Card className="md:col-span-2 lg:col-span-5 card-hover animate-fade-up delay-100 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden group">
+          <Card className="md:col-span-2 lg:col-span-5 card-hover animate-fade-up delay-100 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden group flex flex-col">
             <CardHeader className="pb-3 px-4 sm:px-6 pt-6 sm:pt-8 text-center sm:text-left">
               <div className="mb-4 flex justify-center sm:justify-start">
                 <Avatar className="h-16 w-16 sm:h-20 sm:w-20 ring-4 ring-primary/5 ring-offset-4 ring-offset-card shadow-xl transition-transform hover:scale-105 duration-500">
@@ -50,8 +52,38 @@ export default function Home() {
               </CardTitle>
               <RoleCarousel className="text-sm font-bold text-muted-foreground/80" />
             </CardHeader>
-            <CardContent className="px-4 sm:px-6">
-              <CardDescription className="leading-relaxed text-xs sm:text-sm">{profile.tagline}</CardDescription>
+            <CardContent className="px-4 sm:px-6 flex-1">
+              <CardDescription className="leading-relaxed text-xs sm:text-sm mb-4">{profile.tagline}</CardDescription>
+              
+              <p className="text-xs sm:text-sm text-muted-foreground/80 font-medium leading-relaxed mb-6 text-center sm:text-left">
+                Quick learner and focused on perfection, dedicated to building high-quality digital experiences.
+              </p>
+
+              {/* Social Icons Print Area */}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                {[
+                  { icon: Github, href: profile.github, label: "GitHub" },
+                  { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
+                  { icon: Twitter, href: profile.twitter, label: "X (Twitter)" },
+                  { icon: Instagram, href: profile.instagram, label: "Instagram" },
+                  { icon: LinkIcon, href: profile.linktree, label: "Linktree" },
+                ].map((social, i) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 * i + 0.5 }}
+                    whileHover={{ scale: 1.15, y: -2 }}
+                    className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all shadow-sm"
+                  >
+                    <social.icon size={18} />
+                  </motion.a>
+                ))}
+              </div>
             </CardContent>
             <CardFooter className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 px-4 sm:px-6 pb-6 sm:pb-8">
               <Button size="lg" asChild className="flex-1 hover:translate-y-[-2px] transition-all">
@@ -68,7 +100,7 @@ export default function Home() {
           </Card>
 
           {/* About card */}
-          <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden relative group">
+          <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden relative group flex flex-col">
             <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
               <div className="flex items-center justify-between">
                 <div>
@@ -80,7 +112,7 @@ export default function Home() {
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4 px-4 sm:px-6">
+            <CardContent className="space-y-4 px-4 sm:px-6 flex-1">
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
                 I’m Deepakkumar V — a full stack developer, mobile app developer, and UI/UX designer who’s also deeply into visual creativity.
               </p>

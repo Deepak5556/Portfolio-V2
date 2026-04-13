@@ -103,21 +103,28 @@ export default function AboutPage() {
         </div>
         <div className="space-y-4">
           {workExperience.map((work, i) => (
-            <Card key={i} className="card-hover">
-              <CardHeader className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-2 gap-2 px-4 sm:px-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <Briefcase size={16} className="text-muted-foreground" />
-                    <CardTitle className="text-sm sm:text-base">{work.role}</CardTitle>
+            <Link key={i} href={`/experience/${work.id}`} className="block">
+              <Card className="card-hover cursor-pointer h-full border-border/40 hover:border-primary/30 transition-all duration-500">
+                <CardHeader className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-2 gap-2 px-4 sm:px-6">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Briefcase size={16} className="text-muted-foreground" />
+                      <CardTitle className="text-sm sm:text-base">{work.role}</CardTitle>
+                    </div>
+                    <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{work.company}</CardDescription>
                   </div>
-                  <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{work.company}</CardDescription>
-                </div>
-                <Badge variant="outline" className="text-[10px] sm:text-xs w-fit">{work.duration}</Badge>
-              </CardHeader>
-              <CardContent className="px-4 sm:px-6">
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{work.description}</p>
-              </CardContent>
-            </Card>
+                  <Badge variant="outline" className="text-[10px] sm:text-xs w-fit">{work.duration}</Badge>
+                </CardHeader>
+                <CardContent className="px-4 sm:px-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">{work.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {work.tech?.map((t) => (
+                      <Badge key={t} variant="secondary" className="text-[8px] font-black uppercase tracking-widest bg-muted/30 text-muted-foreground border-none px-2.5 py-1">{t}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -132,19 +139,26 @@ export default function AboutPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {internships.map((intern, i) => (
-            <Card key={i} className="card-hover">
-              <CardHeader className="pb-2 px-4 sm:px-6">
-                <div className="flex justify-between items-start mb-2">
-                  <Badge variant="secondary" className="text-[10px]">Internship</Badge>
-                  <span className="text-[10px] text-muted-foreground">{intern.duration}</span>
-                </div>
-                <CardTitle className="text-sm sm:text-base">{intern.role}</CardTitle>
-                <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{intern.company}</CardDescription>
-              </CardHeader>
-              <CardContent className="px-4 sm:px-6">
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{intern.description}</p>
-              </CardContent>
-            </Card>
+            <Link key={i} href={`/internship/${intern.id}`} className="block">
+              <Card className="card-hover flex flex-col h-full cursor-pointer border-border/40 hover:border-orange-500/30 transition-all duration-500">
+                <CardHeader className="pb-2 px-4 sm:px-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <Badge variant="secondary" className="text-[10px]">Internship</Badge>
+                    <span className="text-[10px] text-muted-foreground">{intern.duration}</span>
+                  </div>
+                  <CardTitle className="text-sm sm:text-base">{intern.role}</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{intern.company}</CardDescription>
+                </CardHeader>
+                <CardContent className="px-4 sm:px-6 flex-1 flex flex-col">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{intern.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {intern.tech?.map((t) => (
+                      <Badge key={t} variant="secondary" className="text-[8px] font-black uppercase tracking-widest bg-muted/30 text-muted-foreground border-none px-2.5 py-1">{t}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

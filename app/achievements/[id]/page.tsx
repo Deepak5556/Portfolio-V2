@@ -22,8 +22,8 @@ export default function AchievementDetailsPage({ params }: { params: { id: strin
   return (
     <div className="animate-fade-up">
       <Button variant="ghost" size="sm" asChild className="mb-8 -ml-2 text-muted-foreground">
-        <Link href="/webdev">
-          <ChevronLeft size={16} className="mr-1" /> Back to Web Dev
+        <Link href="/software">
+          <ChevronLeft size={16} className="mr-1" /> Back to Software
         </Link>
       </Button>
 

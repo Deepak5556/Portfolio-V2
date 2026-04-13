@@ -17,6 +17,9 @@ export const profile = {
   email: "deepakviji5556@gmail.com",
   github: "https://github.com/Deepak5556",
   linkedin: "https://linkedin.com/in/deepakkumarv",
+  twitter: "https://x.com/Deepak5556",
+  instagram: "https://instagram.com/deepak_v_5556",
+  linktree: "https://linktr.ee/deepakv5556",
   website: "deepakportfolioo.web.app",
 };
 
@@ -239,25 +242,50 @@ export const education = [
 
 export const workExperience = [
   {
-    company: "Freelance Developer",
+    id: "freelance-dev",
+    company: "Freelance",
     role: "Full Stack Developer",
     duration: "2023 — Present",
     description: "Building custom web solutions for local clients using React and Node.js. Focused on performance and SEO.",
+    tech: ["React", "Node.js", "Tailwind CSS", "MongoDB", "SEO"],
+    responsibilities: [
+      "Architected and deployed responsive web applications for various small business clients.",
+      "Implemented SEO best practices, resulting in a 40% increase in organic traffic for client sites.",
+      "Managed full project lifecycles from requirement gathering to deployment and maintenance.",
+      "Optimized website performance, achieving sub-second load times on mobile devices."
+    ],
+    link: "https://github.com/Deepak5556"
   }
 ];
 
 export const internships = [
   {
+    id: "tech-solutions-intern",
     company: "Tech Solutions Inc.",
     role: "Web Development Intern",
     duration: "Jun 2024 — Aug 2024",
     description: "Assisted in developing a client dashboard using Next.js and Tailwind CSS. Implemented responsive UI components.",
+    tech: ["Next.js", "Tailwind CSS", "TypeScript", "REST API"],
+    responsibilities: [
+      "Collaborated with the senior engineering team to build a comprehensive client dashboard.",
+      "Developed 20+ reusable UI components following the company's internal design system.",
+      "Integrated backend APIs with frontend components for real-time data visualization.",
+      "Improved frontend test coverage by writing Unit tests for core business logic."
+    ]
   },
   {
+    id: "creative-digital-intern",
     company: "Creative Digital Agency",
     role: "UI/UX Design Intern",
     duration: "Jan 2024 — Mar 2024",
     description: "Designed mobile app mockups in Figma and learned the basics of user-centered design principles.",
+    tech: ["Figma", "Adobe XD", "Prototyping", "User Research"],
+    responsibilities: [
+      "Created high-fidelity mockups for a social networking mobile application.",
+      "Conducted user research and usability testing to refine app navigation and flows.",
+      "Developed a consistent design system for the agency's primary client project.",
+      "Collaborated with developers to ensure the feasibility of design implementations."
+    ]
   }
 ];
 

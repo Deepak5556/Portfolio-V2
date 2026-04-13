@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/scroll-based-velocity";
 import { Marquee } from "@/components/ui/marquee";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { Tree, type TreeViewElement } from "@/components/ui/file-tree";
 import dynamic from "next/dynamic";
 const Globe = dynamic(() => import("@/components/ui/globe").then(m => m.Globe), {
   ssr: false,
@@ -48,6 +49,20 @@ const files = [
   { name: "CI_CD_Build.yml", body: "Automated deployment pipelines." },
 ];
 
+const treeElements: TreeViewElement[] = [
+  {
+    id: "src",
+    type: "folder",
+    name: "src",
+    children: [
+      { id: "components", type: "folder", name: "components" },
+      { id: "app", type: "folder", name: "app" },
+      { id: "page", name: "page.tsx" },
+      { id: "layout", name: "layout.tsx" },
+    ],
+  },
+];
+
 const features = [
   {
     Icon: Code2,
@@ -57,31 +72,36 @@ const features = [
     cta: "View Projects",
     className: "col-span-3 lg:col-span-1",
     background: (
-      <Marquee
-        pauseOnHover
-        className="absolute top-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] [--duration:20s]"
-      >
-        {files.map((f, idx) => (
-          <figure
-            key={idx}
-            className={cn(
-              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-              "border-border/50 bg-background/50 backdrop-blur-sm",
-              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
-            )}
-          >
-            <div className="flex flex-row items-center gap-2">
-              <FileCode2 size={12} className="text-primary" />
-              <div className="flex flex-col">
-                <figcaption className="text-[10px] font-black uppercase tracking-tight truncate">
-                  {f.name}
-                </figcaption>
+      <div className="absolute inset-0">
+        <Marquee
+          pauseOnHover
+          className="absolute top-10 [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] [--duration:20s]"
+        >
+          {files.map((f, idx) => (
+            <figure
+              key={idx}
+              className={cn(
+                "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
+                "border-border/50 bg-background/50 backdrop-blur-sm",
+                "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+              )}
+            >
+              <div className="flex flex-row items-center gap-2">
+                <FileCode2 size={12} className="text-primary" />
+                <div className="flex flex-col">
+                  <figcaption className="text-[10px] font-black uppercase tracking-tight truncate">
+                    {f.name}
+                  </figcaption>
+                </div>
               </div>
-            </div>
-            <blockquote className="mt-2 text-[9px] font-medium leading-tight text-muted-foreground">{f.body}</blockquote>
-          </figure>
-        ))}
-      </Marquee>
+              <blockquote className="mt-2 text-[9px] font-medium leading-tight text-muted-foreground">{f.body}</blockquote>
+            </figure>
+          ))}
+        </Marquee>
+        <div className="absolute bottom-[-20px] left-4 w-full opacity-40 group-hover:opacity-60 transition-opacity duration-500 transform-gpu group-hover:translate-y-[-10px] pointer-events-none scale-75 origin-bottom-left">
+          <Tree elements={treeElements} />
+        </div>
+      </div>
     ),
   },
   {
