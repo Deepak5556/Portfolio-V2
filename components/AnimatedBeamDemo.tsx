@@ -57,7 +57,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle"
 
-export function AnimatedBeamDemo() {
+export const AnimatedBeamDemo = React.memo(function AnimatedBeamDemo() {
   const containerRef = useRef<HTMLDivElement>(null)
   const div1Ref = useRef<HTMLDivElement>(null)
   const div2Ref = useRef<HTMLDivElement>(null)
@@ -74,15 +74,15 @@ export function AnimatedBeamDemo() {
     >
       <div className="flex size-full max-h-[300px] max-w-2xl flex-col items-stretch justify-between gap-12 sm:gap-16 px-16 md:px-20">
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div1Ref} label="App Development" labelPosition="top" href="/appdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div1Ref} label="Software" labelPosition="top" href="/software" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Smartphone size={32} className="text-emerald-500" />
           </Circle>
-          <Circle ref={div5Ref} label="Web Development" labelPosition="top" href="/webdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div5Ref} label="Software" labelPosition="top" href="/software" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Monitor size={32} className="text-blue-500" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div2Ref} label="UI/UX Designing" labelPosition="left" href="/uiux" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div2Ref} label="Designs" labelPosition="left" href="/designs" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Palette size={32} className="text-pink-500" />
           </Circle>
           <Circle ref={div4Ref} label="Deepakkumar" labelPosition="bottom" href="/contact" className="size-20 sm:size-24 bg-card border-primary/50 overflow-hidden p-0 shadow-lg shadow-primary/20 hover:scale-110 transition-transform z-20">
@@ -91,15 +91,15 @@ export function AnimatedBeamDemo() {
                <AvatarFallback className="text-xl font-bold">{profile.initials}</AvatarFallback>
              </Avatar>
           </Circle>
-          <Circle ref={div6Ref} label="Video Editing" labelPosition="right" href="/video" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div6Ref} label="Visual Art" labelPosition="right" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Film size={32} className="text-purple-500" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref} label="Engineering" labelPosition="bottom" href="/webdev" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div3Ref} label="Engineering" labelPosition="bottom" href="/software" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Code2 size={32} className="text-orange-500" />
           </Circle>
-          <Circle ref={div7Ref} label="Photo Editing" labelPosition="bottom" href="/photo" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div7Ref} label="Visual Art" labelPosition="bottom" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Camera size={32} className="text-yellow-500" />
           </Circle>
         </div>
@@ -147,5 +147,5 @@ export function AnimatedBeamDemo() {
         reverse
       />
     </div>
-  )
-}
+  );
+});

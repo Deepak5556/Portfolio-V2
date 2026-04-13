@@ -16,12 +16,12 @@ import { profile, techStack, projects } from "@/lib/data";
 import { SectionLabel, Pill } from "@/components/Shared";
 import { RoleCarousel } from "@/components/RoleCarousel";
 import { ShareAction } from "@/components/ShareAction";
-import { 
-  ScrollVelocitySection, 
-  BentoSection, 
-  GlobeSection 
-} from "@/components/HomeMagicUI";
-import { AnimatedBeamDemo } from "@/components/AnimatedBeamDemo";
+import dynamic from "next/dynamic";
+const ScrollVelocitySection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.ScrollVelocitySection));
+const BentoSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.BentoSection));
+const GlobeSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.GlobeSection));
+const AnimatedBeamDemo = dynamic(() => import("@/components/AnimatedBeamDemo").then(m => m.AnimatedBeamDemo));
+const MotionEditor = dynamic(() => import("@/components/MotionEditor"));
 
 export default function Home() {
   return (
@@ -37,7 +37,7 @@ export default function Home() {
             <CardHeader className="pb-3 px-4 sm:px-6 pt-6 sm:pt-8 text-center sm:text-left">
               <div className="mb-4 flex justify-center sm:justify-start">
                 <Avatar className="h-16 w-16 sm:h-20 sm:w-20 ring-4 ring-primary/5 ring-offset-4 ring-offset-card shadow-xl transition-transform hover:scale-105 duration-500">
-                  <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" />
+                  <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" fetchPriority="high" />
                   <AvatarFallback className="text-lg sm:text-xl font-bold uppercase">{profile.initials}</AvatarFallback>
                 </Avatar>
               </div>
@@ -76,23 +76,35 @@ export default function Home() {
                   <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
                 </div>
                 <Button variant="outline" size="sm" asChild className="hidden sm:flex">
-                   <Link href="/about">Learn More <ArrowRight size={14} /></Link>
+                  <Link href="/about">Learn More <ArrowRight size={14} /></Link>
                 </Button>
               </div>
             </CardHeader>
             <CardContent className="space-y-4 px-4 sm:px-6">
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
-                I'm a passionate Full Stack Developer with hands-on experience building responsive web
-                and mobile applications. I love crafting products that solve real problems with clean,
-                maintainable code.
+                I’m Deepakkumar V — a full stack developer, mobile app developer, and UI/UX designer who’s also deeply into visual creativity.
               </p>
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
-                Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack —
-                constantly learning, shipping, and improving.
+                I work across web and mobile, building things that are not just functional but feel smooth and intuitive to use. Alongside coding, I’m a videographer, video editor, photographer, and photo editor — so design and storytelling are a big part of what I do.
+              </p>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
+                I care a lot about creativity and getting the details right. Whether it’s code or visuals, I like making things clean, polished, and meaningful.
               </p>
               <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                {["React", "Next.js", "Flutter", "Node.js", "MongoDB", "PostgreSQL"].map((t) => (
-                  <Badge key={t} variant="secondary" className="px-2 sm:px-3 py-0.5 sm:py-1 font-black uppercase text-[10px] tracking-widest bg-primary/5 text-primary border-none">{t}</Badge>
+                {[
+                  "Web Developer",
+                  "Mobile Developer",
+                  "UI/UX Designer",
+                  "Videographer",
+                  "Photographer"
+                ].map((t) => (
+                  <Badge
+                    key={t}
+                    variant="secondary"
+                    className="px-2 sm:px-3 py-0.5 sm:py-1 font-black uppercase text-[10px] tracking-widest bg-primary/5 text-primary border-none"
+                  >
+                    {t}
+                  </Badge>
                 ))}
               </div>
             </CardContent>
@@ -105,7 +117,7 @@ export default function Home() {
 
           {/* New Interactive Sections */}
           <div className="col-span-full py-8 relative z-20">
-             <ScrollVelocitySection />
+            <ScrollVelocitySection />
           </div>
 
 
@@ -116,49 +128,49 @@ export default function Home() {
 
           {/* ── FULL-WIDTH SKILLS ARCHITECTURE ── */}
           <div className="col-span-full py-12 px-6 sm:px-10 rounded-[3rem] border border-border/40 bg-card/40 backdrop-blur-3xl relative overflow-hidden group shadow-2xl">
-             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-48 -mt-48 opacity-40 group-hover:bg-primary/10 transition-colors duration-1000" />
-             
-             <div className="mb-12">
-                <SectionLabel>Core Arsenal</SectionLabel>
-                <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
-                   Professional Capabilities<span className="text-primary not-italic">.</span>
-                </h2>
-                <div className="h-px w-24 bg-primary/20 mt-6" />
-             </div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-48 -mt-48 opacity-40 group-hover:bg-primary/10 transition-colors duration-1000" />
 
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
-                {techStack.map((group) => {
-                  const CategoryIcon = {
-                    "Software Development": Code2,
-                    "Video Editing": Film,
-                    "Photo Editing": Camera,
-                    "UI/UX Designing": Palette
-                  }[group.category] || Code2;
-                  
-                  return (
-                    <div key={group.category} className="space-y-6 group/item">
-                       <div className="flex items-center gap-4">
-                          <div className="p-2.5 rounded-xl bg-primary/10 text-primary transition-transform group-hover/item:scale-110 border border-primary/20 shadow-lg shadow-primary/5">
-                             <CategoryIcon size={18} />
-                          </div>
-                          <h4 className="text-[11px] font-black text-foreground uppercase tracking-[0.25em] leading-none">
-                            {group.category}
-                          </h4>
-                       </div>
-                       <div className="flex flex-col gap-3 pl-1">
-                          {group.items.map((item) => (
-                            <div key={item} className="flex items-center gap-3 group/skill">
-                               <div className="w-1 h-1 rounded-full bg-primary/40 group-hover/skill:bg-primary group-hover/skill:scale-150 transition-all" />
-                               <span className="text-xs sm:text-sm font-medium text-muted-foreground/80 group-hover/skill:text-primary transition-colors">
-                                  {item}
-                               </span>
-                            </div>
-                          ))}
-                       </div>
+            <div className="mb-12">
+              <SectionLabel>Core Arsenal</SectionLabel>
+              <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
+                Professional Capabilities<span className="text-orange-500 not-italic">.</span>
+              </h2>
+              <div className="h-px w-24 bg-primary/20 mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
+              {techStack.map((group) => {
+                const CategoryIcon = {
+                  "Software Development": Code2,
+                  "Video Editing": Film,
+                  "Photo Editing": Camera,
+                  "UI/UX Designing": Palette
+                }[group.category] || Code2;
+
+                return (
+                  <div key={group.category} className="space-y-6 group/item">
+                    <div className="flex items-center gap-4">
+                      <div className="p-2.5 rounded-xl bg-primary/10 text-primary transition-transform group-hover/item:scale-110 border border-primary/20 shadow-lg shadow-primary/5">
+                        <CategoryIcon size={18} />
+                      </div>
+                      <h4 className="text-[11px] font-black text-foreground uppercase tracking-[0.25em] leading-none">
+                        {group.category}
+                      </h4>
                     </div>
-                  );
-                })}
-             </div>
+                    <div className="flex flex-col gap-3 pl-1">
+                      {group.items.map((item) => (
+                        <div key={item} className="flex items-center gap-3 group/skill">
+                          <div className="w-1 h-1 rounded-full bg-primary/40 group-hover/skill:bg-primary group-hover/skill:scale-150 transition-all" />
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground/80 group-hover/skill:text-primary transition-colors">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Projects card */}
@@ -170,7 +182,7 @@ export default function Home() {
                   <CardTitle className="text-lg sm:text-xl font-black mt-2">Selected Works<span className="text-orange-500">.</span></CardTitle>
                 </div>
                 <Button variant="outline" size="sm" asChild className="hidden sm:flex h-9 px-4 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all font-black uppercase text-[10px] tracking-widest gap-2">
-                   <Link href="/software">View Archive <ArrowRight size={14} /></Link>
+                  <Link href="/software">View Archive <ArrowRight size={14} /></Link>
                 </Button>
               </div>
               <CardDescription className="text-xs font-bold text-muted-foreground/60 mt-1 uppercase tracking-widest">A curated selection of my latest engineering projects.</CardDescription>
@@ -182,29 +194,29 @@ export default function Home() {
                   return (
                     <div key={i} className="group/project relative">
                       <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 -mx-3 sm:-mx-4 rounded-xl hover:bg-primary/5 border border-transparent hover:border-border/50 transition-all duration-300">
-                        <div className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-background border border-border group-hover/project:border-primary/30 flex items-center justify-center transition-all group-hover/project:scale-110 shadow-sm">
-                          <ProjectIcon size={18} className="text-primary" />
+                        <div className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-background border border-border group-hover/project:border-primary/30 flex items-center justify-center transition-all group-hover/project:scale-110 shadow-sm overflow-hidden">
+                          <ProjectIcon size={18} className="text-primary group-hover/project:animate-pulse" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-2 mb-1">
                             <h4 className="text-xs sm:text-sm font-black truncate group-hover/project:text-primary transition-colors uppercase tracking-tight">{project.title}</h4>
                             <div className="flex gap-1">
-                                {project.link && (
-                                  <>
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer"
-                                      className="p-1.5 rounded-lg hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all" aria-label="Visit">
-                                      <ExternalLink size={14} />
-                                    </a>
-                                    <ShareAction 
-                                      title={project.title} 
-                                      url={project.link} 
-                                      variant="ghost" 
-                                      size="sm" 
-                                      className="h-8 w-8 opacity-0 group-hover/project:opacity-100 transition-all"
-                                      iconOnly={true}
-                                    />
-                                  </>
-                                )}
+                              {project.link && (
+                                <>
+                                  <a href={project.link} target="_blank" rel="noopener noreferrer"
+                                    className="p-1.5 rounded-lg hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all" aria-label="Visit">
+                                    <ExternalLink size={14} />
+                                  </a>
+                                  <ShareAction
+                                    title={project.title}
+                                    url={project.link}
+                                    variant="ghost"
+                                    size="sm"
+                                    className="h-8 w-8 opacity-0 group-hover/project:opacity-100 transition-all"
+                                    iconOnly={true}
+                                  />
+                                </>
+                              )}
                             </div>
                           </div>
                           <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-1 font-medium">{project.description}</p>
@@ -221,20 +233,20 @@ export default function Home() {
               </div>
             </CardContent>
             <CardFooter className="px-4 sm:px-6 pb-6 pt-2 sm:hidden">
-                <Button variant="outline" className="w-full gap-2 text-[10px] font-black uppercase tracking-widest h-11 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all shadow-lg" asChild>
-                  <Link href="/software">See Full Archive <ArrowRight size={14} /></Link>
-                </Button>
+              <Button variant="outline" className="w-full gap-2 text-[10px] font-black uppercase tracking-widest h-11 rounded-xl border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary transition-all shadow-lg" asChild>
+                <Link href="/software">See Full Archive <ArrowRight size={14} /></Link>
+              </Button>
             </CardFooter>
           </Card>
 
           <div className="col-span-full">
-             <BentoSection />
+            <BentoSection />
           </div>
 
 
 
           <div className="col-span-full">
-             <GlobeSection />
+            <GlobeSection />
           </div>
 
         </div>

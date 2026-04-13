@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ import { Calendar, Menu, ArrowRight } from "lucide-react";
 import { profile, navItems } from "@/lib/data";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-export default function Navbar() {
+export const Navbar = React.memo(function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -131,4 +131,6 @@ export default function Navbar() {
       </div>
     </header>
   );
-}
+});
+
+export default Navbar;

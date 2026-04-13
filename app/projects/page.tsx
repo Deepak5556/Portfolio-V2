@@ -149,7 +149,7 @@ function ProjectsContent() {
                 <div>
                    <SectionLabel>Architecture Archive</SectionLabel>
                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tight leading-none mt-1">
-                     Digital Labs<span className="text-primary not-italic tracking-normal">.</span><span className="text-primary not-italic tracking-normal uppercase text-sm sm:text-lg font-bold ml-4 tabular-nums">({filteredRepos.length})</span>
+                     Digital Labs<span className="text-orange-500 not-italic tracking-normal">.</span><span className="text-primary not-italic tracking-normal uppercase text-sm sm:text-lg font-bold ml-4 tabular-nums">({filteredRepos.length})</span>
                    </h1>
                 </div>
              </div>
@@ -271,7 +271,7 @@ function ProjectsContent() {
                           </div>
                       </div>
                       <CardTitle className="text-lg sm:text-xl font-black group-hover:text-primary transition-colors truncate uppercase italic tracking-tight leading-none mb-1">
-                        {repo.name.replace(/-/g, " ")}<span className="text-primary tracking-normal not-italic">.</span>
+                        {repo.name.replace(/-/g, " ")}<span className="text-orange-500 tracking-normal not-italic">.</span>
                       </CardTitle>
                       <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 font-medium text-muted-foreground/60 group-hover:text-muted-foreground transition-colors">
                         {repo.description || "Quantum encoded architecture node requiring system access for full documentation."}

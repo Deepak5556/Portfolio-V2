@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,7 @@ const markers = [
   { lat: 1.3521, lng: 103.8198, size: 0.3 }, // Singapore
 ];
 
-export default function Footer() {
+const Footer = React.memo(function Footer() {
   return (
     <footer className="border-t border-border/50 bg-card/30 backdrop-blur-md mt-16 sm:mt-24 relative overflow-hidden">
       {/* Interactive Map Overlay */}
@@ -107,4 +108,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

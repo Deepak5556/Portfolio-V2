@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Background</SectionLabel>
           <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            About Me<span className="text-primary not-italic">.</span>
+            About Me<span className="text-orange-500 not-italic">.</span>
           </h2>
         </div>
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
                     <Icon size={20} className="text-primary" />
                   </div>
                   <CardTitle className="text-base sm:text-lg font-black uppercase italic tracking-tight mb-2">
-                    {item.title}<span className="text-primary not-italic">.</span>
+                    {item.title}<span className="text-orange-500 not-italic">.</span>
                   </CardTitle>
                   <CardDescription className="text-xs sm:text-sm text-muted-foreground/60 leading-relaxed font-medium">
                     {item.desc}
@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Professional</SectionLabel>
           <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            Work Experience<span className="text-primary not-italic">.</span>
+            Work Experience<span className="text-orange-500 not-italic">.</span>
           </h2>
         </div>
         <div className="space-y-4">
@@ -127,7 +127,7 @@ export default function AboutPage() {
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Training</SectionLabel>
           <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            Internships<span className="text-primary not-italic">.</span>
+            Internships<span className="text-orange-500 not-italic">.</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -154,7 +154,7 @@ export default function AboutPage() {
         <div className="mb-6 sm:mb-8">
           <SectionLabel>Academic</SectionLabel>
           <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            Education<span className="text-primary not-italic">.</span>
+            Education<span className="text-orange-500 not-italic">.</span>
           </h2>
         </div>
         <div className="space-y-4">
@@ -185,7 +185,7 @@ export default function AboutPage() {
           <div>
             <SectionLabel>Recognition</SectionLabel>
             <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            Certifications<span className="text-primary not-italic">.</span>
+            Certifications<span className="text-orange-500 not-italic">.</span>
           </h2>
           </div>
           <Button 

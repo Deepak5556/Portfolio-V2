@@ -140,7 +140,7 @@ export function PremiumVideoPlayer({ src, poster }: { src: string; poster?: stri
         playsInline
         autoPlay
         muted
-        loop
+        preload="metadata"
         className="w-full h-full object-cover"
         onClick={(e) => { 
           if (window.innerWidth > 768) {

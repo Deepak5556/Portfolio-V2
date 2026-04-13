@@ -123,7 +123,7 @@ function SoftwareContent() {
         <div>
           <SectionLabel>Engineering Portfolio</SectionLabel>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase tracking-tight leading-none mt-2">
-            Software Labs<span className="text-primary not-italic tracking-normal">.</span>
+            Software Labs<span className="text-orange-500 not-italic tracking-normal">.</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground/70 leading-relaxed font-medium mt-6 max-w-2xl">
             A comprehensive archive of my web and mobile engineering projects. 
@@ -199,7 +199,7 @@ function SoftwareContent() {
             <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-6 text-destructive">
                 <Filter size={24} className="opacity-40" />
             </div>
-            <h3 className="text-xl font-black uppercase italic mb-2">Neural Link Offline<span className="text-primary">.</span></h3>
+            <h3 className="text-xl font-black uppercase italic mb-2">Neural Link Offline<span className="text-orange-500">.</span></h3>
             <p className="text-sm text-muted-foreground mb-8 font-medium">{error}</p>
             <Button onClick={fetchRepos} variant="outline" className="h-12 px-8 rounded-xl border-destructive/20 hover:bg-destructive/10 gap-2 font-black text-[10px] uppercase tracking-widest">
                 <RefreshCw size={14} /> Re-establish Link
@@ -259,7 +259,7 @@ function SoftwareContent() {
                          )}
                       </div>
                       <CardTitle className="text-lg sm:text-xl font-black group-hover:text-primary transition-colors uppercase italic tracking-tight leading-none mb-1">
-                        {p.title}<span className="text-primary tracking-normal not-italic">.</span>
+                        {p.title}<span className="text-orange-500 tracking-normal not-italic">.</span>
                       </CardTitle>
                       <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 font-medium text-muted-foreground/60">
                         {p.description}
@@ -330,7 +330,7 @@ function SoftwareContent() {
         <div className="mt-24 p-8 sm:p-16 rounded-[3rem] bg-primary/5 border border-primary/10 text-center relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -mr-48 -mt-48 transition-all group-hover:bg-primary/10" />
           <div className="relative z-10">
-              <h3 className="text-2xl sm:text-4xl font-black mb-4 italic uppercase">Building the Future of Software<span className="text-primary">.</span></h3>
+              <h3 className="text-2xl sm:text-4xl font-black mb-4 italic uppercase">Building the Future of Software<span className="text-orange-500">.</span></h3>
               <p className="text-sm sm:text-lg font-medium text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
                 Whether it's a high-impact web platform or a native mobile application, 
                 I deliver engineering excellence with a focus on performance and precision.
