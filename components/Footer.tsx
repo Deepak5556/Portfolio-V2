@@ -87,7 +87,7 @@ const Footer = React.memo(function Footer() {
             
             <div className="text-left md:text-right space-y-1">
                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Local Time</p>
-                <p className="text-xs font-bold font-mono">{new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}</p>
+                <p className="text-xs font-bold font-mono" suppressHydrationWarning>{new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}</p>
             </div>
         </div>
 
@@ -95,7 +95,7 @@ const Footer = React.memo(function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground" suppressHydrationWarning>
             © {new Date().getFullYear()} {profile.name} <span className="text-orange-500 mx-1">/</span> SYNCED
           </p>
           <div className="flex items-center gap-2">

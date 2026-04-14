@@ -22,6 +22,8 @@ import dynamic from "next/dynamic";
 const ScrollVelocitySection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.ScrollVelocitySection));
 const BentoSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.BentoSection));
 const GlobeSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.GlobeSection));
+const PartnersSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.PartnersSection));
+const WorkedWithSection = dynamic(() => import("@/components/HomeMagicUI").then(m => m.WorkedWithSection));
 const AnimatedBeamDemo = dynamic(() => import("@/components/AnimatedBeamDemo").then(m => m.AnimatedBeamDemo));
 const MotionEditor = dynamic(() => import("@/components/MotionEditor"));
 
@@ -277,10 +279,18 @@ export default function Home() {
 
 
 
+
+          <div className="col-span-full">
+            <PartnersSection />
+          </div>
+
+          <div className="col-span-full">
+            <WorkedWithSection />
+          </div>
+
           <div className="col-span-full">
             <GlobeSection />
           </div>
-
         </div>
       </section>
     </div>

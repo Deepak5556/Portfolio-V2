@@ -63,7 +63,7 @@ const isFolderElement = (element: TreeViewElement) => {
 const mergeExpandedItems = (
   currentItems: string[] | undefined,
   nextItems: string[]
-) => [...new Set([...(currentItems ?? []), ...nextItems])]
+) => Array.from(new Set([...(currentItems ?? []), ...nextItems]))
 
 const treeCollator = new Intl.Collator("en", {
   numeric: true,
@@ -466,7 +466,7 @@ const CollapseButton = forwardRef<
       expandTree(element)
     }
 
-    return [...new Set(expandedElementIds)]
+    return Array.from(new Set(expandedElementIds))
   }, [])
 
   const closeAll = useCallback(() => {
