@@ -1,157 +1,131 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import {
-  Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
+  Card, CardHeader, CardTitle, CardDescription, CardContent
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { 
-  Calendar, CheckCircle2, Clock, Video, Globe, 
-  User, Mail, ArrowRight, Info, ChevronLeft
+  Clock, Video, Globe, Info, ChevronLeft
 } from "lucide-react";
 import Link from "next/link";
 import { SectionLabel } from "@/components/Shared";
+import { useTheme } from "next-themes";
 
 export default function BookingPage() {
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, resolvedTheme } = useTheme();
 
-  const handleBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    // Simulate booking
-    setTimeout(() => {
-      setSent(true);
-      setLoading(false);
-    }, 1500);
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    (async function () {
+      const cal = await getCalApi({"namespace":"30min"});
+      const currentTheme = (resolvedTheme || theme || "dark") as "light" | "dark";
+      
+      cal("ui", {
+        "theme": currentTheme,
+        "styles": {
+          "branding": {
+            "brandColor": "#F97316" // Matching website's --accent color
+          }
+        },
+        "hideEventTypeDetails": false,
+        "layout": "month_view"
+      });
+    })();
+  }, [mounted, theme, resolvedTheme]);
+
+  if (!mounted) return null;
+
+  const currentTheme = (resolvedTheme || theme || "dark") as "light" | "dark";
 
   return (
-    <section id="booking" className="scroll-mt-20 animate-fade-up">
-      <Button variant="ghost" size="sm" asChild className="mb-6 sm:mb-8 -ml-2 text-muted-foreground">
-        <Link href="/">
-          <ChevronLeft size={16} className="mr-1" /> Back to Home
-        </Link>
-      </Button>
+    <section id="booking" className="scroll-mt-20 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <div className="flex justify-start mb-6">
+        <Button variant="ghost" size="sm" asChild className="text-muted-foreground transition-all hover:bg-muted font-medium hover:text-foreground">
+          <Link href="/">
+            <ChevronLeft size={16} className="mr-1" /> Back to Home
+          </Link>
+        </Button>
+      </div>
 
-      <div className="mb-8 sm:mb-10 text-center">
+      <div className="mb-10 sm:mb-16 text-center">
         <SectionLabel>Availability</SectionLabel>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-2">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4">
           Book a 1:1 Session<span className="accent-dot">.</span>
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-3 max-w-lg mx-auto">
-          Schedule a 30-minute video call to discuss projects, collaborations, or tech.
+        <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
+          Ready to take your project to the next level? Schedule a 30-minute session 
+          to discuss technical strategies, collaborations, or creative directions.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Call Details */}
-        <div className="lg:col-span-1 space-y-4 sm:space-y-6">
-          <Card className="border-primary/10 bg-primary/[0.02]">
-            <CardHeader className="px-4 sm:px-6">
-              <CardTitle className="text-base sm:text-lg flex items-center gap-2">
-                <Info size={18} className="text-primary" /> Meeting Info
+        <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
+          <Card className="border-border/50 bg-card/50 shadow-sm backdrop-blur-xl transition-all hover:border-accent/20">
+            <CardHeader className="px-6 pb-2">
+              <CardTitle className="text-lg flex items-center gap-3">
+                <Info size={20} className="text-accent" /> Session Benefits
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 px-4 sm:px-6">
-              <div className="flex items-start gap-3">
-                <Clock size={16} className="text-muted-foreground mt-1 shrink-0" />
+            <CardContent className="space-y-6 px-6 py-6 font-sans">
+              <div className="flex items-start gap-4 group">
+                <div className="p-2 rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                  <Clock size={18} />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold">30 Minutes</p>
-                  <p className="text-xs text-muted-foreground">Standard intro call</p>
+                  <p className="text-sm font-bold">30 Minutes Focused</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Concise and effective discussion time.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Video size={16} className="text-muted-foreground mt-1 shrink-0" />
+              <div className="flex items-start gap-4 group">
+                <div className="p-2 rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                  <Video size={18} />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold">Google Meet</p>
-                  <p className="text-xs text-muted-foreground">Link sent after booking</p>
+                  <p className="text-sm font-bold">Live Consultation</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Face-to-face video call for maximum clarity.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Globe size={16} className="text-muted-foreground mt-1 shrink-0" />
+              <div className="flex items-start gap-4 group">
+                <div className="p-2 rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                  <Globe size={18} />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold">Anywhere</p>
-                  <p className="text-xs text-muted-foreground">Available globally</p>
+                  <p className="text-sm font-bold">Timezone Aware</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Scheduling adapts automatically to your location.</p>
                 </div>
               </div>
             </CardContent>
           </Card>
           
-          <div className="p-4 rounded-xl border border-dashed border-border text-center">
-            <p className="text-xs text-muted-foreground">
-              "Looking forward to connecting and discussing how we can work together!"
+          <div className="p-6 rounded-2xl border border-dashed border-border bg-muted/30 text-center animate-pulse-slow">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed italic">
+              "Let's bridge the gap between ideas and execution. Looking forward to our session!"
             </p>
           </div>
         </div>
 
-        {/* Booking Form */}
-        <Card id="booking-form" className="lg:col-span-2 shadow-xl border-border/50 scroll-mt-24">
-          <CardHeader className="px-4 sm:px-6">
-            <CardTitle className="text-base sm:text-lg">Schedule Time</CardTitle>
-            <CardDescription className="text-xs sm:text-sm">Select your preferred slot below.</CardDescription>
-          </CardHeader>
-          <CardContent className="px-4 sm:px-6">
-            {sent ? (
-              <div className="flex flex-col items-center justify-center py-10 sm:py-12 gap-4 text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                  <CheckCircle2 size={28} className="sm:hidden" />
-                  <CheckCircle2 size={32} className="hidden sm:block" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold">Booking Confirmed!</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">Calendar invite sent to your email.</p>
-                </div>
-                <Button variant="outline" onClick={() => setSent(false)} className="mt-4 h-10 sm:h-9">
-                  Make another booking
-                </Button>
-              </div>
-            ) : (
-              <form onSubmit={handleBooking} className="space-y-5 sm:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                      <User size={12} /> Full Name
-                    </label>
-                    <Input placeholder="Deepak Kumar" required className="h-11 sm:h-10" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                      <Mail size={12} /> Email Address
-                    </label>
-                    <Input type="email" placeholder="deepak@example.com" required className="h-11 sm:h-10" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                      <Calendar size={12} /> Date
-                    </label>
-                    <Input type="date" required className="h-11 sm:h-10" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                      <Clock size={12} /> Time Slot
-                    </label>
-                    <Input type="time" required className="h-11 sm:h-10" />
-                  </div>
-                </div>
-
-                <div className="pt-2 sm:pt-4">
-                  <Button type="submit" className="w-full h-12 sm:h-11 gap-2 text-sm sm:text-base shadow-lg shadow-primary/20" disabled={loading}>
-                    {loading ? "Processing..." : (
-                      <>
-                        Confirm Booking <ArrowRight size={18} />
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </form>
-            )}
-          </CardContent>
-        </Card>
+        {/* Cal.com Embed */}
+        <div className="lg:col-span-8 shadow-2xl rounded-3xl overflow-hidden border border-border/50 bg-card order-1 lg:order-2 min-h-[650px] sm:min-h-[750px] lg:min-h-[850px] h-full transition-all hover:border-accent/20">
+          <Cal
+            key={currentTheme}
+            namespace="30min"
+            calLink="deepakkumarv/30min"
+            style={{ width: "100%", height: "100%" }}
+            config={{ 
+              layout: "month_view", 
+              theme: currentTheme,
+            }}
+          />
+        </div>
       </div>
     </section>
   );

@@ -62,8 +62,15 @@ node_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
+# Next.js build output
+.next/
+out/
 
-# dataconnect generated files
-.dataconnect
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Scratch scripts
+scratch/

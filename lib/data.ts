@@ -253,7 +253,7 @@ export const education = [
     description: "Focusing on Software Engineering, Data Structures, and Web Technologies. Member of the Technical Club.",
   },
   {
-    school: "Simplified High School",
+    school: "Vani Vidyalaya Matric Hr Sec School",
     degree: "Higher Secondary Education",
     duration: "2019 — 2021",
     location: "Tamil Nadu, India",
@@ -278,36 +278,36 @@ export const workExperience = [
     link: "https://github.com/Deepak5556"
   }
 ];
-
 export const internships = [
   {
-    id: "tech-solutions-intern",
-    company: "Tech Solutions Inc.",
-    role: "Web Development Intern",
-    duration: "Jun 2024 — Aug 2024",
-    description: "Assisted in developing a client dashboard using Next.js and Tailwind CSS. Implemented responsive UI components.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript", "REST API"],
+    id: "transzio-integral-systems-intern",
+    company: "Transzio Integral Systems LLP",
+    role: "Software Developer - Trainee",
+    duration: "Feb 2026 — Mar 2026",
+    description: "Completed internship in the IoT Product Development department, contributing to technical tasks and project activities.",
+    tech: ["UI/UX", "App Development", "Web Development"],
     responsibilities: [
-      "Collaborated with the senior engineering team to build a comprehensive client dashboard.",
-      "Developed 20+ reusable UI components following the company's internal design system.",
-      "Integrated backend APIs with frontend components for real-time data visualization.",
-      "Improved frontend test coverage by writing Unit tests for core business logic."
+      "Worked in the IoT Product Development team on real-world technical tasks.",
+      "Assisted in developing and improving embedded and automation-based solutions.",
+      "Collaborated with team members on project activities and implementation.",
+      "Contributed to debugging, testing, and optimizing system performance."
+    ]
+  }, {
+    id: "interface-technologies-intern",
+    company: "InterFace Technologies",
+    role: "App Development Intern",
+    duration: "Aug 2025 — Feb 2026",
+    description: "Selected through LinkedIn for a 6-month internship focused on app development at InterFace Technologies, contributing to real-world development projects.",
+    tech: ["Flutter", "API Integration", "Mobile App Development", "UI Development"],
+    responsibilities: [
+      "Worked on mobile application development using modern frameworks and tools.",
+      "Collaborated with the development team to build and improve application features.",
+      "Integrated APIs and handled real-time data within mobile applications.",
+      "Participated in debugging, testing, and optimizing app performance."
     ]
   },
-  {
-    id: "creative-digital-intern",
-    company: "Creative Digital Agency",
-    role: "UI/UX Design Intern",
-    duration: "Jan 2024 — Mar 2024",
-    description: "Designed mobile app mockups in Figma and learned the basics of user-centered design principles.",
-    tech: ["Figma", "Adobe XD", "Prototyping", "User Research"],
-    responsibilities: [
-      "Created high-fidelity mockups for a social networking mobile application.",
-      "Conducted user research and usability testing to refine app navigation and flows.",
-      "Developed a consistent design system for the agency's primary client project.",
-      "Collaborated with developers to ensure the feasibility of design implementations."
-    ]
-  }
+
+
 ];
 
 export const certifications = [

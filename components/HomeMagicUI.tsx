@@ -466,7 +466,7 @@ export const GlobeSection = React.memo(function GlobeSection() {
 
 export const PartnersSection = React.memo(function PartnersSection() {
   const partners = [
-    { name: "Team Catom", logo: "https://stale-ivory-lfjlz4hlvq.edgeone.app/Screenshot%202026-04-14%20161052.png" },
+    { name: "Team Catom", logo: "https://plain-apac-prod-public.komododecks.com/202604/16/IbiFpL4Zw6DtBGnTpcWd/image.jpg" },
     { name: "Hexoran", logo: "https://www.hexoran.com/favicon.ico" },
   ];
 

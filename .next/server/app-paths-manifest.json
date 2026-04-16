@@ -1,9 +1,0 @@
-{
-  "/software/page": "app/software/page.js",
-  "/about/page": "app/about/page.js",
-  "/achievements/[id]/page": "app/achievements/[id]/page.js",
-  "/experience/[id]/page": "app/experience/[id]/page.js",
-  "/icon.png/route": "app/icon.png/route.js",
-  "/page": "app/page.js",
-  "/media/page": "app/media/page.js"
-}

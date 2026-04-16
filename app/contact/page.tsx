@@ -8,19 +8,56 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Mail, Github, Linkedin, ExternalLink, Phone, Send, Calendar, CheckCircle2, ArrowRight
+  Mail, Github, Linkedin, ExternalLink, Phone, Send, Calendar, CheckCircle2, ArrowRight, Loader2
 } from "lucide-react";
 import Link from "next/link";
 import { SectionLabel } from "@/components/Shared";
 import { profile } from "@/lib/data";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [isSending, setIsSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [touched, setTouched] = useState({ name: false, email: false, message: false });
 
-  const handleSend = () => {
-    if (formState.name && formState.email && formState.message) {
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  };
+
+  const isFormValid = 
+    formState.name.trim() !== "" && 
+    validateEmail(formState.email) && 
+    formState.message.trim() !== "";
+
+  const handleSend = async () => {
+    if (!isFormValid) return;
+
+    setIsSending(true);
+    setError(null);
+
+    const serviceId = "service_e8xqd4q";
+    const templateId = "template_mv7g8br";
+    const publicKey = "5bpfB40U5_MRYFf3D";
+
+    const templateParams = {
+      from_name: formState.name.trim(),
+      from_email: formState.email.trim(),
+      to_name: "Deepak Kumar",
+      message: formState.message.trim(),
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       setSent(true);
+      setFormState({ name: "", email: "", message: "" });
+      setTouched({ name: false, email: false, message: false });
+    } catch (err) {
+      console.error("FAILED...", err);
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -100,6 +137,9 @@ export default function ContactPage() {
                 <CheckCircle2 size={32} className="text-emerald-500" />
                 <p className="text-sm font-semibold">Message sent!</p>
                 <p className="text-xs text-muted-foreground">Thanks for reaching out — I'll reply soon.</p>
+                <Button variant="ghost" size="sm" onClick={() => setSent(false)} className="mt-2">
+                  Send another message
+                </Button>
               </div>
             ) : (
               <>
@@ -108,9 +148,14 @@ export default function ContactPage() {
                   <Input
                     placeholder="Your name"
                     value={formState.name}
+                    disabled={isSending}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="h-10 sm:h-9"
+                    onBlur={() => setTouched({ ...touched, name: true })}
+                    className="h-10 sm:h-9 focus-visible:ring-primary transition-all"
                   />
+                  {touched.name && formState.name.trim() === "" && (
+                    <p className="text-[10px] text-destructive font-medium">Name is required</p>
+                  )}
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-medium text-muted-foreground">Email</label>
@@ -118,26 +163,46 @@ export default function ContactPage() {
                     type="email"
                     placeholder="you@example.com"
                     value={formState.email}
+                    disabled={isSending}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="h-10 sm:h-9"
+                    onBlur={() => setTouched({ ...touched, email: true })}
+                    className={`h-10 sm:h-9 focus-visible:ring-primary transition-all ${touched.email && !validateEmail(formState.email) && formState.email !== "" ? "border-destructive" : ""}`}
                   />
+                  {touched.email && formState.email !== "" && !validateEmail(formState.email) && (
+                    <p className="text-[10px] text-destructive font-medium">Please enter a valid email address</p>
+                  )}
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-medium text-muted-foreground">Message</label>
                   <Textarea
                     placeholder="What's on your mind?"
                     value={formState.message}
+                    disabled={isSending}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="min-h-[100px] sm:min-h-[120px]"
+                    onBlur={() => setTouched({ ...touched, message: true })}
+                    className="min-h-[100px] sm:min-h-[120px] focus-visible:ring-primary transition-all"
                   />
                 </div>
+                {error && <p className="text-xs text-destructive font-medium">{error}</p>}
               </>
             )}
           </CardContent>
           {!sent && (
             <CardFooter className="px-4 sm:px-6">
-              <Button onClick={handleSend} className="w-full gap-2 h-11 sm:h-10">
-                <Send size={14} /> Send Message
+              <Button 
+                onClick={handleSend} 
+                disabled={!isFormValid || isSending}
+                className={`w-full gap-2 h-11 sm:h-10 transition-all duration-200 ease-in-out ${!isFormValid ? "opacity-50 cursor-not-allowed" : "opacity-100 cursor-pointer"}`}
+              >
+                {isSending ? (
+                  <>
+                    <Loader2 size={14} className="animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={14} /> Send Message
+                  </>
+                )}
               </Button>
             </CardFooter>
           )}
