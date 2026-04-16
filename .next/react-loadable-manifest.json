@@ -23,10 +23,10 @@
       "static/chunks/_app-pages-browser_components_ui_globe_tsx.js"
     ]
   },
-  "node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js": {
-    "id": "node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js",
+  "node_modules\\.pnpm\\react-activity-calendar@3.1_e0aa3e43d58bdab5cb985c04f086d3c9\\node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js": {
+    "id": "node_modules\\.pnpm\\react-activity-calendar@3.1_e0aa3e43d58bdab5cb985c04f086d3c9\\node_modules\\react-activity-calendar\\build\\chunks\\index-CqFS6gMj.js -> ./Tooltip-BAxPWbMb.js",
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_react-activity-calendar_build_chunks_Tooltip-BAxPWbMb_js.js"
+      "static/chunks/_app-pages-browser_node_modules_pnpm_react-activity-calendar_3_1_e0aa3e43d58bdab5cb985c04f086-c4fb7d.js"
     ]
   }
 }

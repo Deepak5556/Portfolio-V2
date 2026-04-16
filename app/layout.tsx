@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Deepakkumar V"
   },
   description: "Portfolio of Deepakkumar V, a Developer specializing in React, Next.js, Flutter, and the MERN stack.",
-  keywords: ["Deepakkumar V", "Developer", "Portfolio", "MERN Stack", "Flutter Developer", "React Developer", "Next.js", "UI/UX", "India"],
+  keywords: ["Deepakkumar V", "Developer", "Portfolio", "MERN Stack", "Flutter Developer", "React Developer", "Deepak Portfolio", "UI/UX", "India"],
   authors: [{ name: "Deepakkumar V" }],
   creator: "Deepakkumar V",
   openGraph: {

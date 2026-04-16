@@ -139,6 +139,37 @@ export default function MediaPage() {
     setActiveImageIdx(0);
   };
 
+  const handleDownload = async (url: string, title: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = `${title.replace(/\s+/g, "_")}_HD.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
+  };
+
+  // Preload adjacent images
+  React.useEffect(() => {
+    if (selectedPhoto) {
+      const nextIdx = (activeImageIdx + 1) % selectedPhoto.images.length;
+      const prevIdx = (activeImageIdx - 1 + selectedPhoto.images.length) % selectedPhoto.images.length;
+      
+      const nextImg = new window.Image();
+      nextImg.src = selectedPhoto.images[nextIdx];
+      
+      const prevImg = new window.Image();
+      prevImg.src = selectedPhoto.images[prevIdx];
+    }
+  }, [selectedPhoto, activeImageIdx]);
+
   return (
     <div className="relative min-h-screen pb-32">
       {/* ── Background Aesthetics ── */}
@@ -324,131 +355,161 @@ export default function MediaPage() {
 
       {/* ── LIGHTBOX MODAL ── */}
       <Dialog open={!!selectedPhoto} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
-        <DialogContent className="max-w-[100vw] w-full h-[100dvh] p-0 bg-transparent border-none overflow-hidden select-none outline-none flex items-center justify-center p-2 sm:p-4 lg:p-12 z-[100]">
-            <div className="absolute inset-0 bg-zinc-950/40 backdrop-blur-3xl" onClick={() => setSelectedPhoto(null)} />
+        <DialogContent className="max-w-[100vw] w-full h-[100dvh] p-0 bg-transparent border-none overflow-hidden select-none outline-none flex items-center justify-center sm:p-4 lg:p-12 z-[100]">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" onClick={() => setSelectedPhoto(null)} />
             
-            <div className="relative flex flex-col lg:flex-row w-full max-w-7xl h-full lg:h-[85vh] bg-zinc-950/90 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-3xl z-10 transition-all duration-500 scale-in-center">
+            <div className="relative flex flex-col lg:flex-row w-full max-w-7xl h-full lg:h-[85vh] bg-zinc-950 border border-white/10 rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl z-10 transition-all duration-300">
                
                {/* Close Button (Absolute Mobile) */}
                <Button 
                  variant="ghost" 
                  size="icon" 
                  onClick={() => setSelectedPhoto(null)} 
-                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 border border-white/10 text-white hover:bg-red-500/20 hover:text-red-500 transition-all z-[60] lg:hidden"
+                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 border border-white/10 text-white hover:bg-primary transition-all z-[60] lg:hidden"
                >
                  <X size={18} />
                </Button>
 
-               {/* ── LEFT SIDE: LARGE MEDIA PREVIEW (60%) ── */}
-               <div className="lg:w-[65%] h-[40vh] sm:h-[50vh] lg:h-full relative group bg-black/40 overflow-hidden flex items-center justify-center">
-                  <AnimatePresence mode="wait">
+               {/* ── LEFT SIDE: MEDIA PREVIEW (65%) ── */}
+               <div className="lg:w-[65%] h-[45vh] sm:h-[55vh] lg:h-full relative group bg-black overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+                  {/* Performance-friendly background blur */}
+                  <div className="absolute inset-0 z-0 opacity-20 hidden lg:block">
+                    <Image 
+                      src={selectedPhoto?.images[activeImageIdx]} 
+                      alt="" 
+                      fill 
+                      className="object-cover blur-[80px] scale-110"
+                    />
+                  </div>
+
+                  <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={activeImageIdx}
-                      initial={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="relative z-10 w-full h-full flex items-center justify-center"
                     >
                       <Image 
                         src={selectedPhoto?.images[activeImageIdx]} 
                         alt="Preview" 
                         fill 
-                        className="object-contain p-2 sm:p-4 lg:p-10 transition-transform duration-1000 group-hover:scale-105"
+                        className="object-contain p-4 sm:p-10 lg:p-14"
                         priority
+                        quality={95}
                       />
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Navigation Arrows */}
+                  {/* Navigation Arrows - Simplified & Stable */}
                   {selectedPhoto?.images.length > 1 && (
                     <>
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === 0 ? selectedPhoto.images.length - 1 : prev - 1)); }}
-                         className="absolute left-4 sm:left-6 lg:left-10 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50] sm:opacity-0 sm:group-hover:opacity-100 sm:translate-x-4 sm:group-hover:translate-x-0"
+                         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50]"
+                         aria-label="Previous Image"
                        >
-                         <ChevronLeft size={20} className="sm:size-6" />
+                         <ChevronLeft size={20} />
                        </button>
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === selectedPhoto.images.length - 1 ? 0 : prev + 1)); }}
-                         className="absolute right-4 sm:right-6 lg:right-10 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50] sm:opacity-0 sm:group-hover:opacity-100 sm:-translate-x-4 sm:group-hover:translate-x-0"
+                         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50]"
+                         aria-label="Next Image"
                        >
-                         <ChevronRight size={20} className="sm:size-6" />
+                         <ChevronRight size={20} />
                        </button>
                     </>
                   )}
                   
-                  {/* Subtle Media Overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
-                  <div className="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 flex gap-4 z-20">
-                     <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-black/60 backdrop-blur-xl border border-white/10 text-[7px] sm:text-[9px] font-black uppercase tracking-[0.4em] text-white/60">
+                  {/* Download HD Overlay */}
+                  <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-[50]">
+                    <Button 
+                      onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
+                      className="gap-2 bg-black/40 backdrop-blur-xl border border-white/10 text-white h-10 px-4 rounded-full font-black text-[9px] uppercase tracking-widest hover:bg-primary hover:border-primary transition-all"
+                    >
+                      <Download size={14} /> Download HD
+                    </Button>
+                  </div>
+
+                  {/* Indicators */}
+                  <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 z-20">
+                     <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-white/50">
                         {activeImageIdx + 1} / {selectedPhoto?.images.length} • SEQUENCE
                      </div>
                   </div>
                </div>
 
-               {/* ── RIGHT SIDE: DETAILED CONTEXT (40%) ── */}
-               <div className="lg:w-[35%] flex flex-col h-full bg-zinc-900/60 border-l border-white/5 overflow-y-auto scrollbar-hide">
-                  <div className="p-6 sm:p-8 lg:p-12 space-y-8 sm:space-y-12 flex-1">
-                     {/* Title & Stats */}
+               {/* ── RIGHT SIDE: INFO PANEL (35%) ── */}
+               <div className="lg:w-[35%] flex flex-col h-full bg-zinc-950/40 backdrop-blur-3xl overflow-hidden">
+                  <div className="flex-1 overflow-y-auto scrollbar-hide px-8 py-10 sm:p-12 space-y-10">
+                     {/* Header Section */}
                      <div className="space-y-4">
-                        <SectionLabel>Photo Archive Detail</SectionLabel>
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-black italic uppercase tracking-tight leading-none">
-                           {selectedPhoto?.title}<span className="text-primary">.</span>
+                        <SectionLabel className="text-primary/60">Creative Asset Analysis</SectionLabel>
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black italic uppercase tracking-tighter leading-[0.9]">
+                           {selectedPhoto?.title}<span className="text-primary not-italic">.</span>
                         </h2>
-                        <div className="flex items-center gap-3 text-primary/60">
-                           <MapPin size={12} className="sm:size-14" />
-                           <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] italic">
+                        <div className="flex items-center gap-3 text-muted-foreground/60 transition-colors hover:text-primary/60">
+                           <MapPin size={14} />
+                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">
                               {selectedPhoto?.location || "Global Creative Lab"}
                            </span>
                         </div>
                      </div>
 
-                     {/* Description */}
-                     <div className="space-y-4">
-                        <h4 className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-white/20 flex items-center gap-4">
-                           <Info size={12} className="sm:size-14" /> Analysis <div className="h-px bg-white/5 flex-1" />
+                     {/* Detail Section */}
+                     <div className="space-y-5">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20 flex items-center gap-4">
+                           <Info size={14} /> Description <div className="h-px bg-white/5 flex-1" />
                         </h4>
-                        <p className="text-xs sm:text-base text-muted-foreground/70 font-medium leading-relaxed italic border-l-2 border-primary/20 pl-4 sm:pl-6">
+                        <p className="text-sm sm:text-base text-muted-foreground/80 font-medium leading-relaxed italic border-l-2 border-primary/20 pl-6">
                            {selectedPhoto?.description}
                         </p>
                      </div>
 
-                     {/* PERSPECTIVE MATRIX (THUMBS) */}
+                     {/* Matrix (Thumbnail Grid) */}
                      <div className="space-y-6">
-                        <h4 className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-white/20 flex items-center gap-4">
-                           <Camera size={12} className="sm:size-14" /> Persp. Matrix <div className="h-px bg-white/5 flex-1" />
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20 flex items-center gap-4">
+                           <Layers size={14} /> Perspective Matrix <div className="h-px bg-white/5 flex-1" />
                         </h4>
                         <div className="grid grid-cols-4 gap-3 sm:gap-4">
                            {selectedPhoto?.images.map((img: string, idx: number) => (
-                              <motion.div 
+                              <button 
                                 key={idx} 
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
                                 onClick={() => setActiveImageIdx(idx)}
-                                className={`aspect-square rounded-xl sm:rounded-2xl overflow-hidden border-2 cursor-pointer transition-all ${activeImageIdx === idx ? 'border-primary ring-4 ring-primary/10' : 'border-white/5 opacity-40 hover:opacity-100 hover:border-white/20'}`}
+                                className={cn(
+                                  "aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300 relative group/thumb",
+                                  activeImageIdx === idx 
+                                    ? "border-primary ring-4 ring-primary/10 opacity-100 shadow-[0_0_20px_rgba(var(--primary),0.2)]" 
+                                    : "border-white/5 opacity-40 hover:opacity-100 hover:border-white/20"
+                                )}
                               >
-                                 <Image src={img} alt="thumb" fill className="object-cover" />
-                              </motion.div>
+                                 <Image src={img} alt="" fill className="object-cover" />
+                                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity" />
+                              </button>
                            ))}
                         </div>
                      </div>
                   </div>
 
-                  {/* Actions (Sticky Bottom) */}
-                  <div className="p-6 sm:p-8 lg:p-12 border-t border-white/5 bg-zinc-950/40 backdrop-blur-3xl space-y-4">
-                     <Button size="lg" className="w-full gap-3">
-                        <Download size={18} /> High-Res Archive
+                  {/* Actions Section */}
+                  <div className="p-8 sm:p-10 border-t border-white/5 bg-black/60 shadow-2xl space-y-4">
+                     <Button 
+                       onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
+                       size="lg" 
+                       className="w-full gap-3 font-black text-[10px] uppercase tracking-widest h-14 rounded-2xl shadow-xl shadow-primary/20 hover:translate-y-[-2px] transition-all"
+                     >
+                        <Download size={18} /> High-Resolution Archive
                      </Button>
-                     <div className="flex gap-3 sm:gap-4">
-                        <Button variant="outline" size="lg" className="flex-1">
-                           <ShareAction title={selectedPhoto?.title} url="#" variant="ghost" iconOnly={false} className="w-full h-full p-0 border-none justify-center font-black" />
+                     <div className="flex gap-4">
+                        <Button variant="outline" size="lg" className="flex-1 h-14 rounded-2xl border-white/10 hover:bg-white/5 transition-all text-[10px] font-black uppercase tracking-widest">
+                           <ShareAction title={selectedPhoto?.title} url="#" variant="ghost" iconOnly={false} className="w-full h-full p-0 border-none justify-center font-black gap-2" />
                         </Button>
                         <Button 
                           variant="outline" 
-                          size="icon-lg"
+                          size="icon"
                           onClick={() => setSelectedPhoto(null)}
-                          className="hidden lg:flex"
+                          className="w-14 h-14 rounded-2xl border-white/10 hover:bg-destructive/10 hover:border-destructive/20 hover:text-destructive transition-all hidden lg:flex items-center justify-center shrink-0"
                         >
                            <X size={20} />
                         </Button>

@@ -23,6 +23,24 @@ export default function AboutPage() {
           </h2>
         </div>
 
+        <div className="mb-10 sm:mb-12 max-w-2xl">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
+            I'm a passionate Full Stack Developer with hands-on experience building responsive web
+            and mobile applications. I love crafting products that solve real problems with clean,
+            maintainable code.
+          </p>
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4 font-medium">
+            Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack —
+            constantly learning, shipping, and improving. I am based in {profile.location}.
+          </p>
+        </div>
+
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-xl sm:text-2xl font-black italic uppercase tracking-tight">
+            Skills<span className="text-orange-500 not-italic">.</span>
+          </h3>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { 
@@ -76,18 +94,6 @@ export default function AboutPage() {
               </Card>
             );
           })}
-        </div>
-        
-        <div className="mt-8 sm:mt-12 max-w-2xl">
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            I'm a passionate Full Stack Developer with hands-on experience building responsive web
-            and mobile applications. I love crafting products that solve real problems with clean,
-            maintainable code.
-          </p>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4">
-            Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack —
-            constantly learning, shipping, and improving. I am based in {profile.location}.
-          </p>
         </div>
       </section>
 

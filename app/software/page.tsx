@@ -158,17 +158,44 @@ function SoftwareContent() {
 
         {/* ─── TABS & SEARCH ─── */}
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-          <div className="flex p-1 bg-muted/20 border border-border/40 rounded-2xl w-full md:w-auto">
-            {(["all", "web", "app"] as const).map((tab) => (
-              <Button
-                key={tab}
-                variant={activeTab === tab ? "secondary" : "ghost"}
-                onClick={() => { setActiveTab(tab); setCurrentPage(1); }}
-                className="flex-1 md:flex-none h-10 px-6 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all"
-              >
-                {tab === "all" ? "Core Archive" : tab === "web" ? "Web Nodes" : "Mobile Modules"}
-              </Button>
-            ))}
+          <div className="w-full md:w-auto overflow-x-auto no-scrollbar py-1 select-none">
+            <div className="flex p-1.5 bg-muted/20 border border-border/40 rounded-full w-max md:w-full lg:w-max min-w-full md:min-w-0 items-center gap-1 sm:gap-1.5">
+              {(["all", "web", "app"] as const).map((tab) => {
+                const isActive = activeTab === tab;
+                const label = tab === "all" ? "Core Archive" : tab === "web" ? "Web Nodes" : "Mobile Modules";
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => { setActiveTab(tab); setCurrentPage(1); }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setActiveTab(tab);
+                        setCurrentPage(1);
+                      }
+                    }}
+                    className={`
+                      relative flex-1 md:flex-none px-5 sm:px-8 py-2.5 rounded-full 
+                      text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] 
+                      transition-all duration-300 ease-in-out whitespace-nowrap
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
+                      ${isActive 
+                        ? "text-primary" 
+                        : "text-muted-foreground/50 hover:text-foreground hover:bg-foreground/5"}
+                    `}
+                    aria-pressed={isActive}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-background dark:bg-card border border-border/60 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_10px_-3px_rgba(0,0,0,0.5)] rounded-full -z-10"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                      />
+                    )}
+                    <span className="relative z-10">{label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <div className="flex items-center gap-4 w-full md:w-auto">

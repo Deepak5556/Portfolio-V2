@@ -46,8 +46,8 @@ export const techStack = [
     items: ["Photoshop", "Illustrator", "Lightroom", "Canva", "Picsart"] 
   },
   { 
-    category: "UI/UX Designing", 
-    items: ["Figma", "Adobe XD", "Framer"] 
+    category: "Designing", 
+    items: [ "Adobe XD","Canva", "Framer","Figma"] 
   },
 ];
 
