@@ -8,13 +8,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Github, ExternalLink, Award, GitBranch, Star, ArrowRight, 
+  Github, ExternalLink, GitBranch, Star, ArrowRight, 
   Code2, Smartphone, Search, Filter, Loader2, Sparkles,
   LayoutGrid, List, RefreshCw
 } from "lucide-react";
 import Link from "next/link";
 import { SectionLabel, Pill } from "@/components/Shared";
-import { achievements } from "@/lib/data";
 import { GithubCalendarWrapper } from "@/components/GithubCalendarWrapper";
 import { ShareAction } from "@/components/ShareAction";
 import { Pagination } from "@/components/Pagination";
@@ -26,10 +25,10 @@ import Image from "next/image";
 const features = [
   {
     Icon: Share2Icon,
-    name: "API Integrations",
-    description: "Seamlessly connecting Stripe, Firebase, AWS, and third-party services.",
+    name: "Software & API Development",
+    description: "Building scalable backend systems, REST APIs, and seamless integrations with modern cloud and third-party services.",
     href: "/software",
-    cta: "Learn more",
+    cta: "Explore Stack",
     className: "col-span-3 lg:col-span-3",
     background: (
       <AnimatedBeamMultipleOutputDemo className="absolute top-4 right-2 h-[300px] border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-[1.02] overflow-hidden w-full max-w-none" />
@@ -131,30 +130,7 @@ function SoftwareContent() {
           </p>
         </div>
 
-        {/* Technical Recognition & Contributions */}
-        <div className="mt-4">
-          <h3 className="text-xs sm:text-sm font-black text-muted-foreground uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-            Technical Recognition & Contributions <div className="h-px bg-border flex-1" />
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {achievements.map((a, i) => (
-              <Link key={i} href={`/achievements/${a.id}`}>
-                <Card className="card-hover cursor-pointer h-full border-border/40 bg-card/40 backdrop-blur-sm group overflow-hidden rounded-[1.5rem] p-6 transition-all hover:bg-card/60">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform shadow-sm">
-                        <Award size={20} />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-black tracking-tight">{a.event}<span className="text-orange-500">.</span></h4>
-                        <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest">{a.org} • {a.year}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground/80 leading-relaxed font-medium mt-4">{a.desc}</p>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Technical Recognition & Contributions was moved to Home page */}
 
         {/* ─── TABS & SEARCH ─── */}
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
@@ -341,10 +317,10 @@ function SoftwareContent() {
           <GithubCalendarWrapper username="Deepak5556" />
         </div>
 
-        {/* Engineering Workflow */}
+        {/* Software Workflow */}
         <div className="mt-24">
           <h3 className="text-xs sm:text-sm font-black text-muted-foreground uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-            Engineering Workflow <div className="h-px bg-border flex-1" />
+            Software Workflow <div className="h-px bg-border flex-1" />
           </h3>
           <BentoGrid>
             {features.map((feature, idx) => (

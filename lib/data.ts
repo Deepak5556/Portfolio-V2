@@ -33,21 +33,21 @@ export const navItems = [
 ];
 
 export const techStack = [
-  { 
-    category: "Software Development", 
-    items: ["Frontend", "Backend", "Database", "Tools"] 
+  {
+    category: "Software Development",
+    items: ["Frontend", "Backend", "Database", "Tools"]
   },
-  { 
-    category: "Video Editing", 
-    items: ["After Effects", "Premiere Pro", "CapCut"] 
+  {
+    category: "Video Editing",
+    items: ["After Effects", "Premiere Pro", "CapCut"]
   },
-  { 
-    category: "Photo Editing", 
-    items: ["Photoshop", "Illustrator", "Lightroom", "Canva", "Picsart"] 
+  {
+    category: "Photo Editing",
+    items: ["Photoshop", "Illustrator", "Lightroom", "Canva", "Picsart"]
   },
-  { 
-    category: "Designing", 
-    items: [ "Adobe XD","Canva", "Framer","Figma"] 
+  {
+    category: "Designing",
+    items: ["Adobe XD", "Canva", "Framer", "Figma"]
   },
 ];
 
@@ -70,7 +70,7 @@ export const projects = [
   {
     title: "SnapLearn",
     description: "SnapLearn App is a Flutter-based mobile application that uses image recognition to describe what's in a photo. Users can upload or snap pictures, and the app instantly provides a simple explanation. Designed for learning, accessibility, and fun, it makes visual discovery easy and engaging.",
-    tech: ["Flutter", "Firebase", "Dart","Claude API "],
+    tech: ["Flutter", "Firebase", "Dart", "Claude API "],
     link: "https://deepakportfolioo.web.app",
     image: "https://deepakportfolioo.web.app/assets/snaplearn-ZHnt1vW8.webp",
     icon: Layout,
@@ -78,8 +78,21 @@ export const projects = [
 ];
 
 export const achievements = [
-  { id: "hackathon-2024", event: "Hackathon Winner", org: "Karpagam College", desc: "1st place in inter-department web dev hackathon.", year: "2024" },
-  { id: "techfest-2023", event: "Best Project Award", org: "Tech Fest 2023", desc: "Recognised for outstanding full-stack project presentation.", year: "2023" },
+  {
+    id: "hackfest-2k24",
+    event: "Second Prize - National Level Hackathon",
+    org: "Erode Sengunthar Engineering College",
+    desc: "Secured 2nd place in NATIONAL LEVEL HACKATHON - HACKFEST 2k24 conducted by the Department of Computer Science and Engineering.",
+    year: "2024",
+    details: [
+      "Gained hands-on experience working in a real hackathon environment with strict timelines.",
+      "Led the team as a Team Leader, managing tasks and ensuring smooth collaboration.",
+      "Built and presented a functional App solution under time constraints.",
+      "Improved problem-solving, communication, and leadership skills.",
+      "Learned to quickly convert ideas into real-world applications.",
+      "Experienced industry-level project presentation and pitching."
+    ]
+  }
 ];
 
 export const videoTools = ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"];
@@ -109,6 +122,14 @@ export const videos = [
     description: "An energetic promotional campaign video utilizing 3D motion graphics, complex masking techniques, and custom sound design to build hype and brand awareness.",
     videoSrc: "https://www.w3schools.com/html/movie.mp4",
     poster: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "brand-reel",
+    title: "COMMERCIAL BRAND REEL",
+    tools: ["Premiere Pro", "After Effects"],
+    description: "Short promotional video showcasing product storytelling and brand visuals with high-end color grading and sound design.",
+    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
+    poster: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800"
   },
 ];
 
@@ -162,23 +183,23 @@ export const photos = [
 
 
 export const figmaProjects = [
-  { 
-    name: "E-Commerce UI Kit", 
+  {
+    name: "E-Commerce UI Kit",
     desc: "Clean, accessible component set for online stores.",
     figmaLink: "https://www.figma.com/proto/ecommerce-ui-kit"
   },
-  { 
-    name: "SaaS Dashboard", 
+  {
+    name: "SaaS Dashboard",
     desc: "Analytics dashboard with dark mode and data viz.",
     figmaLink: "https://www.figma.com/proto/saas-dashboard"
   },
-  { 
-    name: "Mobile App Design", 
+  {
+    name: "Mobile App Design",
     desc: "Flutter app screens designed and prototyped in Figma.",
     figmaLink: "https://www.figma.com/proto/mobile-app-design"
   },
-  { 
-    name: "Portfolio V2 Concept", 
+  {
+    name: "Portfolio V2 Concept",
     desc: "Next iteration of personal portfolio — minimal & bold.",
     figmaLink: "https://www.figma.com/proto/portfolio-v2"
   },

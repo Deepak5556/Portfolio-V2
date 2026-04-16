@@ -1,9 +1,9 @@
 {
-  "/page": "app/page.js",
-  "/certificates/page": "app/certificates/page.js",
-  "/designs/page": "app/designs/page.js",
-  "/media/page": "app/media/page.js",
-  "/media/video/[id]/page": "app/media/video/[id]/page.js",
+  "/software/page": "app/software/page.js",
   "/about/page": "app/about/page.js",
-  "/software/page": "app/software/page.js"
+  "/achievements/[id]/page": "app/achievements/[id]/page.js",
+  "/experience/[id]/page": "app/experience/[id]/page.js",
+  "/icon.png/route": "app/icon.png/route.js",
+  "/page": "app/page.js",
+  "/media/page": "app/media/page.js"
 }

@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import React, { useState, useMemo } from "react";
 import {
@@ -32,6 +32,87 @@ import {
 
 const ITEMS_PER_PAGE = 12;
 
+const VideoCard = React.memo(({ item, index }: { item: any, index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: (index % 4) * 0.1, duration: 0.5 }}
+    >
+      <Card className="group h-full border-border/40 bg-card/40 backdrop-blur-3xl relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 rounded-[2.5rem] flex flex-col">
+        {/* Thumbnail Container */}
+        <div className="relative w-full aspect-[4/3] overflow-hidden border-b border-border/10 bg-muted/20">
+          <Image
+            src={item.poster} 
+            alt={item.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+          
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+             <div className="w-14 h-14 rounded-full bg-primary/20 backdrop-blur-xl border border-primary/40 text-primary flex items-center justify-center shadow-2xl">
+                <Play fill="currentColor" size={20} className="translate-x-0.5" />
+             </div>
+          </div>
+
+          <div className="absolute top-4 right-4 z-20">
+             <Badge className="bg-background/40 backdrop-blur-md border border-white/10 text-foreground font-black text-[7px] uppercase tracking-widest px-2.5 py-1">
+               0{index + 1} / NODE_{item.id.slice(0, 4)}
+             </Badge>
+          </div>
+        </div>
+
+        <CardHeader className="p-7 pb-3 relative z-10 flex-1">
+          <div className="flex items-center gap-3 mb-3">
+             <div className="p-1.5 rounded-lg bg-primary/10 text-primary">
+               <Film size={14} />
+             </div>
+             <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest bg-primary/5 border-none px-2.5 py-1 text-primary">
+                Motion_Archive
+             </Badge>
+          </div>
+          <CardTitle className="text-base font-black group-hover:text-primary transition-colors uppercase italic tracking-tight leading-tight mb-2">
+            {item.title}<span className="text-primary tracking-normal not-italic">.</span>
+          </CardTitle>
+          <CardDescription className="text-[11px] leading-relaxed line-clamp-2 font-medium text-muted-foreground/60">
+            {item.description}
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent className="p-7 pt-0 pb-4 relative z-10">
+           <div className="flex flex-wrap gap-1">
+              {item.tools.slice(0, 3).map((t: string) => (
+                <Badge key={t} className="text-[7px] font-black uppercase tracking-widest px-2 py-0.5 bg-muted/50 text-muted-foreground border border-border/50 rounded-md group-hover:border-primary/30 group-hover:text-primary transition-all">
+                  {t}
+                </Badge>
+              ))}
+           </div>
+        </CardContent>
+
+        <CardFooter className="p-7 pt-4 flex gap-3 mt-auto relative z-10">
+          <Button variant="outline" className="flex-1 h-12 rounded-2xl gap-2 text-[10px] font-black uppercase tracking-widest border-border/60 hover:border-primary/50 group/btn transition-all duration-300 shadow-sm" asChild>
+             <Link href={`/media/video/${item.id}`}>
+                Open Node <Maximize2 size={14} className="group-hover/btn:scale-110 transition-transform" />
+             </Link>
+          </Button>
+          <ShareAction 
+            title={item.title} 
+            url={`/media/video/${item.id}`} 
+            variant="outline"
+            className="h-12 w-12 border-border/60 hover:border-primary/50 rounded-2xl bg-card/40 backdrop-blur-xl group-hover:bg-primary/5 transition-all"
+            iconOnly={true}
+          />
+        </CardFooter>
+      </Card>
+    </motion.div>
+  );
+});
+
+VideoCard.displayName = "VideoCard";
+
 const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: number, onClick: () => void }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -43,11 +124,11 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
       transition={{ delay: (index % 4) * 0.1, duration: 0.5 }}
     >
       <Card 
-        className="group h-full border-white/5 bg-zinc-900/10 backdrop-blur-3xl relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_rgba(var(--primary),0.1)] rounded-[2.5rem] flex flex-col cursor-pointer"
+        className="group h-full border-border/40 bg-card/40 backdrop-blur-3xl relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 rounded-[2.5rem] flex flex-col cursor-pointer"
         onClick={onClick}
       >
         {/* Image Container */}
-        <div className="relative w-full aspect-[4/3] overflow-hidden border-b border-white/5 bg-zinc-900/40">
+        <div className="relative w-full aspect-[4/3] overflow-hidden border-b border-border/10 bg-muted/20">
           <Image
             src={item.images[0]} 
             alt={item.title}
@@ -73,7 +154,7 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
           </div>
 
           <div className="absolute top-4 right-4 z-20">
-             <Badge className="bg-black/60 backdrop-blur-xl border border-white/10 text-white/60 font-black text-[7px] uppercase tracking-widest px-2.5 py-1">
+             <Badge className="bg-background/40 backdrop-blur-md border border-white/10 text-foreground font-black text-[7px] uppercase tracking-widest px-2.5 py-1">
                0{index + 1} / REF_{item.id.slice(0, 4)}
              </Badge>
           </div>
@@ -85,26 +166,39 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
                <Camera size={14} />
              </div>
              <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest bg-orange-500/5 border-none px-2.5 py-1 text-orange-500/80">
-                Frame_Module
+                Frame_Archive
              </Badge>
           </div>
           <CardTitle className="text-base font-black group-hover:text-primary transition-colors uppercase italic tracking-tight leading-tight mb-2">
             {item.title}<span className="text-orange-500 tracking-normal not-italic">.</span>
           </CardTitle>
-          <CardDescription className="text-[11px] leading-relaxed line-clamp-2 font-medium text-muted-foreground/50">
+          <CardDescription className="text-[11px] leading-relaxed line-clamp-2 font-medium text-muted-foreground/60">
             {item.description}
           </CardDescription>
         </CardHeader>
 
         <CardContent className="p-7 pt-0 pb-4 relative z-10">
            <div className="flex flex-wrap gap-1">
-              {photoTools.slice(0, 3).map(t => (
-                <Badge key={t} className="text-[7px] font-black uppercase tracking-widest px-2 py-0.5 bg-white/5 text-white/20 border border-white/5 rounded-md group-hover:border-primary/30 group-hover:text-primary/60 transition-all">
+              {item.tools.slice(0, 3).map((t: string) => (
+                <Badge key={t} className="text-[7px] font-black uppercase tracking-widest px-2 py-0.5 bg-muted/50 text-muted-foreground border border-border/50 rounded-md group-hover:border-orange-500/30 group-hover:text-orange-500 transition-all">
                   {t}
                 </Badge>
               ))}
            </div>
         </CardContent>
+
+        <CardFooter className="p-7 pt-4 flex gap-3 mt-auto relative z-10">
+          <Button variant="outline" className="flex-1 h-12 rounded-2xl gap-2 text-[10px] font-black uppercase tracking-widest border-border/60 hover:border-orange-500/50 group/btn transition-all duration-300 shadow-sm">
+             Open Frame <Maximize2 size={14} className="group-hover/btn:scale-110 transition-transform" />
+          </Button>
+          <ShareAction 
+            title={item.title} 
+            url="#" 
+            variant="outline"
+            className="h-12 w-12 border-border/60 hover:border-orange-500/50 rounded-2xl bg-card/40 backdrop-blur-xl group-hover:bg-orange-500/5 transition-all"
+            iconOnly={true}
+          />
+        </CardFooter>
       </Card>
     </motion.div>
   );
@@ -197,7 +291,7 @@ export default function MediaPage() {
 
           {/* Premium Tab Switcher */}
           <div className="mt-16 flex justify-center sticky top-20 z-50 px-4">
-            <div className="flex p-1.5 bg-card/40 backdrop-blur-2xl border border-white/5 rounded-[2rem] shadow-2xl shadow-black/20">
+            <div className="flex p-1.5 bg-card/40 backdrop-blur-2xl border border-border/40 rounded-[2rem] shadow-2xl shadow-black/20">
               {[
                 { id: "video", label: "Showreels", icon: Film, desc: "Motion Design" },
                 { id: "photo", label: "Galleria", icon: Camera, desc: "Still Vision" }
@@ -236,82 +330,13 @@ export default function MediaPage() {
               className="space-y-32"
             >
               {/* ── VIDEO SHOWCASE REFINED (UNIFIED GRID) ── */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 md:px-0 mt-20">
-                {videoItems.map((v, i) => (
-                  <motion.div
-                    key={v.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Card className="group h-full border-border/40 bg-card/30 backdrop-blur-3xl relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 rounded-[2rem] flex flex-col">
-                      {/* Image Container */}
-                      <div className="relative w-full aspect-video overflow-hidden border-b border-border/10">
-                        <Image
-                          src={v.poster} 
-                          alt={v.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-                        
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                           <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-xl border border-primary/40 text-white flex items-center justify-center shadow-2xl">
-                              <Play fill="currentColor" size={24} className="translate-x-1" />
-                           </div>
-                        </div>
-
-                        <div className="absolute top-3 right-3 z-20">
-                           <Badge className="bg-background/40 backdrop-blur-md border border-white/10 text-white font-black text-[8px] uppercase tracking-widest">
-                             Node 0{i+1}
-                           </Badge>
-                        </div>
-                      </div>
-
-                      <CardHeader className="p-8 pb-3 relative z-10 flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                           <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                             <Film size={16} />
-                           </div>
-                           <Badge variant="outline" className="text-[9px] font-black uppercase tracking-widest bg-primary/5 border-none px-2.5 py-1 text-primary">
-                              Video Archive
-                           </Badge>
-                        </div>
-                        <CardTitle className="text-lg sm:text-xl font-black group-hover:text-primary transition-colors uppercase italic tracking-tight leading-none mb-1">
-                          {v.title}<span className="text-primary tracking-normal not-italic">.</span>
-                        </CardTitle>
-                        <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 font-medium text-muted-foreground/60">
-                          {v.description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardContent className="p-8 pb-4 pt-0 relative z-10">
-                         <div className="flex flex-wrap gap-1.5">
-                            {v.tools.slice(0, 3).map(t => (
-                              <Badge key={t} variant="secondary" className="text-[8px] font-black uppercase tracking-widest px-2.5 py-1 bg-muted/30 text-muted-foreground border-none group-hover:bg-primary/5 group-hover:text-primary transition-all">
-                                {t}
-                              </Badge>
-                            ))}
-                         </div>
-                      </CardContent>
-
-                      <CardFooter className="p-8 pt-4 flex gap-3 mt-auto relative z-10">
-                        <Button variant="outline" className="flex-1 h-12 rounded-2xl gap-2 text-[10px] font-black uppercase tracking-widest border-border/60 hover:border-primary/50 group/btn transition-all duration-300 shadow-sm" asChild>
-                           <Link href={`/media/video/${v.id}`}>
-                              Open Node <Maximize2 size={14} className="group-hover/btn:scale-110 transition-transform" />
-                           </Link>
-                        </Button>
-                        <ShareAction 
-                          title={v.title} 
-                          url={`/media/video/${v.id}`} 
-                          variant="outline"
-                          className="h-12 w-12 border-border/60 hover:border-primary/50 rounded-2xl bg-card/40 backdrop-blur-xl group-hover:bg-primary/5 transition-all"
-                          iconOnly={true}
-                        />
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto px-4 md:px-0 mt-20">
+                {videoItems.map((item, i) => (
+                  <VideoCard 
+                    key={item.id} 
+                    item={item} 
+                    index={i} 
+                  />
                 ))}
               </div>
 
@@ -332,7 +357,7 @@ export default function MediaPage() {
             >
 
               {/* ── PHOTOGRAPHY (UNIFIED GRID) ── */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-0 max-w-[1400px] mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto px-4 md:px-0">
                 {photoItems.map((item, i) => (
                   <PhotoCard 
                     key={item.id} 
@@ -356,29 +381,29 @@ export default function MediaPage() {
       {/* ── LIGHTBOX MODAL ── */}
       <Dialog open={!!selectedPhoto} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
         <DialogContent className="max-w-[100vw] w-full h-[100dvh] p-0 bg-transparent border-none overflow-hidden select-none outline-none flex items-center justify-center sm:p-4 lg:p-12 z-[100]">
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" onClick={() => setSelectedPhoto(null)} />
+            <div className="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-xl" onClick={() => setSelectedPhoto(null)} />
             
-            <div className="relative flex flex-col lg:flex-row w-full max-w-7xl h-full lg:h-[85vh] bg-zinc-950 border border-white/10 rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl z-10 transition-all duration-300">
+            <div className="relative flex flex-col lg:flex-row w-full max-w-7xl h-full lg:h-[85vh] bg-background border border-border/40 rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl z-10 transition-all duration-300">
                
                {/* Close Button (Absolute Mobile) */}
                <Button 
                  variant="ghost" 
                  size="icon" 
                  onClick={() => setSelectedPhoto(null)} 
-                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 border border-white/10 text-white hover:bg-primary transition-all z-[60] lg:hidden"
+                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/50 border border-border/40 text-foreground hover:bg-destructive/10 hover:text-destructive transition-all z-[60] lg:hidden"
                >
                  <X size={18} />
                </Button>
 
                {/* ── LEFT SIDE: MEDIA PREVIEW (65%) ── */}
-               <div className="lg:w-[65%] h-[45vh] sm:h-[55vh] lg:h-full relative group bg-black overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+               <div className="lg:w-[65%] h-[40vh] sm:h-[50vh] lg:h-full relative group bg-muted/20 overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-border/10">
                   {/* Performance-friendly background blur */}
-                  <div className="absolute inset-0 z-0 opacity-20 hidden lg:block">
+                  <div className="absolute inset-0 z-0 opacity-10 hidden lg:block">
                     <Image 
                       src={selectedPhoto?.images[activeImageIdx]} 
                       alt="" 
                       fill 
-                      className="object-cover blur-[80px] scale-110"
+                      className="object-cover blur-[100px] scale-110"
                     />
                   </div>
 
@@ -407,14 +432,14 @@ export default function MediaPage() {
                     <>
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === 0 ? selectedPhoto.images.length - 1 : prev - 1)); }}
-                         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50]"
+                         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/60 backdrop-blur-md border border-border/40 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all z-[50]"
                          aria-label="Previous Image"
                        >
                          <ChevronLeft size={20} />
                        </button>
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === selectedPhoto.images.length - 1 ? 0 : prev + 1)); }}
-                         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-all z-[50]"
+                         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/60 backdrop-blur-md border border-border/40 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all z-[50]"
                          aria-label="Next Image"
                        >
                          <ChevronRight size={20} />
@@ -422,34 +447,24 @@ export default function MediaPage() {
                     </>
                   )}
                   
-                  {/* Download HD Overlay */}
-                  <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-[50]">
-                    <Button 
-                      onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
-                      className="gap-2 bg-black/40 backdrop-blur-xl border border-white/10 text-white h-10 px-4 rounded-full font-black text-[9px] uppercase tracking-widest hover:bg-primary hover:border-primary transition-all"
-                    >
-                      <Download size={14} /> Download HD
-                    </Button>
-                  </div>
-
                   {/* Indicators */}
                   <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 z-20">
-                     <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-white/50">
+                     <div className="px-4 py-1.5 rounded-full bg-background/60 backdrop-blur-md border border-border/40 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">
                         {activeImageIdx + 1} / {selectedPhoto?.images.length} • SEQUENCE
                      </div>
                   </div>
                </div>
 
                {/* ── RIGHT SIDE: INFO PANEL (35%) ── */}
-               <div className="lg:w-[35%] flex flex-col h-full bg-zinc-950/40 backdrop-blur-3xl overflow-hidden">
+               <div className="lg:w-[35%] flex flex-col h-full bg-card/60 backdrop-blur-3xl overflow-hidden">
                   <div className="flex-1 overflow-y-auto scrollbar-hide px-8 py-10 sm:p-12 space-y-10">
                      {/* Header Section */}
                      <div className="space-y-4">
-                        <SectionLabel className="text-primary/60">Creative Asset Analysis</SectionLabel>
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black italic uppercase tracking-tighter leading-[0.9]">
-                           {selectedPhoto?.title}<span className="text-primary not-italic">.</span>
+                        <SectionLabel className="text-primary">Creative Asset Analysis</SectionLabel>
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black italic uppercase tracking-tighter leading-[0.9] text-foreground">
+                           {selectedPhoto?.title}<span className="text-orange-500 not-italic">.</span>
                         </h2>
-                        <div className="flex items-center gap-3 text-muted-foreground/60 transition-colors hover:text-primary/60">
+                        <div className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground">
                            <MapPin size={14} />
                            <span className="text-[10px] font-black uppercase tracking-[0.4em]">
                               {selectedPhoto?.location || "Global Creative Lab"}
@@ -459,18 +474,18 @@ export default function MediaPage() {
 
                      {/* Detail Section */}
                      <div className="space-y-5">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20 flex items-center gap-4">
-                           <Info size={14} /> Description <div className="h-px bg-white/5 flex-1" />
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/40 flex items-center gap-4">
+                           <Info size={14} /> Description <div className="h-px bg-border/40 flex-1" />
                         </h4>
-                        <p className="text-sm sm:text-base text-muted-foreground/80 font-medium leading-relaxed italic border-l-2 border-primary/20 pl-6">
+                        <p className="text-sm sm:text-base text-muted-foreground font-medium leading-relaxed italic border-l-2 border-orange-500/20 pl-6">
                            {selectedPhoto?.description}
                         </p>
                      </div>
 
                      {/* Matrix (Thumbnail Grid) */}
                      <div className="space-y-6">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20 flex items-center gap-4">
-                           <Layers size={14} /> Perspective Matrix <div className="h-px bg-white/5 flex-1" />
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/40 flex items-center gap-4">
+                           <Layers size={14} /> Perspective Matrix <div className="h-px bg-border/40 flex-1" />
                         </h4>
                         <div className="grid grid-cols-4 gap-3 sm:gap-4">
                            {selectedPhoto?.images.map((img: string, idx: number) => (
@@ -480,12 +495,12 @@ export default function MediaPage() {
                                 className={cn(
                                   "aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300 relative group/thumb",
                                   activeImageIdx === idx 
-                                    ? "border-primary ring-4 ring-primary/10 opacity-100 shadow-[0_0_20px_rgba(var(--primary),0.2)]" 
-                                    : "border-white/5 opacity-40 hover:opacity-100 hover:border-white/20"
+                                    ? "border-orange-500 ring-4 ring-orange-500/10 opacity-100 shadow-xl" 
+                                    : "border-border/40 opacity-40 hover:opacity-100 hover:border-border"
                                 )}
                               >
                                  <Image src={img} alt="" fill className="object-cover" />
-                                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity" />
+                                 <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover/thumb:opacity-100 transition-opacity" />
                               </button>
                            ))}
                         </div>
@@ -493,23 +508,23 @@ export default function MediaPage() {
                   </div>
 
                   {/* Actions Section */}
-                  <div className="p-8 sm:p-10 border-t border-white/5 bg-black/60 shadow-2xl space-y-4">
+                  <div className="p-8 sm:p-10 border-t border-border/40 bg-muted/20 space-y-4">
                      <Button 
                        onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
                        size="lg" 
-                       className="w-full gap-3 font-black text-[10px] uppercase tracking-widest h-14 rounded-2xl shadow-xl shadow-primary/20 hover:translate-y-[-2px] transition-all"
+                       className="w-full gap-3 font-black text-[10px] uppercase tracking-widest h-14 rounded-2xl shadow-xl shadow-orange-500/20 bg-orange-500 text-white hover:bg-orange-600 transition-all"
                      >
-                        <Download size={18} /> High-Resolution Archive
+                        <Download size={18} /> Download HD
                      </Button>
                      <div className="flex gap-4">
-                        <Button variant="outline" size="lg" className="flex-1 h-14 rounded-2xl border-white/10 hover:bg-white/5 transition-all text-[10px] font-black uppercase tracking-widest">
+                        <Button variant="outline" size="lg" className="flex-1 h-14 rounded-2xl border-border hover:bg-muted transition-all text-[10px] font-black uppercase tracking-widest text-foreground">
                            <ShareAction title={selectedPhoto?.title} url="#" variant="ghost" iconOnly={false} className="w-full h-full p-0 border-none justify-center font-black gap-2" />
                         </Button>
                         <Button 
                           variant="outline" 
                           size="icon"
                           onClick={() => setSelectedPhoto(null)}
-                          className="w-14 h-14 rounded-2xl border-white/10 hover:bg-destructive/10 hover:border-destructive/20 hover:text-destructive transition-all hidden lg:flex items-center justify-center shrink-0"
+                          className="w-14 h-14 rounded-2xl border-border hover:bg-destructive/10 hover:border-destructive hover:text-destructive transition-all hidden lg:flex items-center justify-center shrink-0 text-foreground"
                         >
                            <X size={20} />
                         </Button>

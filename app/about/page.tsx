@@ -8,7 +8,7 @@ import {
   TabletSmartphone, Palette, Code2, Sparkles, Layout
 } from "lucide-react";
 import { SectionLabel } from "@/components/Shared";
-import { profile, education, workExperience, internships, certifications } from "@/lib/data";
+import { profile, education, workExperience, internships, certifications, achievements } from "@/lib/data";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -195,6 +195,43 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{edu.description}</p>
               </CardContent>
             </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Achievements ─── */}
+      <section className="scroll-mt-20">
+        <div className="mb-6 sm:mb-8">
+          <SectionLabel>Technical</SectionLabel>
+          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+            Achievements<span className="text-orange-500 not-italic">.</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {achievements.map((a, i) => (
+            <Link key={i} href={`/achievements/${a.id}`} className="block">
+              <Card className="card-hover flex flex-col h-full cursor-pointer border-border/40 hover:border-primary/30 transition-all duration-500">
+                <CardHeader className="pb-2 px-4 sm:px-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <Badge variant="secondary" className="text-[10px]">Award</Badge>
+                    <span className="text-[10px] text-muted-foreground">{a.year}</span>
+                  </div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Award size={18} />
+                    </div>
+                    <CardTitle className="text-sm sm:text-base">{a.event}</CardTitle>
+                  </div>
+                  <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{a.org}</CardDescription>
+                </CardHeader>
+                <CardContent className="px-4 sm:px-6 flex-1 flex flex-col pt-2">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{a.desc}</p>
+                  <div className="flex items-center gap-1.5 text-xs text-primary font-black uppercase tracking-wider">
+                    View Impact <ArrowRight size={12} />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

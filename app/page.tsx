@@ -9,12 +9,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
-  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail,
-  Github, Linkedin, Twitter, Instagram, Link as LinkIcon
+  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail, 
+  Github, Linkedin, Twitter, Instagram, Link as LinkIcon, Award
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { profile, techStack, projects } from "@/lib/data";
+import { profile, techStack, projects, achievements } from "@/lib/data";
 import { SectionLabel, Pill } from "@/components/Shared";
 import { RoleCarousel } from "@/components/RoleCarousel";
 import { ShareAction } from "@/components/ShareAction";
@@ -158,6 +158,37 @@ export default function Home() {
           {/* Core Expertise Visualizer */}
           <div className="col-span-full">
             <AnimatedBeamDemo />
+          </div>
+
+          {/* Technical Recognition & Contributions */}
+          <div className="col-span-full mt-4">
+             <div className="mb-8">
+                <SectionLabel>Recognition</SectionLabel>
+                <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
+                  Technical Awards<span className="text-orange-500 not-italic">.</span>
+                </h2>
+             </div>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+               {achievements.map((a, i) => (
+                 <Link key={i} href={`/achievements/${a.id}`}>
+                   <Card className="card-hover cursor-pointer h-full border-border/40 bg-card/40 backdrop-blur-sm group overflow-hidden rounded-[2.5rem] p-8 transition-all hover:bg-card/60">
+                       <div className="flex items-center gap-5">
+                         <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform shadow-lg shadow-primary/5 border border-primary/20">
+                           <Award size={24} />
+                         </div>
+                         <div>
+                           <h4 className="text-xl font-black tracking-tight group-hover:text-primary transition-colors">{a.event}<span className="text-orange-500">.</span></h4>
+                           <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest mt-1">{a.org} • {a.year}</p>
+                         </div>
+                       </div>
+                       <p className="text-sm text-muted-foreground/80 leading-relaxed font-medium mt-6">{a.desc}</p>
+                       <div className="mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                          Explore Details <ArrowRight size={14} />
+                       </div>
+                   </Card>
+                 </Link>
+               ))}
+             </div>
           </div>
 
           {/* ── FULL-WIDTH SKILLS ARCHITECTURE ── */}

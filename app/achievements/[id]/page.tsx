@@ -56,15 +56,23 @@ export default function AchievementDetailsPage({ params }: { params: { id: strin
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">Details & Impact</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Winning this award was a significant milestone in my development journey. It involved presenting a complex technical solution to a panel of experts and demonstrating both coding proficiency and problem-solving skills.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              The project showcased my ability to work under pressure, collaborate with team members (if applicable), and deliver a polished product within a competitive timeframe.
-            </p>
-          </div>
+          {achievement.details && (
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold">Details & Impact</h2>
+              <ul className="space-y-4">
+                {(achievement as any).details.map((detail: string, idx: number) => (
+                  <li key={idx} className="flex gap-4">
+                    <div className="shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed font-medium">
+                      {detail}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="space-y-6">
