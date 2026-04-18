@@ -86,20 +86,20 @@ export const AnimatedBeamDemo = React.memo(function AnimatedBeamDemo() {
             <Palette size={32} className="text-pink-500" />
           </Circle>
           <Circle ref={div4Ref} label="Deepakkumar" labelPosition="bottom" href="/contact" className="size-20 sm:size-24 bg-card border-primary/50 overflow-hidden p-0 shadow-lg shadow-primary/20 hover:scale-110 transition-transform z-20">
-             <Avatar className="size-full">
-               <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" />
-               <AvatarFallback className="text-xl font-bold">{profile.initials}</AvatarFallback>
-             </Avatar>
+            <Avatar className="size-full">
+              <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" />
+              <AvatarFallback className="text-xl font-bold">{profile.initials}</AvatarFallback>
+            </Avatar>
           </Circle>
-          <Circle ref={div6Ref} label="Visual Art" labelPosition="right" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div6Ref} label="Photography" labelPosition="right" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Film size={32} className="text-purple-500" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref} label="Engineering" labelPosition="bottom" href="/software" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div3Ref} label="Coding" labelPosition="bottom" href="/software" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Code2 size={32} className="text-orange-500" />
           </Circle>
-          <Circle ref={div7Ref} label="Visual Art" labelPosition="bottom" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
+          <Circle ref={div7Ref} label="Videography" labelPosition="bottom" href="/media" className="bg-card border-primary/20 hover:scale-110 transition-transform">
             <Camera size={32} className="text-yellow-500" />
           </Circle>
         </div>

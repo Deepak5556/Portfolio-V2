@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
-  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail, 
+  Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail,
   Github, Linkedin, Twitter, Instagram, Link as LinkIcon, Award
 } from "lucide-react";
 import Link from "next/link";
@@ -38,31 +38,33 @@ export default function Home() {
 
           {/* Profile card */}
           <Card className="md:col-span-2 lg:col-span-5 card-hover animate-fade-up delay-100 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden group flex flex-col">
-            <CardHeader className="pb-3 px-4 sm:px-6 pt-6 sm:pt-8 text-center sm:text-left">
-              <div className="mb-4 flex justify-center sm:justify-start">
+            <CardHeader className="pb-3 px-3 md:px-6 pt-6 md:pt-8 text-center md:text-left">
+              <div className="mb-4 flex justify-center md:justify-start">
                 <Avatar className="h-16 w-16 sm:h-20 sm:w-20 ring-4 ring-primary/5 ring-offset-4 ring-offset-card shadow-xl transition-transform hover:scale-105 duration-500">
                   <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" fetchPriority="high" />
                   <AvatarFallback className="text-lg sm:text-xl font-bold uppercase">{profile.initials}</AvatarFallback>
                 </Avatar>
               </div>
-              <div className="inline-flex items-center gap-1.5 w-fit mb-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-sm self-center sm:self-start">
+              <div className="inline-flex items-center gap-1.5 w-fit mb-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-sm self-center md:self-start">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">Open for work</span>
               </div>
               <CardTitle className="text-2xl sm:text-3xl font-black tracking-tight mb-1">
                 {profile.name}<span className="text-orange-500">.</span>
               </CardTitle>
-              <RoleCarousel className="text-sm font-bold text-muted-foreground/80" />
+              <div className="flex justify-center md:justify-start">
+                <RoleCarousel className="text-sm font-bold text-muted-foreground/80" />
+              </div>
             </CardHeader>
-            <CardContent className="px-4 sm:px-6 flex-1">
+            <CardContent className="px-3 md:px-6 flex-1 text-center md:text-left">
               <CardDescription className="leading-relaxed text-xs sm:text-sm mb-4">{profile.tagline}</CardDescription>
-              
-              <p className="text-xs sm:text-sm text-muted-foreground/80 font-medium leading-relaxed mb-6 text-center sm:text-left">
+
+              <p className="text-xs sm:text-sm text-muted-foreground/80 font-medium leading-relaxed mb-6">
                 Quick learner and focused on perfection, dedicated to building high-quality digital experiences.
               </p>
 
               {/* Social Icons Print Area */}
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
                 {[
                   { icon: Github, href: profile.github, label: "GitHub" },
                   { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
@@ -87,7 +89,7 @@ export default function Home() {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 px-4 sm:px-6 pb-6 sm:pb-8">
+            <CardFooter className="flex flex-col md:flex-row items-stretch md:items-center gap-3 pt-4 px-3 md:px-6 pb-6 md:pb-8">
               <Button size="lg" asChild className="flex-1 hover:translate-y-[-2px] transition-all">
                 <Link href="/software">
                   View Projects <ArrowRight size={18} />
@@ -103,18 +105,18 @@ export default function Home() {
 
           {/* About card */}
           <Card className="md:col-span-2 lg:col-span-7 card-hover animate-fade-up delay-200 border-border/50 bg-card/60 backdrop-blur-xl overflow-hidden relative group flex flex-col">
-            <CardHeader className="px-4 sm:px-6 pt-6 sm:pt-8 relative z-10">
+            <CardHeader className="px-3 md:px-6 pt-6 md:pt-8 relative z-10">
               <div className="flex items-center justify-between">
                 <div>
                   <SectionLabel>About</SectionLabel>
                   <CardTitle className="text-xl sm:text-2xl font-black mt-2">Deep-dive into my background<span className="text-orange-500">.</span></CardTitle>
                 </div>
-                <Button variant="outline" size="sm" asChild className="hidden sm:flex">
+                <Button variant="outline" size="sm" asChild className="hidden md:flex">
                   <Link href="/about">Learn More <ArrowRight size={14} /></Link>
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4 px-4 sm:px-6 flex-1">
+            <CardContent className="space-y-4 px-3 md:px-6 flex-1">
               <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
                 I’m Deepakkumar V — a full stack developer, mobile app developer, and UI/UX designer who’s also deeply into visual creativity.
               </p>
@@ -142,10 +144,10 @@ export default function Home() {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap-8 text-xs sm:text-sm font-black text-muted-foreground uppercase tracking-widest border-t border-border/50 pt-4 sm:pt-6 px-4 sm:px-6 pb-6 sm:pb-8">
+            <CardFooter className="grid grid-cols-2 md:flex items-center gap-4 md:gap-8 text-xs sm:text-sm font-black text-muted-foreground uppercase tracking-widest border-t border-border/50 pt-4 md:pt-6 px-3 md:px-6 pb-6 md:pb-8">
               <span className="flex items-center gap-2.5 transition-colors hover:text-foreground"><Code2 size={16} className="text-primary" />Full Stack</span>
               <span className="flex items-center gap-3 transition-colors hover:text-foreground"><Smartphone size={16} className="text-primary" />Mobile Dev</span>
-              <span className="flex items-center gap-3 transition-colors hover:text-foreground col-span-2 sm:col-auto"><MapPin size={16} className="text-primary" />{profile.location}</span>
+              <span className="flex items-center gap-3 transition-colors hover:text-foreground col-span-2 md:col-auto"><MapPin size={16} className="text-primary" />{profile.location}</span>
             </CardFooter>
           </Card>
 
@@ -162,33 +164,33 @@ export default function Home() {
 
           {/* Technical Recognition & Contributions */}
           <div className="col-span-full mt-4">
-             <div className="mb-8">
-                <SectionLabel>Recognition</SectionLabel>
-                <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
-                  Technical Awards<span className="text-orange-500 not-italic">.</span>
-                </h2>
-             </div>
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-               {achievements.map((a, i) => (
-                 <Link key={i} href={`/achievements/${a.id}`}>
-                   <Card className="card-hover cursor-pointer h-full border-border/40 bg-card/40 backdrop-blur-sm group overflow-hidden rounded-[2.5rem] p-8 transition-all hover:bg-card/60">
-                       <div className="flex items-center gap-5">
-                         <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform shadow-lg shadow-primary/5 border border-primary/20">
-                           <Award size={24} />
-                         </div>
-                         <div>
-                           <h4 className="text-xl font-black tracking-tight group-hover:text-primary transition-colors">{a.event}<span className="text-orange-500">.</span></h4>
-                           <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest mt-1">{a.org} • {a.year}</p>
-                         </div>
-                       </div>
-                       <p className="text-sm text-muted-foreground/80 leading-relaxed font-medium mt-6">{a.desc}</p>
-                       <div className="mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
-                          Explore Details <ArrowRight size={14} />
-                       </div>
-                   </Card>
-                 </Link>
-               ))}
-             </div>
+            <div className="mb-8">
+              <SectionLabel>Recognition</SectionLabel>
+              <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight leading-none mt-2">
+                Technical Awards<span className="text-orange-500 not-italic">.</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {achievements.map((a, i) => (
+                <Link key={i} href={`/achievements/${a.id}`}>
+                  <Card className="card-hover cursor-pointer h-full border-border/40 bg-card/40 backdrop-blur-sm group overflow-hidden rounded-[2.5rem] p-8 transition-all hover:bg-card/60">
+                    <div className="flex items-center gap-5">
+                      <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:scale-110 transition-transform shadow-lg shadow-primary/5 border border-primary/20">
+                        <Award size={24} />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-black tracking-tight group-hover:text-primary transition-colors">{a.event}<span className="text-orange-500">.</span></h4>
+                        <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest mt-1">{a.org} • {a.year}</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground/80 leading-relaxed font-medium mt-6">{a.desc}</p>
+                    <div className="mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                      Explore Details <ArrowRight size={14} />
+                    </div>
+                  </Card>
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* ── FULL-WIDTH SKILLS ARCHITECTURE ── */}
@@ -307,9 +309,6 @@ export default function Home() {
           <div className="col-span-full">
             <BentoSection />
           </div>
-
-
-
 
           <div className="col-span-full">
             <PartnersSection />

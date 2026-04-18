@@ -135,50 +135,15 @@ export const videos = [
 
 export const photos = [
   {
-    id: "event-poster",
-    title: "Event Poster",
-    tools: ["Photoshop", "Lightroom", "Canva"],
-    location: "Coimbatore, TN",
-    description: "A professional event poster designed for a technical symposium, focusing on typography and minimalist layout.",
+    id: "creative-asset-analysis",
+    title: "Creative Asset Analysis",
+    tools: ["Event Photography"],
+    location: "Karpagam College of Engineering",
+    description: "Captured a powerful stage performance at Dhruva 2026, a college cultural event, featuring a traditional dance ensemble. The composition highlights symmetry, expressive poses, and dramatic lighting. Post-processing includes color grading, contrast balancing, and lighting enhancement to emphasize mood and stage presence while preserving natural skin tones and costume details.",
     images: [
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1542744173-8e7e5381bb04?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800"
+      "/Dhruva2026.webp"
     ]
-  },
-  {
-    id: "photo-retouch",
-    title: "Photo Retouch",
-    tools: ["Photoshop", "Snapseed"],
-    location: "Creative Studio",
-    description: "High-end portrait retouching including skin cleanup, color correction, and lighting enhancements.",
-    images: [
-      "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&q=80&w=800"
-    ]
-  },
-  {
-    id: "social-banner",
-    title: "Social Banner",
-    tools: ["Canva", "Photoshop"],
-    location: "Digital Lab",
-    description: "Custom social media banners for YouTube and LinkedIn that align with personal branding guidelines.",
-    images: [
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=800"
-    ]
-  },
-  {
-    id: "before-after",
-    title: "Before / After Edit",
-    tools: ["Lightroom", "Photoshop"],
-    location: "Karpagam Campus",
-    description: "A comparison showcase of raw footage vs the final color-graded and edited output.",
-    images: [
-      "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1574717024453-354056afd6fc?auto=format&fit=crop&q=80&w=800"
-    ]
-  },
+  }
 ];
 
 

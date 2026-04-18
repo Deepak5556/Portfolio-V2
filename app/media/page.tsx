@@ -380,154 +380,133 @@ export default function MediaPage() {
 
       {/* ── LIGHTBOX MODAL ── */}
       <Dialog open={!!selectedPhoto} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
-        <DialogContent className="max-w-[100vw] w-full h-[100dvh] p-0 bg-transparent border-none overflow-hidden select-none outline-none flex items-center justify-center sm:p-4 lg:p-12 z-[100]">
-            <div className="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-xl" onClick={() => setSelectedPhoto(null)} />
-            
-            <div className="relative flex flex-col lg:flex-row w-full max-w-7xl h-full lg:h-[85vh] bg-background border border-border/40 rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl z-10 transition-all duration-300">
-               
-               {/* Close Button (Absolute Mobile) */}
-               <Button 
-                 variant="ghost" 
-                 size="icon" 
-                 onClick={() => setSelectedPhoto(null)} 
-                 className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/50 border border-border/40 text-foreground hover:bg-destructive/10 hover:text-destructive transition-all z-[60] lg:hidden"
-               >
-                 <X size={18} />
-               </Button>
+         <DialogContent className="w-[95vw] sm:w-[90vw] lg:max-w-[1100px] !max-w-none h-auto max-h-[90vh] flex flex-col p-4 sm:p-6 lg:p-8 bg-card/95 backdrop-blur-3xl border border-border/50 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-[100] gap-0 outline-none overflow-hidden">
+            <DialogTitle className="sr-only">{selectedPhoto?.title || "Photo"}</DialogTitle>
+
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 flex-1 min-h-0 overflow-y-auto overflow-x-hidden scrollbar-hide mt-4 sm:mt-2 lg:mt-0">
 
                {/* ── LEFT SIDE: MEDIA PREVIEW (65%) ── */}
-               <div className="lg:w-[65%] h-[40vh] sm:h-[50vh] lg:h-full relative group bg-muted/20 overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-border/10">
-                  {/* Performance-friendly background blur */}
-                  <div className="absolute inset-0 z-0 opacity-10 hidden lg:block">
-                    <Image 
-                      src={selectedPhoto?.images[activeImageIdx]} 
-                      alt="" 
-                      fill 
-                      className="object-cover blur-[100px] scale-110"
-                    />
-                  </div>
-
+               <div className="flex-[1.2] shrink-0 min-h-[40vh] lg:min-h-0 relative group bg-muted/20 border border-border/30 rounded-[20px] overflow-hidden flex flex-col justify-center">
+                  
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={activeImageIdx}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="relative z-10 w-full h-full flex items-center justify-center"
+                      transition={{ duration: 0.3 }}
+                      className="relative z-10 w-full h-[40vh] lg:h-full flex items-center justify-center p-4 lg:p-8"
                     >
                       <Image 
                         src={selectedPhoto?.images[activeImageIdx]} 
                         alt="Preview" 
                         fill 
-                        className="object-contain p-4 sm:p-10 lg:p-14"
+                        className="object-contain rounded-[14px]"
                         priority
                         quality={95}
                       />
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Navigation Arrows - Simplified & Stable */}
+                  {/* Navigation Arrows - Kept within the image container, vertically centered, not overlapping borders */}
                   {selectedPhoto?.images.length > 1 && (
-                    <>
+                    <div className="absolute inset-y-0 left-0 right-0 z-[50] flex items-center justify-between px-3 sm:px-4 pointer-events-none">
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === 0 ? selectedPhoto.images.length - 1 : prev - 1)); }}
-                         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/60 backdrop-blur-md border border-border/40 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all z-[50]"
+                         className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-background/70 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-md"
                          aria-label="Previous Image"
                        >
                          <ChevronLeft size={20} />
                        </button>
                        <button 
                          onClick={(e) => { e.stopPropagation(); setActiveImageIdx(prev => (prev === selectedPhoto.images.length - 1 ? 0 : prev + 1)); }}
-                         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/60 backdrop-blur-md border border-border/40 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all z-[50]"
+                         className="pointer-events-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-background/70 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-md"
                          aria-label="Next Image"
                        >
                          <ChevronRight size={20} />
                        </button>
-                    </>
+                    </div>
                   )}
                   
                   {/* Indicators */}
-                  <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 z-20">
-                     <div className="px-4 py-1.5 rounded-full bg-background/60 backdrop-blur-md border border-border/40 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">
-                        {activeImageIdx + 1} / {selectedPhoto?.images.length} • SEQUENCE
+                  <div className="absolute bottom-4 inset-x-0 mx-auto w-max z-20">
+                     <div className="px-3.5 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-border/50 text-[10px] font-black uppercase tracking-[0.2em] text-foreground shadow-sm">
+                        {activeImageIdx + 1} / {selectedPhoto?.images.length}
                      </div>
                   </div>
                </div>
 
-               {/* ── RIGHT SIDE: INFO PANEL (35%) ── */}
-               <div className="lg:w-[35%] flex flex-col h-full bg-card/60 backdrop-blur-3xl overflow-hidden">
-                  <div className="flex-1 overflow-y-auto scrollbar-hide px-8 py-10 sm:p-12 space-y-10">
+               {/* ── RIGHT SIDE: INFO PANEL (flex: 1) ── */}
+               <div className="flex-1 flex flex-col min-h-0 bg-transparent rounded-[20px] relative overflow-hidden">
+                  <div className="flex flex-col gap-6 sm:gap-7 pb-2 w-full h-full justify-start overflow-y-auto scrollbar-hide pr-2">
+                     
                      {/* Header Section */}
-                     <div className="space-y-4">
-                        <SectionLabel className="text-primary">Creative Asset Analysis</SectionLabel>
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black italic uppercase tracking-tighter leading-[0.9] text-foreground">
-                           {selectedPhoto?.title}<span className="text-orange-500 not-italic">.</span>
+                     <div className="space-y-3 pt-2">
+                        <SectionLabel className="text-primary tracking-widest text-[10px]">Creative Asset Analysis</SectionLabel>
+                        <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight leading-tight text-foreground pr-4">
+                           {selectedPhoto?.title}<span className="text-primary">.</span>
                         </h2>
-                        <div className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground">
-                           <MapPin size={14} />
-                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">
+                        <div className="flex items-center gap-2 text-muted-foreground mt-2">
+                           <MapPin size={14} className="text-primary/70" />
+                           <span className="text-[10px] font-bold uppercase tracking-widest inline-block mt-0.5">
                               {selectedPhoto?.location || "Global Creative Lab"}
                            </span>
                         </div>
                      </div>
 
                      {/* Detail Section */}
-                     <div className="space-y-5">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/40 flex items-center gap-4">
-                           <Info size={14} /> Description <div className="h-px bg-border/40 flex-1" />
+                     <div className="space-y-3">
+                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2 border-b border-border/30 pb-2">
+                           <Info size={14} className="text-primary/70" /> Description
                         </h4>
-                        <p className="text-sm sm:text-base text-muted-foreground font-medium leading-relaxed italic border-l-2 border-orange-500/20 pl-6">
+                        <p className="text-sm text-foreground/80 font-medium leading-relaxed">
                            {selectedPhoto?.description}
                         </p>
                      </div>
 
                      {/* Matrix (Thumbnail Grid) */}
-                     <div className="space-y-6">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/40 flex items-center gap-4">
-                           <Layers size={14} /> Perspective Matrix <div className="h-px bg-border/40 flex-1" />
+                     <div className="space-y-3">
+                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2 border-b border-border/30 pb-2">
+                           <Layers size={14} className="text-primary/70" /> Perspective Matrix
                         </h4>
-                        <div className="grid grid-cols-4 gap-3 sm:gap-4">
+                        <div className="grid grid-cols-4 gap-2.5 sm:gap-3">
                            {selectedPhoto?.images.map((img: string, idx: number) => (
                               <button 
                                 key={idx} 
                                 onClick={() => setActiveImageIdx(idx)}
                                 className={cn(
-                                  "aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300 relative group/thumb",
+                                  "aspect-square rounded-[14px] overflow-hidden border-2 transition-all duration-300 relative group/thumb",
                                   activeImageIdx === idx 
-                                    ? "border-orange-500 ring-4 ring-orange-500/10 opacity-100 shadow-xl" 
-                                    : "border-border/40 opacity-40 hover:opacity-100 hover:border-border"
+                                    ? "border-primary ring-2 ring-primary/20 opacity-100 shadow-md" 
+                                    : "border-border/30 opacity-60 hover:opacity-100 hover:border-border/80"
                                 )}
                               >
                                  <Image src={img} alt="" fill className="object-cover" />
-                                 <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover/thumb:opacity-100 transition-opacity" />
                               </button>
                            ))}
                         </div>
                      </div>
-                  </div>
-
-                  {/* Actions Section */}
-                  <div className="p-8 sm:p-10 border-t border-border/40 bg-muted/20 space-y-4">
-                     <Button 
-                       onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
-                       size="lg" 
-                       className="w-full gap-3 font-black text-[10px] uppercase tracking-widest h-14 rounded-2xl shadow-xl shadow-orange-500/20 bg-orange-500 text-white hover:bg-orange-600 transition-all"
-                     >
-                        <Download size={18} /> Download HD
-                     </Button>
-                     <div className="flex gap-4">
-                        <Button variant="outline" size="lg" className="flex-1 h-14 rounded-2xl border-border hover:bg-muted transition-all text-[10px] font-black uppercase tracking-widest text-foreground">
-                           <ShareAction title={selectedPhoto?.title} url="#" variant="ghost" iconOnly={false} className="w-full h-full p-0 border-none justify-center font-black gap-2" />
-                        </Button>
-                        <Button 
-                          variant="outline" 
-                          size="icon"
-                          onClick={() => setSelectedPhoto(null)}
-                          className="w-14 h-14 rounded-2xl border-border hover:bg-destructive/10 hover:border-destructive hover:text-destructive transition-all hidden lg:flex items-center justify-center shrink-0 text-foreground"
-                        >
-                           <X size={20} />
-                        </Button>
+                  
+                     {/* Actions Section */}
+                     <div className="mt-auto pt-6 border-t border-border/30 w-full mb-2">
+                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
+                           <Button 
+                             onClick={() => handleDownload(selectedPhoto.images[activeImageIdx], selectedPhoto.title)}
+                             size="default" 
+                             className="flex-1 gap-2 font-black text-[10px] uppercase tracking-widest h-12 rounded-[14px] shadow-[0_4px_14px_0_rgba(var(--primary),0.2)] bg-primary text-primary-foreground hover:bg-primary/90 transition-all w-full"
+                           >
+                              <Download size={16} /> Download
+                           </Button>
+                           <div className="flex-[0.8] w-full sm:w-auto [&>div]:w-full relative">
+                              <ShareAction 
+                                 title={selectedPhoto?.title} 
+                                 url="#" 
+                                 variant="outline" 
+                                 iconOnly={false} 
+                                 className="w-full h-12 rounded-[14px] border-border/60 hover:border-primary/50 hover:bg-primary/5 transition-all text-[10px] font-black uppercase tracking-widest text-foreground justify-center gap-2" 
+                              />
+                           </div>
+                         </div>
                      </div>
                   </div>
                </div>
