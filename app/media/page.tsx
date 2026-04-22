@@ -130,7 +130,7 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
         {/* Image Container */}
         <div className="relative w-full aspect-[4/3] overflow-hidden border-b border-border/10 bg-muted/20">
           <Image
-            src={item.images[0]} 
+            src={item.thumbnail || item.images[0]} 
             alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -143,7 +143,7 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
           />
           
           {/* Soft Premium Overlay */}
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[1px] flex items-center justify-center p-6">
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-md flex items-center justify-center p-6">
              <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center shadow-2xl mb-4 mx-auto">
                    <Eye size={22} />

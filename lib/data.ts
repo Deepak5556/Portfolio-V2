@@ -100,37 +100,22 @@ export const photoTools = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
 
 export const videos = [
   {
-    id: "event-highlights",
-    title: "Cinematic Event Highlights",
-    tools: ["Premiere Pro", "After Effects"],
-    description: "A high-impact event recap focused on cinematic aesthetics, featuring advanced color grading, synchronized audio-to-visual editing, and dynamic motion graphics overlays.",
-    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
-    poster: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800"
+    id: "college-trip",
+    title: "College Trip",
+    tools: ["CapCut"],
+    description: "Edited this college trip video to bring out the vibe, energy, and memories in the best way. Focused on smooth transitions, beat sync cuts, cinematic color grading, and clean text animations to keep it engaging and fun throughout.",
+    videoSrc: "/web/trip.webm",
+    poster: "/web/trip.webp"
   },
   {
-    id: "social-media",
-    title: "Viral Social Media Sequences",
-    tools: ["CapCut", "After Effects"],
-    description: "Fast-paced, high-retention short-form content optimized for modern social platforms. Includes motion tracking, creative text animations, and trend-specific editing styles.",
-    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
-    poster: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "college-fest",
-    title: "Annual Fest Promotional Trailer",
-    tools: ["DaVinci Resolve", "Premiere Pro"],
-    description: "An energetic promotional campaign video utilizing 3D motion graphics, complex masking techniques, and custom sound design to build hype and brand awareness.",
-    videoSrc: "https://www.w3schools.com/html/movie.mp4",
-    poster: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "brand-reel",
-    title: "COMMERCIAL BRAND REEL",
-    tools: ["Premiere Pro", "After Effects"],
-    description: "Short promotional video showcasing product storytelling and brand visuals with high-end color grading and sound design.",
-    videoSrc: "https://web.pdx.edu/~pconway/sample_video/sample-mp4-file-small.mp4",
-    poster: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800"
-  },
+    id: "dhruva-2025",
+    title: "Dhruva 2025",
+    tools: ["After Effects"],
+    description: "Edited highlights from Dhruva 2025 to capture the energy, crowd vibe, and key moments of the event. Used smooth transitions, beat sync cuts, motion graphics, and cinematic color grading to make the video feel lively and engaging from start to finish.",
+    videoSrc: "/web/dhruva.webm",
+    poster: "https://imgs.search.brave.com/9Crsp6AsY-V1l9-Ea5KeRVsrBYEGH-_guiAZz0xmVHE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA2/OTEzNzc3NC9waG90/by9jaGVlcmluZy1m/YW5zLWF0LWNvbmNl/cnQuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPVg0TUZvbjlj/cFROOVVqdHUxckRR/WTFLUk5ZMlU1Y0g3/Wmw0Vk5hQzY2ajA9"
+  }
+
 ];
 
 export const photos = [
@@ -140,8 +125,20 @@ export const photos = [
     tools: ["Event Photography"],
     location: "Karpagam College of Engineering",
     description: "Captured a powerful stage performance at Dhruva 2026, a college cultural event, featuring a traditional dance ensemble. The composition highlights symmetry, expressive poses, and dramatic lighting. Post-processing includes color grading, contrast balancing, and lighting enhancement to emphasize mood and stage presence while preserving natural skin tones and costume details.",
+    thumbnail: "/Dhruva2026.webp",
     images: [
       "/Dhruva2026.webp"
+    ]
+  }, {
+    id: "dhruva2026",
+    title: "Dhruva 2026",
+    tools: ["Event Photography"],
+    location: "Karpagam College of Engineering",
+    description: "Captured a powerful stage performance at Dhruva 2026, a college cultural event, featuring a traditional dance ensemble. The composition highlights symmetry, expressive poses, and dramatic lighting. Post-processing includes color grading, contrast balancing, and lighting enhancement to emphasize mood and stage presence while preserving natural skin tones and costume details.",
+    thumbnail: "/web/dhruva2026raw.webp",
+    images: [
+      "/web/dhruva2026raw.webp",
+      "/web/dhruva2026edited.webp"
     ]
   }
 ];
