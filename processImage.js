@@ -11,7 +11,6 @@ async function createImages() {
     console.error('Deepak.webp not found');
     return;
   }
-
   // 1. Create 64x64 circular icon.png
   const circleSvgIcon = Buffer.from(
     `<svg width="64" height="64">

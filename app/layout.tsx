@@ -50,6 +50,9 @@ export const metadata: Metadata = {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
+  other: {
+    "p:domain_verify": "347ab54171cf7f61296e32731fcedb62",
+  },
 };
 
 export const viewport = {
