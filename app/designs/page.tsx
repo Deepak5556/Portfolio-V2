@@ -1,91 +1,475 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
+import React, { useState, useMemo, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Card, CardHeader, CardTitle, CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { 
+  Search, LayoutTemplate, Palette, MonitorSmartphone, Type, MonitorPlay, ArrowRight, Eye, Frame, Calendar, X, ChevronLeft, ChevronRight, PenTool, Hash, ExternalLink
+} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { SectionLabel } from "@/components/Shared";
+import { designProjects } from "@/lib/data";
 
-export default function DesignsPage() {
+const categories = ["All", "UI Designs", "Posters", "Branding", "Thumbnails"] as const;
+type Category = typeof categories[number];
+
+function EmptyState() {
   return (
-    <section id="designs" className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-20">
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
-        }
-        @keyframes float-reverse {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(20px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float 7s ease-in-out infinite 1s;
-        }
-        .animate-float-reverse {
-          animation: float-reverse 5s ease-in-out infinite;
-        }
-      `}</style>
-
-      {/* Background Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-[100px] sm:blur-[120px] opacity-70 dark:opacity-50 mix-blend-multiply dark:mix-blend-screen pointer-events-none" />
-      <div className="absolute top-[40%] left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/10 dark:bg-blue-600/20 rounded-full blur-[80px] sm:blur-[100px] opacity-60 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen pointer-events-none animate-pulse duration-[3000ms]" />
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center py-32 px-4 text-center w-full min-h-[50vh] relative"
+    >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-purple-500/10 dark:bg-purple-600/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
       
-      <div className="z-10 flex flex-col items-center text-center w-full max-w-5xl px-4 mt-10">
-        {/* Antigravity Floating Illustration Container */}
-        <div className="relative mb-14 flex justify-center w-full">
-          <div className="relative w-full max-w-[320px] sm:max-w-[450px] aspect-square rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 backdrop-blur-2xl shadow-[0_0_60px_rgba(168,85,247,0.1)] dark:shadow-[0_0_80px_rgba(168,85,247,0.15)] p-4 sm:p-8 flex items-center justify-center animate-float">
-            {/* Glowing inner ring */}
-            <div className="absolute inset-0 rounded-full border border-blue-500/30 dark:border-blue-500/20 shadow-[inset_0_0_30px_rgba(59,130,246,0.1)] animate-[spin_20s_linear_infinite]" />
-            <div className="absolute inset-4 rounded-full border border-purple-500/30 dark:border-purple-500/20 animate-[spin_15s_linear_infinite_reverse]" />
-            
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl bg-white/40 dark:bg-black/40">
-              <Image 
-                src="/designs-empty-state.png" 
-                alt="Futuristic Design Empty State"
-                fill
-                className="object-cover scale-[1.02] hover:scale-110 transition-transform duration-1000 ease-out"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/40 dark:from-black/40 via-transparent to-transparent mix-blend-overlay" />
-            </div>
-
-            {/* Floating Geometric Orbs */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-blue-400 blur-[1px] dark:blur-[2px] shadow-[0_0_15px_rgba(168,85,247,0.4)] dark:shadow-[0_0_20px_rgba(168,85,247,0.6)] animate-float-reverse" />
-            <div className="absolute top-1/2 -left-8 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300 blur-[1px] shadow-[0_0_10px_rgba(59,130,246,0.4)] dark:shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-float-delayed" />
-            <div className="absolute -bottom-6 right-10 w-16 h-16 rounded-full bg-gradient-to-bl from-purple-400 to-pink-400 dark:from-purple-500 dark:to-pink-500 blur-[2px] dark:blur-[3px] shadow-[0_0_20px_rgba(236,72,153,0.3)] dark:shadow-[0_0_25px_rgba(236,72,153,0.5)] animate-float" />
+      <div className="relative mb-12 flex justify-center w-full z-10">
+        <div className="relative w-40 h-40 flex items-center justify-center">
+          <div className="absolute inset-0 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-2xl shadow-[0_0_60px_rgba(168,85,247,0.15)] animate-[pulse_4s_ease-in-out_infinite]" />
+          <div className="absolute inset-4 rounded-full border border-primary/30 animate-[spin_15s_linear_infinite]" />
+          <div className="absolute inset-8 rounded-full border border-primary/30 animate-[spin_10s_linear_infinite_reverse]" />
+          
+          <div className="relative z-10 p-6 rounded-full bg-card/40 backdrop-blur-xl shadow-2xl border border-border/50">
+            <LayoutTemplate className="w-12 h-12 text-primary drop-shadow-md" />
           </div>
+
+          <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-blue-400 blur-[2px] opacity-70 animate-bounce" style={{ animationDuration: '3s' }} />
+          <div className="absolute -bottom-4 -left-4 w-10 h-10 rounded-full bg-gradient-to-bl from-orange-400 to-red-400 blur-[2px] opacity-70 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
         </div>
+      </div>
+      
+      <motion.h2 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="text-3xl sm:text-4xl font-black tracking-tight mb-4 uppercase italic z-10"
+      >
+        No Designs Found<span className="text-orange-500 not-italic">.</span>
+      </motion.h2>
+      
+      <motion.p 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="text-base sm:text-lg text-muted-foreground/70 font-medium max-w-md mx-auto mb-10 leading-relaxed z-10"
+      >
+        New creative works will be updated soon.
+      </motion.p>
 
-        {/* Text Content with Glassmorphism Label */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-xl mb-8 shadow-sm dark:shadow-xl animate-fade-up">
-          <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-          <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-purple-600 dark:text-purple-300 uppercase">Coming Soon</span>
-        </div>
-
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-black via-black/80 to-black/50 dark:from-white dark:via-white/90 dark:to-white/40 mb-6 drop-shadow-sm animate-fade-up" style={{ animationDelay: '100ms' }}>
-          Designs will be updated soon<span className="text-purple-500">.</span>
-        </h1>
-        
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed mb-12 animate-fade-up" style={{ animationDelay: '200ms' }}>
-          New creative works are coming shortly.
-        </p>
-
-        {/* Call to Action */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="flex flex-col sm:flex-row items-center gap-4 z-10 w-full sm:w-auto"
+      >
         <Button 
           asChild 
-          className="rounded-full h-14 px-8 text-sm sm:text-base font-bold tracking-wide bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/90 hover:scale-105 transition-all shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.2)] animate-fade-up"
-          style={{ animationDelay: '300ms' }}
+          className="rounded-2xl h-14 px-8 text-[11px] font-black tracking-[0.2em] uppercase bg-primary text-primary-foreground shadow-2xl shadow-primary/20 hover:-translate-y-1 transition-all w-full sm:w-auto"
         >
           <Link href="/">
-            <ArrowLeft className="mr-2 h-5 w-5" /> Return Home
+             Explore Home
           </Link>
         </Button>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case "UI Designs": return <MonitorSmartphone size={16} />;
+    case "Posters": return <Frame size={16} />;
+    case "Branding": return <Type size={16} />;
+    case "Thumbnails": return <MonitorPlay size={16} />;
+    default: return <Palette size={16} />;
+  }
+};
+
+const ImageWithSkeleton = ({ src, alt, className }: { src: string, alt: string, className?: string }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  return (
+    <div className={`relative w-full h-full overflow-hidden ${isLoading ? 'bg-muted/30 animate-pulse' : ''} ${className || ''}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`object-cover transition-all duration-700 ${isLoading ? 'opacity-0 scale-105' : 'opacity-100 scale-100 group-hover:scale-110'}`}
+        onLoadingComplete={() => setIsLoading(false)}
+      />
+    </div>
+  );
+};
+
+export default function DesignsPage() {
+  const [search, setSearch] = useState("");
+  const [activeTab, setActiveTab] = useState<Category>("All");
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
+
+  const filteredDesigns = useMemo(() => {
+    return designProjects.filter((project) => {
+      const matchesSearch = project.title.toLowerCase().includes(search.toLowerCase()) ||
+                            project.description.toLowerCase().includes(search.toLowerCase());
+      const matchesTab = activeTab === "All" || project.category === activeTab;
+      return matchesSearch && matchesTab;
+    });
+  }, [search, activeTab]);
+
+  const featuredPosters = useMemo(() => {
+    return designProjects.filter(p => p.featured && p.category === "Posters");
+  }, []);
+
+  // Handle keyboard navigation for modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedProjectIndex === null) return;
+      if (e.key === "Escape") setSelectedProjectIndex(null);
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedProjectIndex, filteredDesigns]);
+
+  const handleNext = () => {
+    if (selectedProjectIndex !== null) {
+      setSelectedProjectIndex((selectedProjectIndex + 1) % filteredDesigns.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedProjectIndex !== null) {
+      setSelectedProjectIndex((selectedProjectIndex - 1 + filteredDesigns.length) % filteredDesigns.length);
+    }
+  };
+
+  const openModalWithProject = (id: string) => {
+    const index = filteredDesigns.findIndex(p => p.id === id);
+    if (index !== -1) setSelectedProjectIndex(index);
+  };
+
+  const selectedProject = selectedProjectIndex !== null ? filteredDesigns[selectedProjectIndex] : null;
+
+  return (
+    <div className="max-w-7xl mx-auto pb-20 px-4 md:px-0 min-h-[80vh] relative">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      {/* Hero Section */}
+      <div className="flex flex-col gap-8 mb-16 pt-10">
+        <div>
+          <SectionLabel>Creative Portfolio</SectionLabel>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black italic uppercase tracking-tight leading-none mt-2 drop-shadow-sm">
+            Creative Designs <br/>
+            & Posters<span className="text-orange-500 not-italic tracking-normal">.</span>
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground/80 leading-relaxed font-medium mt-6 max-w-2xl">
+            A curated showcase of digital creativity, blending UI/UX engineering with cinematic visual arts and branding.
+          </p>
+        </div>
       </div>
-    </section>
+
+      {designProjects.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <>
+          {/* Featured Poster Showcase */}
+          {featuredPosters.length > 0 && activeTab === "All" && search === "" && (
+            <div className="mb-20">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-xl sm:text-2xl font-black uppercase italic tracking-tight">
+                  Featured Posters<span className="text-primary">.</span>
+                </h2>
+              </div>
+              
+              <div className="flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 gap-6 snap-x snap-mandatory hide-scrollbar">
+                {featuredPosters.map((poster, idx) => (
+                  <motion.div 
+                    key={poster.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    onClick={() => openModalWithProject(poster.id)}
+                    className="snap-center shrink-0 w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[40vw] relative group rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-primary/20 hover:shadow-2xl transition-all duration-500"
+                  >
+                    <div className="aspect-[3/4] sm:aspect-video relative overflow-hidden bg-muted/20">
+                      <ImageWithSkeleton src={poster.image} alt={poster.title} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity backdrop-blur-[1px] group-hover:backdrop-blur-sm" />
+                      
+                      <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <Badge className="mb-4 bg-primary/20 text-primary border-primary/30 backdrop-blur-md uppercase tracking-widest text-[9px] font-black shadow-sm">
+                          {poster.category}
+                        </Badge>
+                        <h3 className="text-2xl sm:text-3xl font-black text-white uppercase italic tracking-tight mb-2 drop-shadow-md">
+                          {poster.title}
+                        </h3>
+                        <p className="text-white/80 text-sm font-medium line-clamp-2 max-w-lg mb-3">
+                          {poster.description}
+                        </p>
+                        <div className="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                           <Calendar size={12} /> {poster.date}
+                        </div>
+                      </div>
+
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-2xl">
+                        <Eye size={24} />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Categories & Filter */}
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-12 sticky top-20 z-30 bg-background/80 backdrop-blur-xl py-4 -mx-4 px-4 md:mx-0 md:px-0 border-b border-border/40">
+            <div className="w-full md:w-auto overflow-x-auto no-scrollbar py-1 select-none">
+              <div className="flex p-1.5 bg-muted/30 border border-border/40 rounded-full w-max items-center gap-1">
+                {categories.map((tab) => {
+                  const isActive = activeTab === tab;
+                  return (
+                    <button
+                      key={tab}
+                      onClick={() => { setActiveTab(tab); setSelectedProjectIndex(null); }}
+                      className={`
+                        relative px-5 sm:px-6 py-2.5 rounded-full 
+                        text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] 
+                        transition-all duration-300 ease-in-out whitespace-nowrap flex items-center gap-2
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
+                        ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"}
+                      `}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeDesignTab"
+                          className="absolute inset-0 bg-background dark:bg-card border border-border/60 shadow-md rounded-full -z-10"
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-2">
+                         {tab !== "All" && getCategoryIcon(tab)} {tab}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="relative w-full md:w-80 group">
+              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/40 group-focus-within:text-primary transition-colors" />
+              <input 
+                type="text" 
+                placeholder="Search creative works..." 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-11 pr-4 py-3 bg-card/50 border border-border/60 rounded-full text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
+              />
+            </div>
+          </div>
+
+          {/* Design Grid */}
+          {filteredDesigns.length === 0 ? (
+            <div className="py-32 text-center flex flex-col items-center">
+              <div className="w-20 h-20 rounded-full bg-muted/50 flex items-center justify-center mb-6">
+                <Search size={32} className="text-muted-foreground/50" />
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight mb-2">No matches found</h3>
+              <p className="text-muted-foreground font-medium">Try adjusting your category or search query.</p>
+            </div>
+          ) : (
+            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-max">
+              <AnimatePresence mode="popLayout">
+                {filteredDesigns.map((project, idx) => (
+                  <motion.div
+                    layout
+                    key={project.id}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    className="h-full"
+                  >
+                    <Card 
+                      onClick={() => setSelectedProjectIndex(idx)}
+                      className="group h-full border-border/40 bg-card/20 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 rounded-3xl flex flex-col cursor-pointer"
+                    >
+                      {/* Subtle hover glow */}
+                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 z-0 pointer-events-none" />
+                      
+                      <div className={`relative w-full overflow-hidden bg-muted/20 z-10 ${project.category === 'Posters' ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}>
+                        {project.image ? (
+                          <ImageWithSkeleton src={project.image} alt={project.title} />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-muted">
+                            <Palette className="w-12 h-12 text-muted-foreground/20" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                          <Button variant="secondary" className="rounded-full shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-300 gap-2 font-black text-[10px] uppercase tracking-widest pointer-events-none">
+                             View Details <ArrowRight size={14} />
+                          </Button>
+                        </div>
+                        <div className="absolute top-4 left-4 z-20">
+                           <Badge className="bg-background/90 backdrop-blur-md border border-border/50 text-foreground font-black text-[9px] uppercase tracking-widest px-3 py-1.5 shadow-sm">
+                             {project.category}
+                           </Badge>
+                        </div>
+                      </div>
+
+                      <CardHeader className="p-5 flex-1 relative z-10 flex flex-col justify-between">
+                        <div>
+                          <CardTitle className="text-lg font-black group-hover:text-primary transition-colors tracking-tight leading-tight mb-2">
+                            {project.title}
+                          </CardTitle>
+                          <CardDescription className="text-xs leading-relaxed font-medium text-muted-foreground/80 line-clamp-2">
+                            {project.description}
+                          </CardDescription>
+                        </div>
+                        {project.date && (
+                          <div className="mt-4 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-muted-foreground/50">
+                            <Calendar size={12} /> {project.date}
+                          </div>
+                        )}
+                      </CardHeader>
+                    </Card>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </>
+      )}
+
+      {/* Visual Art Details Popup Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          >
+            {/* Modal Backdrop */}
+            <div 
+              className="absolute inset-0 bg-black/60 backdrop-blur-xl" 
+              onClick={() => setSelectedProjectIndex(null)}
+            />
+            
+            {/* Modal Content */}
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl max-h-[90vh] bg-card/80 backdrop-blur-3xl border border-white/10 shadow-2xl rounded-[2rem] overflow-hidden flex flex-col md:flex-row z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Close Button */}
+              <button 
+                onClick={() => setSelectedProjectIndex(null)}
+                className="absolute top-4 right-4 z-50 p-2 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full text-white transition-colors"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Left Side: Image */}
+              <div className="w-full md:w-3/5 bg-black/90 relative min-h-[40vh] md:min-h-0 flex items-center justify-center p-4 sm:p-8">
+                {selectedProject.image ? (
+                  <div className={`relative w-full h-full max-h-[80vh] ${selectedProject.category === 'Posters' ? 'aspect-[3/4] max-w-md mx-auto' : 'aspect-video w-full'}`}>
+                     <Image 
+                        src={selectedProject.image} 
+                        alt={selectedProject.title} 
+                        fill 
+                        className="object-contain drop-shadow-2xl"
+                        sizes="(max-w-768px) 100vw, 60vw"
+                        priority
+                     />
+                  </div>
+                ) : (
+                  <Palette className="w-24 h-24 text-white/10" />
+                )}
+                
+                {/* Navigation Arrows inside image area on desktop */}
+                {filteredDesigns.length > 1 && (
+                  <>
+                    <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/80 backdrop-blur-md text-white rounded-full transition-all hover:scale-110">
+                      <ChevronLeft size={24} />
+                    </button>
+                    <button onClick={(e) => { e.stopPropagation(); handleNext(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/80 backdrop-blur-md text-white rounded-full transition-all hover:scale-110">
+                      <ChevronRight size={24} />
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Right Side: Details */}
+              <div className="w-full md:w-2/5 p-6 sm:p-8 flex flex-col overflow-y-auto no-scrollbar max-h-[50vh] md:max-h-[90vh]">
+                <Badge className="w-max mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-widest text-[10px] font-black">
+                  {selectedProject.category}
+                </Badge>
+                
+                <h2 className="text-2xl sm:text-3xl font-black italic tracking-tight uppercase leading-tight mb-4">
+                  {selectedProject.title}<span className="text-orange-500 not-italic">.</span>
+                </h2>
+                
+                <div className="flex flex-wrap items-center gap-4 mb-6 pb-6 border-b border-border/40">
+                   {selectedProject.date && (
+                     <div className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                       <Calendar size={14} className="text-primary" /> {selectedProject.date}
+                     </div>
+                   )}
+                   {selectedProject.link && selectedProject.link !== "#" && (
+                     <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-widest hover:underline underline-offset-4">
+                       <ExternalLink size={14} /> Live Preview
+                     </a>
+                   )}
+                </div>
+
+                <div className="mb-8">
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3">About the Project</h4>
+                  <p className="text-sm leading-relaxed text-foreground/80 font-medium">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {selectedProject.tools && selectedProject.tools.length > 0 && (
+                  <div className="mb-8">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
+                      <PenTool size={12} /> Software & Tools
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tools.map(tool => (
+                        <Badge key={tool} variant="outline" className="text-[10px] uppercase font-bold tracking-widest bg-muted/30 border-border/50">
+                          {tool}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {selectedProject.tags && selectedProject.tags.length > 0 && (
+                  <div className="mt-auto pt-8 border-t border-border/40">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
+                      <Hash size={12} /> Tags
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map(tag => (
+                        <span key={tag} className="text-xs font-medium text-muted-foreground/80 hover:text-primary transition-colors cursor-pointer">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { profile, techStack, projects, achievements } from "@/lib/data";
+import { profile, techStack, projects, achievements, homeAboutDetails } from "@/lib/data";
 import { SectionLabel, Pill } from "@/components/Shared";
 import { RoleCarousel } from "@/components/RoleCarousel";
 import { ShareAction } from "@/components/ShareAction";
@@ -117,23 +117,13 @@ export default function Home() {
               </div>
             </CardHeader>
             <CardContent className="space-y-4 px-3 md:px-6 flex-1">
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
-                I’m Deepakkumar V — a full stack developer, mobile app developer, and UI/UX designer who’s also deeply into visual creativity.
-              </p>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
-                I work across web and mobile, building things that are not just functional but feel smooth and intuitive to use. Alongside coding, I’m a videographer, video editor, photographer, and photo editor — so design and storytelling are a big part of what I do.
-              </p>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
-                I care a lot about creativity and getting the details right. Whether it’s code or visuals, I like making things clean, polished, and meaningful.
-              </p>
+              {homeAboutDetails.paragraphs.map((paragraph, i) => (
+                <p key={i} className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
+                  {paragraph}
+                </p>
+              ))}
               <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                {[
-                  "Web Developer",
-                  "Mobile Developer",
-                  "UI/UX Designer",
-                  "Videographer",
-                  "Photographer"
-                ].map((t) => (
+                {homeAboutDetails.tags.map((t) => (
                   <Badge
                     key={t}
                     variant="secondary"

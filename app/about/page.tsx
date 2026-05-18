@@ -4,11 +4,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Monitor, Camera, Video, ArrowRight, GraduationCap, Briefcase, Award, ExternalLink,
-  TabletSmartphone, Palette, Code2, Sparkles, Layout
+  ArrowRight, GraduationCap, Briefcase, Award, ExternalLink,
 } from "lucide-react";
 import { SectionLabel } from "@/components/Shared";
-import { profile, education, workExperience, internships, certifications, achievements } from "@/lib/data";
+import { profile, education, workExperience, internships, certifications, achievements, aboutDetails, skillDetails } from "@/lib/data";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -23,16 +22,12 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="mb-10 sm:mb-12 max-w-2xl">
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
-            I'm a passionate Full Stack Developer with hands-on experience building responsive web
-            and mobile applications. I love crafting products that solve real problems with clean,
-            maintainable code.
-          </p>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4 font-medium">
-            Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack —
-            constantly learning, shipping, and improving. I am based in {profile.location}.
-          </p>
+        <div className="mb-10 sm:mb-12 max-w-2xl space-y-4">
+          {aboutDetails.paragraphs.map((paragraph, idx) => (
+            <p key={idx} className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="mb-6 sm:mb-8">
@@ -42,29 +37,7 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { 
-              icon: Code2, 
-              title: "Software Development", 
-              desc: "Building scalable web and cross-platform mobile applications with modern stacks.", 
-              tools: ["React", "Next.js", "Flutter", "Node.js", "Dart"], 
-              href: "/software" 
-            },
-            { 
-              icon: Layout, 
-              title: "Designs", 
-              desc: "Crafting pixel-perfect designs and intuitive User Experiences for all platforms.", 
-              tools: ["Figma", "UI/UX", "Adobe XD", "Branding"], 
-              href: "/designs" 
-            },
-            { 
-              icon: Sparkles, 
-              title: "Visual Art", 
-              desc: "Cinematic video production and professional photography with post-processing.", 
-              tools: ["Premiere Pro", "After Effects", "Photoshop", "Lightroom"], 
-              href: "/media" 
-            },
-          ].map((item) => {
+          {skillDetails.map((item) => {
             const Icon = item.icon;
             return (
               <Card key={item.title} className="card-hover">

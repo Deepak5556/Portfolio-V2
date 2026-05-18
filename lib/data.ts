@@ -3,7 +3,7 @@ import {
   Code2, Layers, Smartphone, Video, Camera, Figma,
   ArrowRight, Award, Star, GitBranch, CheckCircle2,
   Monitor, Palette, Film, Phone, Send, Calendar,
-  ShieldCheck, Layout, TabletSmartphone, History
+  ShieldCheck, Layout, TabletSmartphone, History, Sparkles
 } from "lucide-react";
 
 export const profile = {
@@ -21,6 +21,52 @@ export const profile = {
   instagram: "https://instagram.com/deepak_v_5556",
   linktree: "https://linktr.ee/deepakv5556",
   website: "deepakportfolioo.web.app",
+};
+
+export const aboutDetails = {
+  paragraphs: [
+    "I'm a passionate Full Stack Developer with hands-on experience building responsive web and mobile applications. I love crafting products that solve real problems with clean, maintainable code.",
+    "Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack — constantly learning, shipping, and improving. I am based in Coimbatore."
+  ]
+};
+
+export const skillDetails = [
+  {
+    icon: Code2,
+    title: "Software Development",
+    desc: "Building scalable web and cross-platform mobile applications with modern stacks.",
+    tools: ["React", "Next.js", "Flutter", "Node.js", "Dart"],
+    href: "/software"
+  },
+  {
+    icon: Layout,
+    title: "Designs",
+    desc: "Crafting pixel-perfect designs and intuitive User Experiences for all platforms.",
+    tools: ["Figma", "UI/UX", "Adobe XD", "Branding"],
+    href: "/designs"
+  },
+  {
+    icon: Sparkles,
+    title: "Visual Art",
+    desc: "Cinematic video production and professional photography with post-processing.",
+    tools: ["Premiere Pro", "After Effects", "Photoshop", "Lightroom"],
+    href: "/media"
+  },
+];
+
+export const homeAboutDetails = {
+  paragraphs: [
+    "I’m Deepakkumar V, a full stack developer, mobile app developer, and UI/UX designer with a strong passion for creating seamless digital experiences. I specialize in building modern web and mobile applications that combine functionality, performance, and intuitive design.",
+    "Beyond development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. This creative background helps me approach projects with a strong sense of storytelling, aesthetics, and user engagement.",
+    "I focus on delivering clean, polished, and meaningful work, paying close attention to both technical quality and visual detail. Whether designing interfaces, developing applications, or creating visual content, I strive to build experiences that are impactful, user-friendly, and visually compelling."
+  ],
+  tags: [
+    "Web Developer",
+    "Mobile Developer",
+    "UI/UX Designer",
+    "Videographer",
+    "Photographer"
+  ]
 };
 
 export const navItems = [
@@ -144,12 +190,67 @@ export const photos = [
 ];
 
 
-export const figmaProjects = [
-  // {
-  //   name: "E-Commerce UI Kit",
-  //   desc: "Clean, accessible component set for online stores.",
-  //   figmaLink: "https://www.figma.com/proto/ecommerce-ui-kit"
-  // },
+export const designProjects = [
+  {
+    id: "ecommerce-ui",
+    title: "E-Commerce UI Kit",
+    description: "Clean, accessible component set for online stores with modern aesthetics.",
+    category: "UI Designs",
+    image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.figma.com/proto/ecommerce-ui-kit",
+    featured: false,
+    date: "Oct 12, 2025",
+    tools: ["Figma", "Illustrator"],
+    tags: ["UI/UX", "E-Commerce", "Web Design"]
+  },
+  {
+    id: "cyberpunk-poster",
+    title: "Cyberpunk Event Poster",
+    description: "A neon-infused cinematic poster for a futuristic music festival.",
+    category: "Posters",
+    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1974&auto=format&fit=crop",
+    link: "#",
+    featured: true,
+    date: "Sep 04, 2025",
+    tools: ["Photoshop", "Lightroom"],
+    tags: ["Cyberpunk", "Neon", "Event"]
+  },
+  {
+    id: "brand-identity",
+    title: "Tech Startup Branding",
+    description: "Complete visual identity including logo, typography, and color palette.",
+    category: "Branding",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    link: "#",
+    featured: false,
+    date: "Aug 22, 2025",
+    tools: ["Illustrator", "Photoshop"],
+    tags: ["Branding", "Identity", "Logo"]
+  },
+  {
+    id: "youtube-thumbnail",
+    title: "Tech Review Thumbnail",
+    description: "High click-through-rate YouTube thumbnail for a smartphone review.",
+    category: "Thumbnails",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
+    link: "#",
+    featured: false,
+    date: "Jul 15, 2025",
+    tools: ["Photoshop", "Figma"],
+    tags: ["YouTube", "Social Media", "Tech"]
+  },
+  {
+    id: "movie-poster",
+    title: "Sci-Fi Short Film Poster",
+    description: "Minimalist and cinematic poster design for an indie sci-fi movie.",
+    category: "Posters",
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop",
+    link: "#",
+    featured: true,
+    date: "Jun 30, 2025",
+    tools: ["Photoshop", "Blender"],
+    tags: ["Sci-Fi", "Cinematic", "Minimalist"]
+  }
 ];
 
 export const appProjects = [
