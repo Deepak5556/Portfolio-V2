@@ -281,7 +281,7 @@ export default function DesignsPage() {
               <p className="text-muted-foreground font-medium">Try adjusting your category or search query.</p>
             </div>
           ) : (
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-max">
+            <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6">
               <AnimatePresence mode="popLayout">
                 {filteredDesigns.map((project, idx) => (
                   <motion.div
@@ -291,11 +291,11 @@ export default function DesignsPage() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: -20 }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="h-full"
+                    className="break-inside-avoid mb-6"
                   >
                     <Card 
                       onClick={() => setSelectedProjectIndex(idx)}
-                      className="group h-full border-border/40 bg-card/20 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 rounded-3xl flex flex-col cursor-pointer"
+                      className="group border-border/40 bg-card/20 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 rounded-3xl flex flex-col cursor-pointer"
                     >
                       {/* Subtle hover glow */}
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 z-0 pointer-events-none" />

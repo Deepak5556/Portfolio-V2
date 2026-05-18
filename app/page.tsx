@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
   Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail,
-  Github, Linkedin, Twitter, Instagram, Link as LinkIcon, Award
+  Github, Linkedin, Twitter, Instagram, Link as LinkIcon, Award, Briefcase
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -88,6 +88,29 @@ export default function Home() {
                   </motion.a>
                 ))}
               </div>
+
+              {/* Current Work Section */}
+              {profile.currentWork && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="mt-8 p-4 rounded-2xl bg-gradient-to-br from-card/40 to-muted/20 backdrop-blur-md border border-border/60 hover:border-emerald-500/30 hover:shadow-[0_0_20px_rgba(16,185,129,0.05)] transition-all group/work cursor-default"
+                >
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                    <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] group-hover/work:text-emerald-500 transition-colors">
+                      Currently Working
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-bold text-foreground">
+                      {profile.currentWork}
+                    </p>
+                    <Briefcase size={14} className="text-muted-foreground/40 group-hover/work:text-emerald-500/60 transition-colors" />
+                  </div>
+                </motion.div>
+              )}
             </CardContent>
             <CardFooter className="flex flex-col md:flex-row items-stretch md:items-center gap-3 pt-4 px-3 md:px-6 pb-6 md:pb-8">
               <Button size="lg" asChild className="flex-1 hover:translate-y-[-2px] transition-all">

@@ -21,6 +21,7 @@ export const profile = {
   instagram: "https://instagram.com/deepak_v_5556",
   linktree: "https://linktr.ee/deepakv5556",
   website: "deepakportfolioo.web.app",
+  currentWork: "UI/UX Designer at Transzio",
 };
 
 export const aboutDetails = {
