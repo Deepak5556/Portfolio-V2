@@ -145,26 +145,11 @@ export const photos = [
 
 
 export const figmaProjects = [
-  {
-    name: "E-Commerce UI Kit",
-    desc: "Clean, accessible component set for online stores.",
-    figmaLink: "https://www.figma.com/proto/ecommerce-ui-kit"
-  },
-  {
-    name: "SaaS Dashboard",
-    desc: "Analytics dashboard with dark mode and data viz.",
-    figmaLink: "https://www.figma.com/proto/saas-dashboard"
-  },
-  {
-    name: "Mobile App Design",
-    desc: "Flutter app screens designed and prototyped in Figma.",
-    figmaLink: "https://www.figma.com/proto/mobile-app-design"
-  },
-  {
-    name: "Portfolio V2 Concept",
-    desc: "Next iteration of personal portfolio — minimal & bold.",
-    figmaLink: "https://www.figma.com/proto/portfolio-v2"
-  },
+  // {
+  //   name: "E-Commerce UI Kit",
+  //   desc: "Clean, accessible component set for online stores.",
+  //   figmaLink: "https://www.figma.com/proto/ecommerce-ui-kit"
+  // },
 ];
 
 export const appProjects = [
