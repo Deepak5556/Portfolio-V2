@@ -48,6 +48,8 @@ const VideoCard = React.memo(({ item, index }: { item: any, index: number }) => 
             alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            loading="lazy"
+            decoding="async"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -135,6 +137,7 @@ const PhotoCard = React.memo(({ item, index, onClick }: { item: any, index: numb
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
+            decoding="async"
             onLoad={() => setIsLoaded(true)}
             className={cn(
                "object-cover transition-all duration-1000 ease-out group-hover:scale-105",

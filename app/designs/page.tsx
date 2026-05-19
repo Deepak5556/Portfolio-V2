@@ -98,8 +98,11 @@ const ImageWithSkeleton = ({ src, alt, className }: { src: string, alt: string, 
         src={src}
         alt={alt}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        loading="lazy"
+        decoding="async"
         className={`object-cover transition-all duration-700 ${isLoading ? 'opacity-0 scale-105' : 'opacity-100 scale-100 group-hover:scale-110'}`}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
       />
     </div>
   );
@@ -385,8 +388,9 @@ export default function DesignsPage() {
                         alt={selectedProject.title} 
                         fill 
                         className="object-contain drop-shadow-2xl"
-                        sizes="(max-w-768px) 100vw, 60vw"
+                        sizes="(max-width: 768px) 100vw, 60vw"
                         priority
+                        decoding="async"
                      />
                   </div>
                 ) : (

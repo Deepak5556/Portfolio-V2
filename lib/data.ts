@@ -26,8 +26,11 @@ export const profile = {
 
 export const aboutDetails = {
   paragraphs: [
-    "I'm a passionate Full Stack Developer with hands-on experience building responsive web and mobile applications. I love crafting products that solve real problems with clean, maintainable code.",
-    "Currently studying at Karpagam College, I focus on React, Flutter, and the MERN stack — constantly learning, shipping, and improving. I am based in Coimbatore."
+    "I’m Deepakkumar V, a full stack developer, mobile app developer, and UI/UX designer passionate about building modern digital experiences that are both functional and visually engaging. I specialize in developing responsive web and mobile applications with a strong focus on performance, usability, and clean design.",
+
+    "Alongside development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. My creative background helps me bring a unique design perspective to every project, combining technology, storytelling, and user experience into meaningful digital products.",
+
+    "I have experience working with technologies like React, Flutter, Node.js, Firebase, and modern UI/UX tools. Through internships, hackathons, and personal projects, I’ve developed strong problem-solving, collaboration, and product development skills while continuously learning and improving as a developer and designer."
   ]
 };
 
@@ -58,8 +61,10 @@ export const skillDetails = [
 export const homeAboutDetails = {
   paragraphs: [
     "I’m Deepakkumar V, a full stack developer, mobile app developer, and UI/UX designer with a strong passion for creating seamless digital experiences. I specialize in building modern web and mobile applications that combine functionality, performance, and intuitive design.",
-    "Beyond development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. This creative background helps me approach projects with a strong sense of storytelling, aesthetics, and user engagement.",
-    "I focus on delivering clean, polished, and meaningful work, paying close attention to both technical quality and visual detail. Whether designing interfaces, developing applications, or creating visual content, I strive to build experiences that are impactful, user-friendly, and visually compelling."
+
+    "Beyond development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. This creative background allows me to approach projects with a strong sense of storytelling, aesthetics, and user engagement.",
+
+    "I focus on delivering clean, polished, and meaningful work while paying close attention to both technical quality and visual detail. Whether designing interfaces, developing applications, or creating visual content, I strive to build experiences that are impactful, user-friendly, and visually compelling."
   ],
   tags: [
     "Web Developer",
@@ -190,69 +195,20 @@ export const photos = [
   }
 ];
 
+export interface DesignProject {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  link: string;
+  featured: boolean;
+  date: string;
+  tools: string[];
+  tags: string[];
+}
 
-export const designProjects = [
-  {
-    id: "ecommerce-ui",
-    title: "E-Commerce UI Kit",
-    description: "Clean, accessible component set for online stores with modern aesthetics.",
-    category: "UI Designs",
-    image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=2070&auto=format&fit=crop",
-    link: "https://www.figma.com/proto/ecommerce-ui-kit",
-    featured: false,
-    date: "Oct 12, 2025",
-    tools: ["Figma", "Illustrator"],
-    tags: ["UI/UX", "E-Commerce", "Web Design"]
-  },
-  {
-    id: "cyberpunk-poster",
-    title: "Cyberpunk Event Poster",
-    description: "A neon-infused cinematic poster for a futuristic music festival.",
-    category: "Posters",
-    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1974&auto=format&fit=crop",
-    link: "#",
-    featured: true,
-    date: "Sep 04, 2025",
-    tools: ["Photoshop", "Lightroom"],
-    tags: ["Cyberpunk", "Neon", "Event"]
-  },
-  {
-    id: "brand-identity",
-    title: "Tech Startup Branding",
-    description: "Complete visual identity including logo, typography, and color palette.",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
-    link: "#",
-    featured: false,
-    date: "Aug 22, 2025",
-    tools: ["Illustrator", "Photoshop"],
-    tags: ["Branding", "Identity", "Logo"]
-  },
-  {
-    id: "youtube-thumbnail",
-    title: "Tech Review Thumbnail",
-    description: "High click-through-rate YouTube thumbnail for a smartphone review.",
-    category: "Thumbnails",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
-    link: "#",
-    featured: false,
-    date: "Jul 15, 2025",
-    tools: ["Photoshop", "Figma"],
-    tags: ["YouTube", "Social Media", "Tech"]
-  },
-  {
-    id: "movie-poster",
-    title: "Sci-Fi Short Film Poster",
-    description: "Minimalist and cinematic poster design for an indie sci-fi movie.",
-    category: "Posters",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop",
-    link: "#",
-    featured: true,
-    date: "Jun 30, 2025",
-    tools: ["Photoshop", "Blender"],
-    tags: ["Sci-Fi", "Cinematic", "Minimalist"]
-  }
-];
+export const designProjects: DesignProject[] = [];
 
 export const appProjects = [
   {
@@ -310,22 +266,33 @@ export const education = [
   }
 ];
 
-export const workExperience = [
-  {
-    id: "freelance-dev",
-    company: "Freelance",
-    role: "Full Stack Developer",
-    duration: "2023 — Present",
-    description: "Building custom web solutions for local clients using React and Node.js. Focused on performance and SEO.",
-    tech: ["React", "Node.js", "Tailwind CSS", "MongoDB", "SEO"],
-    responsibilities: [
-      "Architected and deployed responsive web applications for various small business clients.",
-      "Implemented SEO best practices, resulting in a 40% increase in organic traffic for client sites.",
-      "Managed full project lifecycles from requirement gathering to deployment and maintenance.",
-      "Optimized website performance, achieving sub-second load times on mobile devices."
-    ],
-    link: "https://github.com/Deepak5556"
-  }
+export interface WorkExperienceItem {
+  id: string;
+  company: string;
+  role: string;
+  duration: string;
+  description: string;
+  tech: string[];
+  responsibilities: string[];
+  link?: string;
+}
+
+export const workExperience: WorkExperienceItem[] = [
+  // {
+  //   id: "freelance-dev",
+  //   company: "Freelance",
+  //   role: "Full Stack Developer",
+  //   duration: "2023 — Present",
+  //   description: "Building custom web solutions for local clients using React and Node.js. Focused on performance and SEO.",
+  //   tech: ["React", "Node.js", "Tailwind CSS", "MongoDB", "SEO"],
+  //   responsibilities: [
+  //     "Architected and deployed responsive web applications for various small business clients.",
+  //     "Implemented SEO best practices, resulting in a 40% increase in organic traffic for client sites.",
+  //     "Managed full project lifecycles from requirement gathering to deployment and maintenance.",
+  //     "Optimized website performance, achieving sub-second load times on mobile devices."
+  //   ],
+  //   link: "https://github.com/Deepak5556"
+  // }
 ];
 export const internships = [
   {
@@ -355,8 +322,6 @@ export const internships = [
       "Participated in debugging, testing, and optimizing app performance."
     ]
   },
-
-
 ];
 
 export const certifications = [

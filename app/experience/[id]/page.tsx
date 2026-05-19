@@ -10,6 +10,9 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/Shared";
 
 export function generateStaticParams() {
+  if (workExperience.length === 0) {
+    return [{ id: 'none' }];
+  }
   return workExperience.map((work) => ({
     id: work.id,
   }));

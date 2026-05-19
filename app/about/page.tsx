@@ -73,40 +73,42 @@ export default function AboutPage() {
 
 
       {/* ─── Work Experience ─── */}
-      <section className="scroll-mt-20">
-        <div className="mb-6 sm:mb-8">
-          <SectionLabel>Professional</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
-            Work Experience<span className="text-orange-500 not-italic">.</span>
-          </h2>
-        </div>
-        <div className="space-y-4">
-          {workExperience.map((work, i) => (
-            <Link key={i} href={`/experience/${work.id}`} className="block">
-              <Card className="card-hover cursor-pointer h-full border-border/40 hover:border-primary/30 transition-all duration-500">
-                <CardHeader className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-2 gap-2 px-4 sm:px-6">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <Briefcase size={16} className="text-muted-foreground" />
-                      <CardTitle className="text-sm sm:text-base">{work.role}</CardTitle>
+      {workExperience.length > 0 && (
+        <section className="scroll-mt-20">
+          <div className="mb-6 sm:mb-8">
+            <SectionLabel>Professional</SectionLabel>
+            <h2 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tight">
+              Work Experience<span className="text-orange-500 not-italic">.</span>
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {workExperience.map((work, i) => (
+              <Link key={i} href={`/experience/${work.id}`} className="block">
+                <Card className="card-hover cursor-pointer h-full border-border/40 hover:border-primary/30 transition-all duration-500">
+                  <CardHeader className="flex flex-col sm:flex-row sm:items-start sm:justify-between pb-2 gap-2 px-4 sm:px-6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Briefcase size={16} className="text-muted-foreground" />
+                        <CardTitle className="text-sm sm:text-base">{work.role}</CardTitle>
+                      </div>
+                      <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{work.company}</CardDescription>
                     </div>
-                    <CardDescription className="text-xs sm:text-sm font-medium text-foreground">{work.company}</CardDescription>
-                  </div>
-                  <Badge variant="outline" className="text-[10px] sm:text-xs w-fit">{work.duration}</Badge>
-                </CardHeader>
-                <CardContent className="px-4 sm:px-6">
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">{work.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {work.tech?.map((t) => (
-                      <Badge key={t} variant="secondary" className="text-[8px] font-black uppercase tracking-widest bg-muted/30 text-muted-foreground border-none px-2.5 py-1">{t}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </section>
+                    <Badge variant="outline" className="text-[10px] sm:text-xs w-fit">{work.duration}</Badge>
+                  </CardHeader>
+                  <CardContent className="px-4 sm:px-6">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">{work.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {work.tech?.map((t) => (
+                        <Badge key={t} variant="secondary" className="text-[8px] font-black uppercase tracking-widest bg-muted/30 text-muted-foreground border-none px-2.5 py-1">{t}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ─── Internships ─── */}
       <section className="scroll-mt-20">
