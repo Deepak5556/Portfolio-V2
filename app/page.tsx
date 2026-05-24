@@ -7,6 +7,7 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import FAQ from "@/app/FAQ";
 import {
   ArrowRight, Code2, Smartphone, MapPin, Layers, ExternalLink,
   Layout, Terminal, Database, Wrench, User, Palette, Film, Camera, Mail,
@@ -15,6 +16,7 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { profile, techStack, projects, achievements, homeAboutDetails } from "@/lib/data";
+
 import { SectionLabel, Pill } from "@/components/Shared";
 import { RoleCarousel } from "@/components/RoleCarousel";
 import { ShareAction } from "@/components/ShareAction";
@@ -336,6 +338,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <FAQ />
     </div>
   );
 }

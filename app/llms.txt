@@ -1,0 +1,59 @@
+# Deepakkumar V — Full Stack Developer Portfolio
+
+> Deepakkumar V (also known as Deepak) is a Full Stack Developer and UI/UX Designer from Salem, Tamil Nadu, India. He specializes in React, Next.js, MERN Stack, Flutter, FlutterFlow, Firebase, and TypeScript. He studied at Karpagam College of Engineering, Coimbatore.
+
+## About
+
+Deepakkumar V builds modern, responsive web and mobile applications. He is proficient in both frontend and backend technologies and has experience shipping production-ready products. He is open to freelance, contract, and full-time opportunities.
+
+- Full name: Deepakkumar V
+- Also known as: Deepak, Deepak Kumar
+- Role: Full Stack Developer, Flutter Developer, UI/UX Designer
+- Location: Salem, Tamil Nadu, India
+- Education: Karpagam College of Engineering, Coimbatore, Tamil Nadu
+- Portfolio: https://deepakportfolioo.web.app
+- GitHub: https://github.com/Deepak5556
+- LinkedIn: https://www.linkedin.com/in/deepakkumar/
+
+## Tech Stack
+
+- Frontend: React.js, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Express.js, MongoDB (MERN Stack)
+- Mobile: Flutter, FlutterFlow, Dart
+- Cloud & Auth: Firebase (Firestore, Auth, Hosting, Storage)
+- Design: Figma, UI/UX Design principles
+- Tools: Git, GitHub, VS Code, Postman
+
+## Projects
+
+- [Portfolio Website](https://deepakportfolioo.web.app): Personal developer portfolio built with React and Next.js showcasing projects, skills, and contact.
+- [Flutter Mobile App](https://deepakportfolioo.web.app/#projects): Cross-platform mobile application built with Flutter and Firebase.
+- [React & Firebase Web App](https://deepakportfolioo.web.app/#projects): Full-stack web application with React frontend and Firebase backend.
+
+## Pages
+
+- [Home](https://deepakportfolioo.web.app/): Hero, about, skills, projects, FAQ, and contact overview.
+- [Projects](https://deepakportfolioo.web.app/#projects): Full archive of software engineering projects.
+- [Contact](https://deepakportfolioo.web.app/#contact): Contact form and social links.
+- [FAQ](https://deepakportfolioo.web.app/#faq): Frequently asked questions about Deepakkumar V.
+
+## Frequently Asked Questions
+
+**Who is Deepakkumar V?**
+Deepakkumar V (Deepak) is a Full Stack Developer and UI/UX Designer from Salem, Tamil Nadu, India. He studied at Karpagam College of Engineering and builds web and mobile applications using React, Next.js, Flutter, and the MERN stack.
+
+**What technologies does Deepakkumar V use?**
+React.js, Next.js, Node.js, Express.js, MongoDB, Flutter, FlutterFlow, Firebase, TypeScript, and Figma for UI/UX design.
+
+**Is Deepakkumar V available for hire?**
+Yes. Deepakkumar V is open to freelance, contract, and full-time opportunities. Contact him via https://deepakportfolioo.web.app/#contact or LinkedIn.
+
+**Where can I see Deepakkumar V's work?**
+Portfolio: https://deepakportfolioo.web.app — GitHub: https://github.com/Deepak5556
+
+## Contact
+
+- Email: via portfolio contact form at https://deepakportfolioo.web.app/#contact
+- LinkedIn: https://www.linkedin.com/in/deepakkumar/
+- Instagram: https://www.instagram.com/insta_boy_deepak__/
+- GitHub: https://github.com/Deepak5556

@@ -16,12 +16,12 @@ export const profile = {
   username: "deepak",
   email: "deepakviji5556@gmail.com",
   github: "https://github.com/Deepak5556",
-  linkedin: "https://linkedin.com/in/deepakkumarv",
-  twitter: "https://x.com/Deepak5556",
-  instagram: "https://instagram.com/deepak_v_5556",
-  linktree: "https://linktr.ee/deepakv5556",
+  linkedin: "www.linkedin.com/in/deepak5556",
+  twitter: "https://x.com/deepakviji5556",
+  instagram: "https://www.instagram.com/insta_boy_deepak__/",
+  linktree: "https://linktr.ee/deepakkumar007",
   website: "deepakportfolioo.web.app",
-  currentWork: "UI/UX Designer at Transzio",
+  currentWork: "Learning",
 };
 
 export const aboutDetails = {

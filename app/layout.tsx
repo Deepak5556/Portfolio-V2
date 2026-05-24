@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   // ── Title: Brand name first for branded search dominance ──
   title: {
     default:
-      "Deepak | Deepakkumar V – Full Stack Developer | React, Flutter & MERN Portfolio",
+      "Deepakkumar V – Full Stack Developer | React, Flutter & MERN Portfolio",
     template: "%s | Deepakkumar V – Full Stack Developer",
   },
 
   // ── Description: 155 chars, keyword-rich, action-oriented ──
   description:
-    "Deepakkumar V (Deepak) – Full Stack & Flutter Developer from India. Explore projects in React, Next.js, MERN, Firebase & UI/UX design. Hire or collaborate today.",
+    "Deepakkumar V – Full Stack & Flutter Developer from India. Explore projects in React, Next.js, MERN, Firebase & UI/UX design. Hire or collaborate today.",
 
   // ── Keywords: branded + trending 2026 stack keywords ──
   keywords: [
@@ -61,7 +61,6 @@ export const metadata: Metadata = {
     "Flutter Developer",
     "FlutterFlow Developer",
     "Firebase Developer",
-    "TypeScript Developer",
     "AI-integrated developer",
     "UI UX Designer Developer",
     // Long-tail location & intent
@@ -440,7 +439,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden relative">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
           <PageBackground />
           <LoadingProvider>
             <Navbar />
