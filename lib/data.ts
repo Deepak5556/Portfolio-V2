@@ -9,28 +9,29 @@ import {
 export const profile = {
   name: "Deepakkumar V",
   role: "Developer",
-  tagline: "Software Development • Designs • Visual Arts",
-  location: "Karpagam College, Coimbatore",
+  tagline: "Software Development • UI/UX Design • Visual Arts",
+  location: "Karpagam College of Engineering, Coimbatore",
   avatar: "/Deepak.webp",
+  avatarPassPort:"/Deepak Passport.png",
   initials: "DV",
   username: "deepak",
   email: "deepakviji5556@gmail.com",
   github: "https://github.com/Deepak5556",
-  linkedin: "www.linkedin.com/in/deepak5556",
+  linkedin: "https://www.linkedin.com/in/deepak5556",
   twitter: "https://x.com/deepakviji5556",
   instagram: "https://www.instagram.com/insta_boy_deepak__/",
   linktree: "https://linktr.ee/deepakkumar007",
   website: "deepakportfolioo.web.app",
-  currentWork: "Learning",
+  currentWork: "Actively Learning & Building",
 };
 
 export const aboutDetails = {
   paragraphs: [
-    "I’m Deepakkumar V, a full stack developer, mobile app developer, and UI/UX designer passionate about building modern digital experiences that are both functional and visually engaging. I specialize in developing responsive web and mobile applications with a strong focus on performance, usability, and clean design.",
+    "I am Deepakkumar V, a Full Stack Developer, Mobile Application Developer, and UI/UX Designer with a strong foundation in building scalable, performant, and user-centric digital products. I specialise in developing responsive web and mobile applications with an emphasis on clean architecture, performance optimisation, and intuitive interface design.",
 
-    "Alongside development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. My creative background helps me bring a unique design perspective to every project, combining technology, storytelling, and user experience into meaningful digital products.",
+    "In addition to software development, I bring professional experience in visual content creation — including videography, video editing, photography, and photo retouching. This cross-disciplinary background enables me to approach every project with both technical precision and a refined design sensibility, resulting in products that are as visually compelling as they are functionally robust.",
 
-    "I have experience working with technologies like React, Flutter, Node.js, Firebase, and modern UI/UX tools. Through internships, hackathons, and personal projects, I’ve developed strong problem-solving, collaboration, and product development skills while continuously learning and improving as a developer and designer."
+    "I have hands-on experience with technologies including React, Flutter, Node.js, Firebase, and industry-standard UI/UX tools. Through internships, national-level hackathons, and independent projects, I have developed strong competencies in problem-solving, cross-functional collaboration, and end-to-end product development."
   ]
 };
 
@@ -38,21 +39,21 @@ export const skillDetails = [
   {
     icon: Code2,
     title: "Software Development",
-    desc: "Building scalable web and cross-platform mobile applications with modern stacks.",
+    desc: "Designing and developing scalable web applications and cross-platform mobile solutions using modern technology stacks.",
     tools: ["React", "Next.js", "Flutter", "Node.js", "Dart"],
     href: "/software"
   },
   {
     icon: Layout,
-    title: "Designs",
-    desc: "Crafting pixel-perfect designs and intuitive User Experiences for all platforms.",
-    tools: ["Figma", "UI/UX", "Adobe XD", "Branding"],
+    title: "UI/UX Design",
+    desc: "Creating pixel-perfect, accessible, and user-centred interface designs with a focus on usability and brand consistency.",
+    tools: ["Figma", "Adobe XD", "UI/UX", "Branding"],
     href: "/designs"
   },
   {
     icon: Sparkles,
-    title: "Visual Art",
-    desc: "Cinematic video production and professional photography with post-processing.",
+    title: "Visual Arts",
+    desc: "Producing cinematic video content and professional photography with advanced post-production and colour grading.",
     tools: ["Premiere Pro", "After Effects", "Photoshop", "Lightroom"],
     href: "/media"
   },
@@ -60,11 +61,11 @@ export const skillDetails = [
 
 export const homeAboutDetails = {
   paragraphs: [
-    "I’m Deepakkumar V, a full stack developer, mobile app developer, and UI/UX designer with a strong passion for creating seamless digital experiences. I specialize in building modern web and mobile applications that combine functionality, performance, and intuitive design.",
+    "I am Deepakkumar V, a Full Stack Developer, Mobile Application Developer, and UI/UX Designer with a passion for building seamless, high-quality digital experiences. I specialise in developing modern web and mobile applications that balance functionality, performance, and intuitive design.",
 
-    "Beyond development, I’m deeply involved in visual creativity as a videographer, video editor, photographer, and photo editor. This creative background allows me to approach projects with a strong sense of storytelling, aesthetics, and user engagement.",
+    "Beyond engineering, I bring professional expertise in visual content creation — videography, video editing, photography, and photo editing. This creative foundation allows me to approach projects with a strong sense of visual storytelling, aesthetics, and user engagement.",
 
-    "I focus on delivering clean, polished, and meaningful work while paying close attention to both technical quality and visual detail. Whether designing interfaces, developing applications, or creating visual content, I strive to build experiences that are impactful, user-friendly, and visually compelling."
+    "I am committed to delivering clean, polished, and technically sound work, with close attention to both engineering quality and visual detail. Whether architecting applications, designing interfaces, or producing visual content, I build experiences that are impactful, accessible, and production-ready."
   ],
   tags: [
     "Web Developer",
@@ -105,15 +106,15 @@ export const techStack = [
 
 export const projects = [
   {
-    title: "Dhruva",
-    description: "The CATOM team developed kcedhruva.in, the official website for our college's Dhruva event, improving user engagement and accessibility. It offers event details, schedules, and registration features. I'm proud to be part of this team and contribute to its success.",
+    title: "Dhruva — Official Event Website",
+    description: "Developed kcedhruva.in, the official website for Karpagam College of Engineering's annual cultural event Dhruva, as part of the CATOM team. The platform delivers event information, schedules, and online registration, significantly improving accessibility and user engagement for attendees.",
     tech: ["React", "Tailwind CSS", "SEO"],
     image: "https://deepakportfolioo.web.app/assets/dhruva-BYimjnIf.webp",
     icon: ShieldCheck,
   },
   {
     title: "Blood Donation App",
-    description: "A user-friendly Flutter-based Blood Donation App designed to streamline the process of finding blood donors and requesting donations. The app features donor registration, search for nearby donors, request forms, and emergency contact options for quick assistance.",
+    description: "A Flutter-based mobile application designed to streamline blood donor discovery and donation requests. The app supports donor registration, geolocation-based donor search, request submission, and emergency contact access — facilitating faster and more reliable connections between donors and recipients.",
     tech: ["Flutter", "Firebase", "Dart"],
     link: "https://deepakportfolioo.web.app",
     image: "https://deepakportfolioo.web.app/assets/bloodDonationApp-B9GIfnV1.webp",
@@ -121,8 +122,8 @@ export const projects = [
   },
   {
     title: "SnapLearn",
-    description: "SnapLearn App is a Flutter-based mobile application that uses image recognition to describe what's in a photo. Users can upload or snap pictures, and the app instantly provides a simple explanation. Designed for learning, accessibility, and fun, it makes visual discovery easy and engaging.",
-    tech: ["Flutter", "Firebase", "Dart", "Claude API "],
+    description: "A Flutter-based mobile application that leverages image recognition to generate contextual descriptions of captured or uploaded photos. Built for accessibility and interactive learning, the app integrates the Claude API to deliver instant, easy-to-understand visual explanations.",
+    tech: ["Flutter", "Firebase", "Dart", "Claude API"],
     link: "https://deepakportfolioo.web.app",
     image: "https://deepakportfolioo.web.app/assets/snaplearn-ZHnt1vW8.webp",
     icon: Layout,
@@ -132,17 +133,17 @@ export const projects = [
 export const achievements = [
   {
     id: "hackfest-2k24",
-    event: "Second Prize - National Level Hackathon",
+    event: "Second Prize — National Level Hackathon",
     org: "Erode Sengunthar Engineering College",
-    desc: "Secured 2nd place in NATIONAL LEVEL HACKATHON - HACKFEST 2k24 conducted by the Department of Computer Science and Engineering.",
+    desc: "Secured 2nd place at HACKFEST 2k24, a National Level Hackathon conducted by the Department of Computer Science and Engineering, competing against teams from institutions across the country.",
     year: "2024",
     details: [
-      "Gained hands-on experience working in a real hackathon environment with strict timelines.",
-      "Led the team as a Team Leader, managing tasks and ensuring smooth collaboration.",
-      "Built and presented a functional App solution under time constraints.",
-      "Improved problem-solving, communication, and leadership skills.",
-      "Learned to quickly convert ideas into real-world applications.",
-      "Experienced industry-level project presentation and pitching."
+      "Served as Team Leader, coordinating task distribution and ensuring effective cross-team collaboration under strict time constraints.",
+      "Designed, developed, and deployed a fully functional application within the hackathon timeline.",
+      "Gained practical experience in rapid prototyping, agile decision-making, and live product presentation.",
+      "Strengthened problem-solving, communication, and technical leadership competencies.",
+      "Demonstrated the ability to translate ideas into production-ready solutions under competitive conditions.",
+      "Presented the project to an industry panel, receiving feedback on architecture, scalability, and usability."
     ]
   }
 ];
@@ -155,7 +156,7 @@ export const videos = [
     id: "college-trip",
     title: "College Trip",
     tools: ["CapCut"],
-    description: "Edited this college trip video to bring out the vibe, energy, and memories in the best way. Focused on smooth transitions, beat sync cuts, cinematic color grading, and clean text animations to keep it engaging and fun throughout.",
+    description: "Produced a highlight reel for a college trip, capturing the energy and shared experiences of the event. The edit features rhythmic cut synchronisation, smooth transitions, cinematic colour grading, and motion typography to maintain engagement and visual continuity throughout.",
     videoSrc: "/web/trip.webm",
     poster: "/web/trip.webp"
   },
@@ -163,11 +164,10 @@ export const videos = [
     id: "dhruva-2025",
     title: "Dhruva 2025",
     tools: ["After Effects"],
-    description: "Edited highlights from Dhruva 2025 to capture the energy, crowd vibe, and key moments of the event. Used smooth transitions, beat sync cuts, motion graphics, and cinematic color grading to make the video feel lively and engaging from start to finish.",
+    description: "Edited a highlights package for Dhruva 2025, documenting key performances and crowd moments from the annual college cultural event. The production incorporates beat-synchronised cuts, motion graphics, dynamic transitions, and cinematic colour grading to deliver a high-energy, visually polished final cut.",
     videoSrc: "/web/dhruva.webm",
     poster: "https://imgs.search.brave.com/9Crsp6AsY-V1l9-Ea5KeRVsrBYEGH-_guiAZz0xmVHE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA2/OTEzNzc3NC9waG90/by9jaGVlcmluZy1m/YW5zLWF0LWNvbmNl/cnQuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPVg0TUZvbjlj/cFROOVVqdHUxckRR/WTFLUk5ZMlU1Y0g3/Wmw0Vk5hQzY2ajA9"
   }
-
 ];
 
 export const photos = [
@@ -176,17 +176,18 @@ export const photos = [
     title: "Creative Asset Analysis",
     tools: ["Event Photography"],
     location: "Karpagam College of Engineering",
-    description: "Captured a powerful stage performance at Dhruva 2026, a college cultural event, featuring a traditional dance ensemble. The composition highlights symmetry, expressive poses, and dramatic lighting. Post-processing includes color grading, contrast balancing, and lighting enhancement to emphasize mood and stage presence while preserving natural skin tones and costume details.",
+    description: "Stage photography captured during Dhruva 2026, a college cultural event, documenting a traditional dance ensemble performance. The composition emphasises symmetry, expressive movement, and dramatic stage lighting. Post-production includes targeted colour grading, contrast calibration, and lighting enhancement to reinforce mood and visual impact while preserving costume and skin tone accuracy.",
     thumbnail: "/Dhruva2026.webp",
     images: [
       "/Dhruva2026.webp"
     ]
-  }, {
+  },
+  {
     id: "dhruva2026",
     title: "Dhruva 2026",
     tools: ["Event Photography"],
     location: "Karpagam College of Engineering",
-    description: "Captured a powerful stage performance at Dhruva 2026, a college cultural event, featuring a traditional dance ensemble. The composition highlights symmetry, expressive poses, and dramatic lighting. Post-processing includes color grading, contrast balancing, and lighting enhancement to emphasize mood and stage presence while preserving natural skin tones and costume details.",
+    description: "Event photography from Dhruva 2026 capturing a classical dance performance on the main stage. Includes both raw and edited versions to demonstrate the full post-production workflow — encompassing colour grading, exposure correction, and contrast enhancement to achieve a professional, publication-ready result.",
     thumbnail: "/web/dhruva2026raw.webp",
     images: [
       "/web/dhruva2026raw.webp",
@@ -208,12 +209,79 @@ export interface DesignProject {
   tags: string[];
 }
 
-export const designProjects: DesignProject[] = [];
+export const designProjects: DesignProject[] = [
+ {
+  id: "Cognito",
+  title: "Cognito E-Learning Platform",
+  description:
+    "A modern e-learning dashboard UI crafted to enhance online learning experiences with an intuitive and clean interface. Features course progress tracking, interactive learning modules, student management sections, and a seamless user journey designed for both learners and educators.",
+  category: "Dashboard Design",
+  image: "/Cognito.webp",
+  link: "",
+  featured: false,
+  date: "2025-03-01",
+  tools: ["Figma", "Auto Layout", "Variables"],
+  tags: ["E-Learning", "Dashboard", "UI/UX", "Education Platform"],
+},{
+  id: "personalportfolio",
+  title: "Personal Portfolio Website",
+  description:
+    "A modern and responsive personal portfolio website designed to showcase skills, projects, experience, and creative work in a clean and professional layout. Features smooth navigation, project highlights, interactive UI sections, and a visually balanced design focused on personal branding and user engagement.",
+  category: "Web Design",
+  image: "/PersonalPortfolio.webp",
+  link: "https://deepakportfolioo.web.app/",
+  featured: true,
+  date: "2026-05-25",
+  tools: ["Figma", "FigJam", "Prototyping"],
+  tags: ["Portfolio", "Personal Website", "UI/UX", "Responsive Design"],
+},
+ {
+  id: "Sign2Sense",
+  title: "Sign2Sense — Sign Lang Learning App",
+  description:
+    "A modern mobile learning application designed to help deaf and mute individuals learn sign language through interactive lessons, visual guidance, and daily practice exercises. Features progress tracking, beginner-friendly learning modules, and an accessible user experience focused on inclusive communication and education.",
+  category: "Mobile App Design",
+  image: "/SignTwoSense.webp",
+  link: "",
+  featured: true,
+  date: "2025-01-15",
+  tools: ["Figma", "Prototyping", "Component Library"],
+  tags: ["Sign Language", "Mobile App", "Accessibility", "Education"],
+},
+  // {
+  //   id: "shopify-redesign",
+  //   title: "Velora — E-Commerce Redesign",
+  //   description:
+  //     "A full UX audit and redesign of a fashion e-commerce platform. Focused on reducing checkout friction, improving product discovery, and establishing a cohesive visual identity across web and mobile breakpoints.",
+  //   category: "Web Design",
+  //   image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+  //   link: "https://www.figma.com/",
+  //   featured: true,
+  //   date: "2024-11-20",
+  //   tools: ["Figma", "Adobe XD", "Illustrator"],
+  //   tags: ["E-Commerce", "Redesign", "UX Audit", "Responsive"],
+  // },
+  
+  
+  // {
+  //   id: "brand-identity-nexgen",
+  //   title: "NexGen — Brand Identity System",
+  //   description:
+  //     "Complete brand identity design for a technology startup including logo design, colour palette, typography system, iconography, and a full component-level UI kit aligned with the brand guidelines.",
+  //   category: "Branding",
+  //   image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+  //   link: "https://www.figma.com/",
+  //   featured: false,
+  //   date: "2024-05-18",
+  //   tools: ["Figma", "Illustrator", "Canva"],
+  //   tags: ["Branding", "Logo Design", "UI Kit", "Startup"],
+  // },
+];
 
 export const appProjects = [
   {
     title: "Campus Connect",
-    description: "A social networking app for college students to connect, share resources, and collaborate on academic projects.",
+    description: "A social networking platform for college students enabling resource sharing, peer collaboration, and academic community engagement.",
     tech: ["Flutter", "Firebase", "Dart", "Cloud Functions"],
     image: "",
     icon: TabletSmartphone,
@@ -222,7 +290,7 @@ export const appProjects = [
   },
   {
     title: "Budget Tracker",
-    description: "A personal finance app with expense tracking, budgeting & visual spending analytics. Offline-first with sync.",
+    description: "A personal finance application featuring expense tracking, budget management, and visual spending analytics. Built with an offline-first architecture and cloud synchronisation.",
     tech: ["FlutterFlow", "Firebase", "Hive"],
     image: "",
     icon: TabletSmartphone,
@@ -231,7 +299,7 @@ export const appProjects = [
   },
   {
     title: "Task Manager Pro",
-    description: "A productivity app with task scheduling, priority labels, and a Kanban board view for project management.",
+    description: "A productivity application with task scheduling, priority management, and a Kanban board view for structured project organisation.",
     tech: ["Flutter", "SQLite", "Provider"],
     image: "",
     icon: TabletSmartphone,
@@ -240,7 +308,7 @@ export const appProjects = [
   },
   {
     title: "Event Check-in",
-    description: "QR-code based event registration and check-in system with real-time attendance tracking dashboard.",
+    description: "A QR code-based event registration and check-in system with a real-time attendance tracking dashboard for event administrators.",
     tech: ["Flutter", "Firebase", "QR Scanner"],
     image: "",
     icon: TabletSmartphone,
@@ -254,15 +322,15 @@ export const education = [
     school: "Karpagam College of Engineering",
     degree: "Bachelor of Engineering in Computer Science",
     duration: "2021 — 2025",
-    location: "Coimbatore, India",
-    description: "Focusing on Software Engineering, Data Structures, and Web Technologies. Member of the Technical Club.",
+    location: "Coimbatore, Tamil Nadu, India",
+    description: "Coursework focused on Software Engineering, Data Structures, Algorithms, and Web Technologies. Active member of the college Technical Club.",
   },
   {
     school: "Vani Vidyalaya Matric Hr Sec School",
-    degree: "Higher Secondary Education",
+    degree: "Higher Secondary Education (HSC)",
     duration: "2019 — 2021",
     location: "Tamil Nadu, India",
-    description: "Majored in Computer Science and Mathematics.",
+    description: "Completed Higher Secondary education with a specialisation in Computer Science and Mathematics.",
   }
 ];
 
@@ -289,37 +357,39 @@ export const workExperience: WorkExperienceItem[] = [
   //     "Architected and deployed responsive web applications for various small business clients.",
   //     "Implemented SEO best practices, resulting in a 40% increase in organic traffic for client sites.",
   //     "Managed full project lifecycles from requirement gathering to deployment and maintenance.",
-  //     "Optimized website performance, achieving sub-second load times on mobile devices."
+  //     "Optimised website performance, achieving sub-second load times on mobile devices."
   //   ],
   //   link: "https://github.com/Deepak5556"
   // }
 ];
+
 export const internships = [
   {
     id: "transzio-integral-systems-intern",
     company: "Transzio Integral Systems LLP",
-    role: "Software Developer - Trainee",
+    role: "Software Developer — Trainee",
     duration: "Feb 2026 — Mar 2026",
-    description: "Completed internship in the IoT Product Development department, contributing to technical tasks and project activities.",
+    description: "Completed a trainee internship within the IoT Product Development department, contributing to technical development tasks and collaborative project activities.",
     tech: ["UI/UX", "App Development", "Web Development"],
     responsibilities: [
-      "Worked in the IoT Product Development team on real-world technical tasks.",
-      "Assisted in developing and improving embedded and automation-based solutions.",
-      "Collaborated with team members on project activities and implementation.",
-      "Contributed to debugging, testing, and optimizing system performance."
+      "Contributed to the IoT Product Development team on real-world technical implementation tasks.",
+      "Assisted in the development and enhancement of embedded and automation-based system solutions.",
+      "Collaborated with team members across project phases including design, development, and testing.",
+      "Participated in debugging, quality assurance, and performance optimisation of system components."
     ]
-  }, {
+  },
+  {
     id: "interface-technologies-intern",
     company: "InterFace Technologies",
     role: "App Development Intern",
     duration: "Aug 2025 — Feb 2026",
-    description: "Selected through LinkedIn for a 6-month internship focused on app development at InterFace Technologies, contributing to real-world development projects.",
+    description: "Selected via LinkedIn for a 6-month internship focused on mobile application development, contributing to production-grade projects within a professional development environment.",
     tech: ["Flutter", "API Integration", "Mobile App Development", "UI Development"],
     responsibilities: [
-      "Worked on mobile application development using modern frameworks and tools.",
-      "Collaborated with the development team to build and improve application features.",
-      "Integrated APIs and handled real-time data within mobile applications.",
-      "Participated in debugging, testing, and optimizing app performance."
+      "Developed and maintained mobile application features using Flutter and modern mobile development frameworks.",
+      "Collaborated with the engineering team to implement, refine, and ship application functionality.",
+      "Integrated RESTful APIs and managed real-time data flows within mobile applications.",
+      "Participated in code reviews, debugging sessions, and performance testing to ensure application quality."
     ]
   },
 ];
@@ -346,5 +416,3 @@ export const certifications = [
 ];
 
 export const posts: any[] = [];
-
-

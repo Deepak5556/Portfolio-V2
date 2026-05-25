@@ -68,7 +68,7 @@ export default function FAQ() {
 
       {/* ── Heading ── */}
       <div className="text-center mb-12">
-        <p className="text-sm font-medium tracking-widest uppercase text-purple-500 mb-2">
+        <p className="text-sm font-medium tracking-widest uppercase text-orange-500 mb-2">
           Got Questions?
         </p>
         <h2 className="text-3xl sm:text-4xl font-semibold text-foreground font-[var(--font-fraunces)]">
@@ -88,14 +88,14 @@ export default function FAQ() {
               <button
                 onClick={() => toggle(i)}
                 aria-expanded={isOpen}
-                className="w-full flex items-center justify-between gap-4 py-5 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded-sm"
+                className="w-full flex items-center justify-between gap-4 py-5 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm"
               >
-                <span className="text-base font-medium text-foreground group-hover:text-purple-500 transition-colors">
+                <span className="text-base font-medium text-foreground group-hover:text-orange-500 transition-colors">
                   {faq.question}
                 </span>
                 {/* Animated chevron */}
                 <span
-                  className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-border group-hover:border-purple-500 transition-all"
+                  className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-border group-hover:border-orange-500 transition-all"
                   style={{
                     transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                     transition: "transform 0.25s ease",
@@ -107,7 +107,7 @@ export default function FAQ() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    className="w-3.5 h-3.5 text-muted-foreground group-hover:text-purple-500"
+                    className="w-3.5 h-3.5 text-muted-foreground group-hover:text-orange-500"
                   >
                     <line x1="8" y1="2" x2="8" y2="14" />
                     <line x1="2" y1="8" x2="14" y2="8" />
@@ -141,7 +141,7 @@ export default function FAQ() {
         </p>
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-purple-500 text-purple-500 text-sm font-medium hover:bg-purple-500 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-orange-500 text-orange-500 text-sm font-medium hover:bg-orange-500 hover:text-white transition-colors"
         >
           Get in touch
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">

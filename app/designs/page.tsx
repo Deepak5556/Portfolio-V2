@@ -8,14 +8,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Search, LayoutTemplate, Palette, MonitorSmartphone, Type, MonitorPlay, ArrowRight, Eye, Frame, Calendar, X, ChevronLeft, ChevronRight, PenTool, Hash, ExternalLink
+  Search, LayoutTemplate, Palette, MonitorSmartphone, Type, MonitorPlay, ArrowRight, Eye, Calendar, X, ChevronLeft, ChevronRight, PenTool, Hash, ExternalLink
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { SectionLabel } from "@/components/Shared";
 import { designProjects } from "@/lib/data";
 
-const categories = ["All", "UI Designs", "Posters", "Branding", "Thumbnails"] as const;
+const categories = ["All", "Web Design", "Mobile App Design", "Dashboard Design", "Branding"] as const;
 type Category = typeof categories[number];
 
 function EmptyState() {
@@ -82,10 +82,10 @@ function EmptyState() {
 
 const getCategoryIcon = (category: string) => {
   switch (category) {
-    case "UI Designs": return <MonitorSmartphone size={16} />;
-    case "Posters": return <Frame size={16} />;
+    case "Web Design": return <MonitorSmartphone size={16} />;
+    case "Mobile App Design": return <LayoutTemplate size={16} />;
+    case "Dashboard Design": return <MonitorPlay size={16} />;
     case "Branding": return <Type size={16} />;
-    case "Thumbnails": return <MonitorPlay size={16} />;
     default: return <Palette size={16} />;
   }
 };
@@ -123,7 +123,7 @@ export default function DesignsPage() {
   }, [search, activeTab]);
 
   const featuredPosters = useMemo(() => {
-    return designProjects.filter(p => p.featured && p.category === "Posters");
+    return designProjects.filter(p => p.featured);
   }, []);
 
   // Handle keyboard navigation for modal
@@ -158,7 +158,7 @@ export default function DesignsPage() {
   const selectedProject = selectedProjectIndex !== null ? filteredDesigns[selectedProjectIndex] : null;
 
   return (
-    <div className="max-w-7xl mx-auto pb-20 px-4 md:px-0 min-h-[80vh] relative">
+    <div className="max-w-7xl mx-auto pb-20 px-4 sm:px-6 lg:px-8 min-h-[80vh] relative">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
@@ -185,11 +185,11 @@ export default function DesignsPage() {
             <div className="mb-20">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-xl sm:text-2xl font-black uppercase italic tracking-tight">
-                  Featured Posters<span className="text-primary">.</span>
+                  Featured Designs<span className="text-primary">.</span>
                 </h2>
               </div>
               
-              <div className="flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 gap-6 snap-x snap-mandatory hide-scrollbar">
+              <div className="flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 gap-4 sm:gap-6 snap-x snap-mandatory no-scrollbar">
                 {featuredPosters.map((poster, idx) => (
                   <motion.div 
                     key={poster.id}
@@ -229,48 +229,50 @@ export default function DesignsPage() {
           )}
 
           {/* Categories & Filter */}
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-12 sticky top-20 z-30 bg-background/80 backdrop-blur-xl py-4 -mx-4 px-4 md:mx-0 md:px-0 border-b border-border/40">
-            <div className="w-full md:w-auto overflow-x-auto no-scrollbar py-1 select-none">
-              <div className="flex p-1.5 bg-muted/30 border border-border/40 rounded-full w-max items-center gap-1">
-                {categories.map((tab) => {
-                  const isActive = activeTab === tab;
-                  return (
-                    <button
-                      key={tab}
-                      onClick={() => { setActiveTab(tab); setSelectedProjectIndex(null); }}
-                      className={`
-                        relative px-5 sm:px-6 py-2.5 rounded-full 
-                        text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] 
-                        transition-all duration-300 ease-in-out whitespace-nowrap flex items-center gap-2
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
-                        ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"}
-                      `}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeDesignTab"
-                          className="absolute inset-0 bg-background dark:bg-card border border-border/60 shadow-md rounded-full -z-10"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
-                        />
-                      )}
-                      <span className="relative z-10 flex items-center gap-2">
-                         {tab !== "All" && getCategoryIcon(tab)} {tab}
-                      </span>
-                    </button>
-                  );
-                })}
+          <div className="sticky top-16 sm:top-20 z-30 bg-background/80 backdrop-blur-xl border-b border-border/40 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-4 mb-8 sm:mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-between">
+              <div className="overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 py-1 select-none shrink-0">
+                <div className="flex p-1 sm:p-1.5 bg-muted/30 border border-border/40 rounded-full w-max items-center gap-0.5 sm:gap-1">
+                  {categories.map((tab) => {
+                    const isActive = activeTab === tab;
+                    return (
+                      <button
+                        key={tab}
+                        onClick={() => { setActiveTab(tab); setSelectedProjectIndex(null); }}
+                        className={`
+                          relative px-3 sm:px-5 py-2 sm:py-2.5 rounded-full 
+                          text-[10px] sm:text-xs font-bold uppercase tracking-[0.08em] sm:tracking-[0.1em] 
+                          transition-all duration-300 ease-in-out whitespace-nowrap flex items-center gap-1.5 sm:gap-2
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40
+                          ${isActive ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"}
+                        `}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeDesignTab"
+                            className="absolute inset-0 bg-background dark:bg-card border border-border/60 shadow-md rounded-full -z-10"
+                            transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                          />
+                        )}
+                        <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+                           {tab !== "All" && getCategoryIcon(tab)} {tab}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            <div className="relative w-full md:w-80 group">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/40 group-focus-within:text-primary transition-colors" />
-              <input 
-                type="text" 
-                placeholder="Search creative works..." 
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-card/50 border border-border/60 rounded-full text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
-              />
+              <div className="relative w-full sm:w-72 md:w-80 group shrink-0">
+                <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/40 group-focus-within:text-primary transition-colors" />
+                <input 
+                  type="text" 
+                  placeholder="Search creative works..." 
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-11 pr-4 py-2.5 sm:py-3 bg-card/50 border border-border/60 rounded-full text-xs font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
+                />
+              </div>
             </div>
           </div>
 
@@ -284,7 +286,7 @@ export default function DesignsPage() {
               <p className="text-muted-foreground font-medium">Try adjusting your category or search query.</p>
             </div>
           ) : (
-            <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6">
+            <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-5 lg:gap-6">
               <AnimatePresence mode="popLayout">
                 {filteredDesigns.map((project, idx) => (
                   <motion.div
@@ -294,11 +296,11 @@ export default function DesignsPage() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: -20 }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="break-inside-avoid mb-6"
+                    className="break-inside-avoid mb-4 sm:mb-5 lg:mb-6"
                   >
                     <Card 
                       onClick={() => setSelectedProjectIndex(idx)}
-                      className="group border-border/40 bg-card/20 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 rounded-3xl flex flex-col cursor-pointer"
+                      className="group border-border/40 bg-card/20 backdrop-blur-xl relative overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 rounded-2xl sm:rounded-3xl flex flex-col cursor-pointer"
                     >
                       {/* Subtle hover glow */}
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 z-0 pointer-events-none" />
@@ -323,9 +325,9 @@ export default function DesignsPage() {
                         </div>
                       </div>
 
-                      <CardHeader className="p-5 flex-1 relative z-10 flex flex-col justify-between">
+                      <CardHeader className="p-3.5 sm:p-5 flex-1 relative z-10 flex flex-col justify-between">
                         <div>
-                          <CardTitle className="text-lg font-black group-hover:text-primary transition-colors tracking-tight leading-tight mb-2">
+                          <CardTitle className="text-sm sm:text-base lg:text-lg font-black group-hover:text-primary transition-colors tracking-tight leading-tight mb-1.5 sm:mb-2">
                             {project.title}
                           </CardTitle>
                           <CardDescription className="text-xs leading-relaxed font-medium text-muted-foreground/80 line-clamp-2">

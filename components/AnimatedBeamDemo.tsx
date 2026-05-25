@@ -87,7 +87,7 @@ export const AnimatedBeamDemo = React.memo(function AnimatedBeamDemo() {
           </Circle>
           <Circle ref={div4Ref} label="Deepakkumar" labelPosition="bottom" href="/contact" className="size-20 sm:size-24 bg-card border-primary/50 overflow-hidden p-0 shadow-lg shadow-primary/20 hover:scale-110 transition-transform z-20">
             <Avatar className="size-full">
-              <AvatarImage src={profile.avatar} alt={profile.name} className="object-cover" />
+              <AvatarImage src={profile.avatarPassPort} alt={profile.name} className="object-cover" />
               <AvatarFallback className="text-xl font-bold">{profile.initials}</AvatarFallback>
             </Avatar>
           </Circle>
