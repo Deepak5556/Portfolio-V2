@@ -242,7 +242,7 @@ export default function AboutPage() {
                 <CardDescription className="text-xs">{cert.issuer}</CardDescription>
               </CardHeader>
               <CardFooter className="pt-0 border-t border-border/50 mt-auto flex justify-between items-center py-3 px-4 sm:px-6">
-                <span className="text-[10px] text-muted-foreground font-medium">{cert.date}</span>
+                <span className="text-[10px] text-muted-foreground font-medium">{cert.dateCreated ? new Date(cert.dateCreated).getFullYear() : ""}</span>
                 <Button variant="outline" size="sm" asChild>
                   <a href={cert.link} target="_blank" rel="noopener noreferrer">
                     Verify <ExternalLink size={10} />

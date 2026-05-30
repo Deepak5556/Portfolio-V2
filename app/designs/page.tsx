@@ -214,7 +214,7 @@ export default function DesignsPage() {
                           {poster.description}
                         </p>
                         <div className="flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                           <Calendar size={12} /> {poster.date}
+                           <Calendar size={12} /> {poster.dateCreated ? new Date(poster.dateCreated).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' }) : ""}
                         </div>
                       </div>
 
@@ -334,9 +334,9 @@ export default function DesignsPage() {
                             {project.description}
                           </CardDescription>
                         </div>
-                        {project.date && (
+                        {project.dateCreated && (
                           <div className="mt-4 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-muted-foreground/50">
-                            <Calendar size={12} /> {project.date}
+                            <Calendar size={12} /> {new Date(project.dateCreated).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}
                           </div>
                         )}
                       </CardHeader>
@@ -423,9 +423,9 @@ export default function DesignsPage() {
                 </h2>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-6 pb-6 border-b border-border/40">
-                   {selectedProject.date && (
+                   {selectedProject.dateCreated && (
                      <div className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground uppercase tracking-widest">
-                       <Calendar size={14} className="text-primary" /> {selectedProject.date}
+                       <Calendar size={14} className="text-primary" /> {new Date(selectedProject.dateCreated).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' })}
                      </div>
                    )}
                    {selectedProject.link && selectedProject.link !== "#" && (

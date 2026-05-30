@@ -115,7 +115,7 @@ function PostCard({ post }: { post: any }) {
             <span className="text-base font-black tracking-tight group-hover/profile:text-orange-500 transition-colors uppercase">{post.username}</span>
             <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-black uppercase tracking-widest">
               <Calendar size={10} className="text-orange-500" />
-              {format(new Date(post.date), "MMMM dd, yyyy")}
+              {format(new Date(post.dateCreated), "MMMM dd, yyyy")}
             </div>
           </div>
         </Link>

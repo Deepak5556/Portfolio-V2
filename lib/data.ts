@@ -166,8 +166,15 @@ export const videos = [
     tools: ["After Effects"],
     description: "Edited a highlights package for Dhruva 2025, documenting key performances and crowd moments from the annual college cultural event. The production incorporates beat-synchronised cuts, motion graphics, dynamic transitions, and cinematic colour grading to deliver a high-energy, visually polished final cut.",
     videoSrc: "/web/dhruva.webm",
-    poster: "https://imgs.search.brave.com/9Crsp6AsY-V1l9-Ea5KeRVsrBYEGH-_guiAZz0xmVHE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA2/OTEzNzc3NC9waG90/by9jaGVlcmluZy1m/YW5zLWF0LWNvbmNl/cnQuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPVg0TUZvbjlj/cFROOVVqdHUxckRR/WTFLUk5ZMlU1Y0g3/Wmw0Vk5hQzY2ajA9"
-  }
+    poster: "dhruva.jpeg"
+  },{
+  id: "remo",
+  title: "Remo Style Lyrical Edit",
+  tools: ["Adobe After Effects", "Adobe Photoshop"],
+  description: "Created a cinematic lyrical video inspired by the visual style of the movie Remo. The edit combines beat-synchronised cuts, smooth motion transitions, dynamic text animations, vibrant colour grading, and visually engaging effects to enhance the song's mood and storytelling. Careful attention was given to pacing, typography, and visual flow to deliver an immersive viewing experience.",
+  videoSrc: "/web/DeepakRemo.webm",
+  poster: "/web/remo.webp"
+}
 ];
 
 export const photos = [
@@ -204,7 +211,7 @@ export interface DesignProject {
   image: string;
   link: string;
   featured: boolean;
-  date: string;
+  dateCreated: string;
   tools: string[];
   tags: string[];
 }
@@ -219,7 +226,7 @@ export const designProjects: DesignProject[] = [
   image: "/Cognito.webp",
   link: "",
   featured: false,
-  date: "2025-03-01",
+  dateCreated: "2025-03-01T10:30:00+05:30",
   tools: ["Figma", "Auto Layout", "Variables"],
   tags: ["E-Learning", "Dashboard", "UI/UX", "Education Platform"],
 },{
@@ -231,7 +238,7 @@ export const designProjects: DesignProject[] = [
   image: "/PersonalPortfolio.webp",
   link: "https://deepakportfolioo.web.app/",
   featured: true,
-  date: "2026-05-25",
+  dateCreated: "2026-05-25T10:30:00+05:30",
   tools: ["Figma", "FigJam", "Prototyping"],
   tags: ["Portfolio", "Personal Website", "UI/UX", "Responsive Design"],
 },
@@ -244,9 +251,21 @@ export const designProjects: DesignProject[] = [
   image: "/SignTwoSense.webp",
   link: "",
   featured: true,
-  date: "2025-01-15",
+  dateCreated: "2025-01-15T10:30:00+05:30",
   tools: ["Figma", "Prototyping", "Component Library"],
   tags: ["Sign Language", "Mobile App", "Accessibility", "Education"],
+},{
+  id: "bloodhub",
+  title: "Blood Donation Mobile App",
+  description:
+    "A modern blood donation mobile application UI designed to connect donors and recipients through a simple, accessible, and user-friendly experience. Features donor registration, blood group filtering, emergency contact access, profile management, and donation request tracking with a clean and responsive interface focused on healthcare accessibility and community support.",
+  category: "Mobile App Design",
+  image: "/BloodHub.png",
+  link: "",
+  featured: true,
+  dateCreated: "2024-11-18T10:30:00+05:30",
+  tools: ["Figma", "Prototyping", "Component Library"],
+  tags: ["Healthcare", "Blood Donation", "Mobile UI", "Community App"],
 },
   // {
   //   id: "shopify-redesign",
@@ -398,19 +417,19 @@ export const certifications = [
   {
     title: "Meta Front-End Developer Professional Certificate",
     issuer: "Coursera",
-    date: "2024",
+    dateCreated: "2024-01-01T10:30:00+05:30",
     link: "#",
   },
   {
     title: "Google Data Analytics Professional Certificate",
     issuer: "Coursera",
-    date: "2023",
+    dateCreated: "2023-01-01T10:30:00+05:30",
     link: "#",
   },
   {
     title: "Responsive Web Design",
     issuer: "freeCodeCamp",
-    date: "2023",
+    dateCreated: "2023-01-01T10:30:00+05:30",
     link: "#",
   }
 ];

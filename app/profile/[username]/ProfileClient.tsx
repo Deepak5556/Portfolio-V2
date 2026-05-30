@@ -206,7 +206,7 @@ function PostGridItem({ post, delay }: { post: any, delay: number }) {
                 <div>
                    <span className="block text-sm font-black lowercase tracking-tight uppercase">@{post.username}</span>
                    <span className="block text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mt-0.5">
-                     {format(new Date(post.date), "MMMM dd, yyyy")}
+                     {format(new Date(post.dateCreated), "MMMM dd, yyyy")}
                    </span>
                 </div>
              </div>

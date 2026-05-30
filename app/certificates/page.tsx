@@ -60,7 +60,7 @@ export default function CertificatesPage() {
             <CardFooter className="pt-0 p-4 sm:p-6 flex-col items-start gap-4 mt-auto border-t border-border/5 pt-4">
               <div className="flex items-center gap-3 text-[10px] font-black text-muted-foreground/60 uppercase tracking-widest">
                 <span className="flex items-center gap-1">
-                  <Calendar size={11} /> {cert.date}
+                  <Calendar size={11} /> {cert.dateCreated ? new Date(cert.dateCreated).getFullYear() : ""}
                 </span>
               </div>
               {cert.link && cert.link !== "#" && (
