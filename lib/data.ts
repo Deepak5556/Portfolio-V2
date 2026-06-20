@@ -151,7 +151,14 @@ export const achievements = [
 export const videoTools = ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"];
 export const photoTools = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
 
-export const videos = [
+export const videos = [{
+  id: "sk-freelance-edit",
+  title: "SK Brand Promotional Edit",
+  tools: ["Adobe After Effects"],
+  description: "Created a professional promotional video for SK, focusing on clean motion graphics, smooth transitions, beat-synced editing, cinematic visual effects, and engaging typography. The project was designed to strengthen brand identity, improve audience engagement, and deliver a polished visual experience suitable for social media marketing and digital promotions.",
+  videoSrc: "/web/v1.webm",
+  poster: "/web/sk.webp"
+},
   {
     id: "college-trip",
     title: "College Trip",
