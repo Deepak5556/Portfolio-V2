@@ -428,6 +428,14 @@ export default function RootLayout({
       className={`${dmSans.variable} ${fraunces.variable}`}
     >
       <head>
+        {/* ── Google AdSense ── */}
+        <meta name="google-adsense-account" content="ca-pub-7641497638276280" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7641497638276280"
+          crossOrigin="anonymous"
+        />
+
         {/* ── Performance: preconnect critical origins ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
