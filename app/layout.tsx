@@ -35,9 +35,9 @@ const DATE_CREATED  = "2025-05-26T00:00:00+05:30"; // ✅ fixed, static publish 
 const DATE_MODIFIED = new Date().toISOString();      // ✅ always valid ISO 8601
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
-export const metadata: Metadata = {
+export const metadata: Metadata = { 
   metadataBase: new URL(SITE_URL),
-
+n
   title: {
     default:
       "Deepakkumar V – Full Stack Developer | React, Flutter & MERN Portfolio",
