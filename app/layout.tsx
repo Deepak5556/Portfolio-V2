@@ -37,7 +37,6 @@ const DATE_MODIFIED = new Date().toISOString();      // ✅ always valid ISO 860
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = { 
   metadataBase: new URL(SITE_URL),
-n
   title: {
     default:
       "Deepakkumar V – Full Stack Developer | React, Flutter & MERN Portfolio",
