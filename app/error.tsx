@@ -31,7 +31,7 @@ export default function Error({
       </h1>
       
       <p className="text-muted-foreground max-w-md mb-10 leading-relaxed text-sm sm:text-base">
-        An unexpected server error occurred. We've been notified and are looking into it.
+        An unexpected server error occurred. We&apos;ve been notified and are looking into it.
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4 items-center">

@@ -64,7 +64,7 @@ export default function ContactPage() {
   return (
     <section id="contact" className="scroll-mt-20 animate-fade-up">
       <div className="mb-8 sm:mb-12 text-center">
-        <SectionLabel>Let's Talk</SectionLabel>
+        <SectionLabel>Let&apos;s Talk</SectionLabel>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-2">
           Get in Touch<span className="accent-dot">.</span>
         </h2>
@@ -113,7 +113,7 @@ export default function ContactPage() {
               <Calendar size={18} className="text-primary" /> Prefer a Video Call?
             </h4>
             <p className="text-xs sm:text-sm text-muted-foreground mb-4 leading-relaxed">
-              If you'd rather talk face-to-face, you can book a dedicated 1:1 intro call 
+              If you&apos;d rather talk face-to-face, you can book a dedicated 1:1 intro call 
               on my scheduling page.
             </p>
             <Button variant="outline" className="w-full gap-2 group h-10 sm:h-9" asChild>
@@ -129,14 +129,14 @@ export default function ContactPage() {
           <CardHeader className="px-4 sm:px-6">
             <SectionLabel>Message</SectionLabel>
             <CardTitle className="text-base sm:text-lg">Send a Message</CardTitle>
-            <CardDescription className="text-xs sm:text-sm">I'll get back to you within 24 hours.</CardDescription>
+            <CardDescription className="text-xs sm:text-sm">I&apos;ll get back to you within 24 hours.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 px-4 sm:px-6">
             {sent ? (
               <div className="flex flex-col items-center justify-center py-8 sm:py-10 gap-3 text-center">
                 <CheckCircle2 size={32} className="text-emerald-500" />
                 <p className="text-sm font-semibold">Message sent!</p>
-                <p className="text-xs text-muted-foreground">Thanks for reaching out — I'll reply soon.</p>
+                <p className="text-xs text-muted-foreground">Thanks for reaching out — I&apos;ll reply soon.</p>
                 <Button variant="ghost" size="sm" onClick={() => setSent(false)} className="mt-2">
                   Send another message
                 </Button>

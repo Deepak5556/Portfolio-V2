@@ -101,7 +101,7 @@ export default function ProjectDetailsClient({ name }: { name: string }) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center px-4">
         <h2 className="text-2xl font-black mb-4">Project Not Found</h2>
-        <p className="text-muted-foreground mb-8 max-w-md">We couldn't retrieve the details for "{name}". It might be private or deleted.</p>
+        <p className="text-muted-foreground mb-8 max-w-md">We couldn&apos;t retrieve the details for &quot;{name}&quot;. It might be private or deleted.</p>
         <Button asChild className="rounded-xl px-8 h-12 shadow-xl shadow-primary/20">
           <Link href="/projects">
             <ChevronLeft size={16} className="mr-2" /> Back to Archive
@@ -265,7 +265,7 @@ export default function ProjectDetailsClient({ name }: { name: string }) {
               return (
                 <div className="p-6 rounded-3xl bg-primary/5 border border-primary/10 relative overflow-hidden">
                     <p className="text-sm font-medium leading-relaxed italic opacity-80">
-                      This project was initiated on {new Date(repo.created_at).toLocaleDateString()} as part of {repo.owner.login}'s architectural research. 
+                      This project was initiated on {new Date(repo.created_at).toLocaleDateString()} as part of {repo.owner.login}&apos;s architectural research. 
                       Leveraging {repo.language || "modern technologies"}, it represents an iterative approach to {repo.name.replace(/-/g, " ")} system design, 
                       focused on maintainability and optimal performance.
                     </p>

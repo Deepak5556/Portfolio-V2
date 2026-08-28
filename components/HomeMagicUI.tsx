@@ -96,7 +96,7 @@ const features = [
         {/* Blurred code editor UI */}
         <div className="absolute inset-0 opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-700 bg-black/10 dark:bg-black/40">
           <div className="w-full h-full p-4 font-mono text-[8px] sm:text-[10px] text-primary/40 flex flex-col gap-1 tracking-widest blur-[1px]">
-            <div><span className="text-orange-500">import</span> React <span className="text-orange-500">from</span> "react";</div>
+            <div><span className="text-orange-500">import</span> React <span className="text-orange-500">from</span> &quot;react&quot;;</div>
             <div><span className="text-orange-500">export const</span> App = () =&gt; {"{"}</div>
             <div className="pl-4"><span className="text-violet-400">const</span> [data, setData] = useState&lt;<span className="text-cyan-400">any</span>&gt;([]);</div>
             <div className="pl-4"><span className="text-violet-400">return</span> (</div>
@@ -114,9 +114,9 @@ const features = [
           {/* API Response Mock */}
           <div className="absolute top-4 left-4 sm:left-6 w-[120px] sm:w-[150px] rounded-xl border border-border/30 bg-card/60 backdrop-blur-md shadow-xl p-3 transform -rotate-3 opacity-30 group-hover:opacity-70 group-hover:translate-y-[-4px] group-hover:rotate-0 transition-all duration-500 ease-out font-mono text-[6px] sm:text-[8px] leading-relaxed">
             <div className="text-orange-400">{"{"}</div>
-            <div className="pl-2"><span className="text-violet-400">"status"</span>: <span className="text-emerald-400">200</span>,</div>
-            <div className="pl-2"><span className="text-violet-400">"message"</span>: <span className="text-emerald-400">"Success"</span>,</div>
-            <div className="pl-2"><span className="text-violet-400">"data"</span>: {"["}</div>
+            <div className="pl-2"><span className="text-violet-400">&quot;status&quot;</span>: <span className="text-emerald-400">200</span>,</div>
+            <div className="pl-2"><span className="text-violet-400">&quot;message&quot;</span>: <span className="text-emerald-400">&quot;Success&quot;</span>,</div>
+            <div className="pl-2"><span className="text-violet-400">&quot;data&quot;</span>: {"["}</div>
             <div className="pl-4 text-muted-foreground">...items</div>
             <div className="pl-2">{"]"}</div>
             <div className="text-orange-400">{"}"}</div>

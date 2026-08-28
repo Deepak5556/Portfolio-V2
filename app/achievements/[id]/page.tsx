@@ -89,7 +89,7 @@ export default function AchievementDetailsPage({ params }: { params: { id: strin
           
           <div className="p-6 rounded-2xl border border-dashed border-border">
             <p className="text-sm italic text-muted-foreground text-center">
-              "A testament to dedication and technical prowess in modern web architecture."
+              &quot;A testament to dedication and technical prowess in modern web architecture.&quot;
             </p>
           </div>
         </div>

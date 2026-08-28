@@ -335,7 +335,7 @@ function SoftwareContent() {
           <div className="relative z-10">
               <h3 className="text-2xl sm:text-4xl font-black mb-4 italic uppercase">Building the Future of Software<span className="text-orange-500">.</span></h3>
               <p className="text-sm sm:text-lg font-medium text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-                Whether it's a high-impact web platform or a native mobile application, 
+                Whether it&apos;s a high-impact web platform or a native mobile application, 
                 I deliver engineering excellence with a focus on performance and precision.
               </p>
               <Button size="lg" className="h-14 px-10 rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:translate-y-[-4px] transition-all" asChild>

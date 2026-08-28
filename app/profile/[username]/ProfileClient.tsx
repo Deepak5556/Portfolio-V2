@@ -153,7 +153,7 @@ function PostGridItem({ post, delay }: { post: any, delay: number }) {
             />
           ) : post.video ? (
             <div className="relative w-full h-full">
-              <img src={post.poster} className="w-full h-full object-cover" alt="Video poster" />
+              <Image src={post.poster} fill className="object-cover" alt="Video poster" />
               <div className="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/10">
                 <Video size={14} />
               </div>
@@ -161,7 +161,7 @@ function PostGridItem({ post, delay }: { post: any, delay: number }) {
           ) : (
             <div className="w-full h-full flex items-center justify-center p-6 text-center">
                <p className="text-[10px] font-bold text-muted-foreground uppercase leading-relaxed line-clamp-3 italic">
-                 "{post.content}"
+                 &quot;{post.content}&quot;
                </p>
             </div>
           )}

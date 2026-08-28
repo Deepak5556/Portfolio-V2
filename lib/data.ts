@@ -12,7 +12,7 @@ export const profile = {
   tagline: "Software Development • UI/UX Design • Visual Arts",
   location: "Karpagam College of Engineering, Coimbatore",
   avatar: "/Deepak.webp",
-  avatarPassPort:"/Deepak Passport.png",
+  avatarPassPort: "/Deepak Passport.png",
   initials: "DV",
   username: "deepak",
   email: "deepakviji5556@gmail.com",
@@ -151,14 +151,15 @@ export const achievements = [
 export const videoTools = ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"];
 export const photoTools = ["Photoshop", "Lightroom", "Canva", "Snapseed"];
 
-export const videos = [{
-  id: "sk-freelance-edit",
-  title: "SK Brand Promotional Edit",
-  tools: ["Adobe After Effects"],
-  description: "Created a professional promotional video for SK, focusing on clean motion graphics, smooth transitions, beat-synced editing, cinematic visual effects, and engaging typography. The project was designed to strengthen brand identity, improve audience engagement, and deliver a polished visual experience suitable for social media marketing and digital promotions.",
-  videoSrc: "/web/v1.webm",
-  poster: "/web/sk.webp"
-},
+export const videos = [
+  // {
+  //   id: "sk-freelance-edit",
+  //   title: "SK Brand Promotional Edit",
+  //   tools: ["Adobe After Effects"],
+  //   description: "Created a professional promotional video for SK, focusing on clean motion graphics, smooth transitions, beat-synced editing, cinematic visual effects, and engaging typography. The project was designed to strengthen brand identity, improve audience engagement, and deliver a polished visual experience suitable for social media marketing and digital promotions.",
+  //   videoSrc: "/web/v1.webm",
+  //   poster: "/web/sk.webp"
+  // },
   {
     id: "college-trip",
     title: "College Trip",
@@ -174,14 +175,15 @@ export const videos = [{
     description: "Edited a highlights package for Dhruva 2025, documenting key performances and crowd moments from the annual college cultural event. The production incorporates beat-synchronised cuts, motion graphics, dynamic transitions, and cinematic colour grading to deliver a high-energy, visually polished final cut.",
     videoSrc: "/web/dhruva.webm",
     poster: "dhruva.jpeg"
-  },{
-  id: "remo",
-  title: "Remo Style Lyrical Edit",
-  tools: ["Adobe After Effects", "Adobe Photoshop"],
-  description: "Created a cinematic lyrical video inspired by the visual style of the movie Remo. The edit combines beat-synchronised cuts, smooth motion transitions, dynamic text animations, vibrant colour grading, and visually engaging effects to enhance the song's mood and storytelling. Careful attention was given to pacing, typography, and visual flow to deliver an immersive viewing experience.",
-  videoSrc: "/web/DeepakRemo.webm",
-  poster: "/web/remo.webp"
-}
+  },
+  // {
+  //   id: "remo",
+  //   title: "Remo Style Lyrical Edit",
+  //   tools: ["Adobe After Effects", "Adobe Photoshop"],
+  //   description: "Created a cinematic lyrical video inspired by the visual style of the movie Remo. The edit combines beat-synchronised cuts, smooth motion transitions, dynamic text animations, vibrant colour grading, and visually engaging effects to enhance the song's mood and storytelling. Careful attention was given to pacing, typography, and visual flow to deliver an immersive viewing experience.",
+  //   videoSrc: "/web/DeepakRemo.webm",
+  //   poster: "/web/remo.webp"
+  // }
 ];
 
 export const photos = [
@@ -224,56 +226,56 @@ export interface DesignProject {
 }
 
 export const designProjects: DesignProject[] = [
- {
-  id: "Cognito",
-  title: "Cognito E-Learning Platform",
-  description:
-    "A modern e-learning dashboard UI crafted to enhance online learning experiences with an intuitive and clean interface. Features course progress tracking, interactive learning modules, student management sections, and a seamless user journey designed for both learners and educators.",
-  category: "Dashboard Design",
-  image: "/Cognito.webp",
-  link: "",
-  featured: false,
-  dateCreated: "2025-03-01T10:30:00+05:30",
-  tools: ["Figma", "Auto Layout", "Variables"],
-  tags: ["E-Learning", "Dashboard", "UI/UX", "Education Platform"],
-},{
-  id: "personalportfolio",
-  title: "Personal Portfolio Website",
-  description:
-    "A modern and responsive personal portfolio website designed to showcase skills, projects, experience, and creative work in a clean and professional layout. Features smooth navigation, project highlights, interactive UI sections, and a visually balanced design focused on personal branding and user engagement.",
-  category: "Web Design",
-  image: "/PersonalPortfolio.webp",
-  link: "https://deepakportfolioo.web.app/",
-  featured: true,
-  dateCreated: "2026-05-25T10:30:00+05:30",
-  tools: ["Figma", "FigJam", "Prototyping"],
-  tags: ["Portfolio", "Personal Website", "UI/UX", "Responsive Design"],
-},
- {
-  id: "Sign2Sense",
-  title: "Sign2Sense — Sign Lang Learning App",
-  description:
-    "A modern mobile learning application designed to help deaf and mute individuals learn sign language through interactive lessons, visual guidance, and daily practice exercises. Features progress tracking, beginner-friendly learning modules, and an accessible user experience focused on inclusive communication and education.",
-  category: "Mobile App Design",
-  image: "/SignTwoSense.webp",
-  link: "",
-  featured: true,
-  dateCreated: "2025-01-15T10:30:00+05:30",
-  tools: ["Figma", "Prototyping", "Component Library"],
-  tags: ["Sign Language", "Mobile App", "Accessibility", "Education"],
-},{
-  id: "bloodhub",
-  title: "Blood Donation Mobile App",
-  description:
-    "A modern blood donation mobile application UI designed to connect donors and recipients through a simple, accessible, and user-friendly experience. Features donor registration, blood group filtering, emergency contact access, profile management, and donation request tracking with a clean and responsive interface focused on healthcare accessibility and community support.",
-  category: "Mobile App Design",
-  image: "/BloodHub.png",
-  link: "",
-  featured: true,
-  dateCreated: "2024-11-18T10:30:00+05:30",
-  tools: ["Figma", "Prototyping", "Component Library"],
-  tags: ["Healthcare", "Blood Donation", "Mobile UI", "Community App"],
-},
+  {
+    id: "Cognito",
+    title: "Cognito E-Learning Platform",
+    description:
+      "A modern e-learning dashboard UI crafted to enhance online learning experiences with an intuitive and clean interface. Features course progress tracking, interactive learning modules, student management sections, and a seamless user journey designed for both learners and educators.",
+    category: "Dashboard Design",
+    image: "/Cognito.webp",
+    link: "",
+    featured: false,
+    dateCreated: "2025-03-01T10:30:00+05:30",
+    tools: ["Figma", "Auto Layout", "Variables"],
+    tags: ["E-Learning", "Dashboard", "UI/UX", "Education Platform"],
+  }, {
+    id: "personalportfolio",
+    title: "Personal Portfolio Website",
+    description:
+      "A modern and responsive personal portfolio website designed to showcase skills, projects, experience, and creative work in a clean and professional layout. Features smooth navigation, project highlights, interactive UI sections, and a visually balanced design focused on personal branding and user engagement.",
+    category: "Web Design",
+    image: "/PersonalPortfolio.webp",
+    link: "https://deepakportfolioo.web.app/",
+    featured: true,
+    dateCreated: "2026-05-25T10:30:00+05:30",
+    tools: ["Figma", "FigJam", "Prototyping"],
+    tags: ["Portfolio", "Personal Website", "UI/UX", "Responsive Design"],
+  },
+  {
+    id: "Sign2Sense",
+    title: "Sign2Sense — Sign Lang Learning App",
+    description:
+      "A modern mobile learning application designed to help deaf and mute individuals learn sign language through interactive lessons, visual guidance, and daily practice exercises. Features progress tracking, beginner-friendly learning modules, and an accessible user experience focused on inclusive communication and education.",
+    category: "Mobile App Design",
+    image: "/SignTwoSense.webp",
+    link: "",
+    featured: true,
+    dateCreated: "2025-01-15T10:30:00+05:30",
+    tools: ["Figma", "Prototyping", "Component Library"],
+    tags: ["Sign Language", "Mobile App", "Accessibility", "Education"],
+  }, {
+    id: "bloodhub",
+    title: "Blood Donation Mobile App",
+    description:
+      "A modern blood donation mobile application UI designed to connect donors and recipients through a simple, accessible, and user-friendly experience. Features donor registration, blood group filtering, emergency contact access, profile management, and donation request tracking with a clean and responsive interface focused on healthcare accessibility and community support.",
+    category: "Mobile App Design",
+    image: "/BloodHub.png",
+    link: "",
+    featured: true,
+    dateCreated: "2024-11-18T10:30:00+05:30",
+    tools: ["Figma", "Prototyping", "Component Library"],
+    tags: ["Healthcare", "Blood Donation", "Mobile UI", "Community App"],
+  },
   // {
   //   id: "shopify-redesign",
   //   title: "Velora — E-Commerce Redesign",
@@ -287,8 +289,8 @@ export const designProjects: DesignProject[] = [
   //   tools: ["Figma", "Adobe XD", "Illustrator"],
   //   tags: ["E-Commerce", "Redesign", "UX Audit", "Responsive"],
   // },
-  
-  
+
+
   // {
   //   id: "brand-identity-nexgen",
   //   title: "NexGen — Brand Identity System",

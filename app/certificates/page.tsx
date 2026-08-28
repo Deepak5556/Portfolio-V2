@@ -39,7 +39,7 @@ export default function CertificatesPage() {
           Certifications<span className="text-orange-500">.</span>
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-xl font-medium">
-          A showcase of professional certifications, technical courses, and academic recognitions I've earned.
+          A showcase of professional certifications, technical courses, and academic recognitions I&apos;ve earned.
         </p>
       </div>
 

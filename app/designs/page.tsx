@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Card, CardHeader, CardTitle, CardDescription,
@@ -126,6 +126,18 @@ export default function DesignsPage() {
     return designProjects.filter(p => p.featured);
   }, []);
 
+  const handleNext = useCallback(() => {
+    if (selectedProjectIndex !== null) {
+      setSelectedProjectIndex((prev) => (prev !== null ? (prev + 1) % filteredDesigns.length : null));
+    }
+  }, [selectedProjectIndex, filteredDesigns.length]);
+
+  const handlePrev = useCallback(() => {
+    if (selectedProjectIndex !== null) {
+      setSelectedProjectIndex((prev) => (prev !== null ? (prev - 1 + filteredDesigns.length) % filteredDesigns.length : null));
+    }
+  }, [selectedProjectIndex, filteredDesigns.length]);
+
   // Handle keyboard navigation for modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -136,19 +148,7 @@ export default function DesignsPage() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedProjectIndex, filteredDesigns]);
-
-  const handleNext = () => {
-    if (selectedProjectIndex !== null) {
-      setSelectedProjectIndex((selectedProjectIndex + 1) % filteredDesigns.length);
-    }
-  };
-
-  const handlePrev = () => {
-    if (selectedProjectIndex !== null) {
-      setSelectedProjectIndex((selectedProjectIndex - 1 + filteredDesigns.length) % filteredDesigns.length);
-    }
-  };
+  }, [selectedProjectIndex, handleNext, handlePrev]);
 
   const openModalWithProject = (id: string) => {
     const index = filteredDesigns.findIndex(p => p.id === id);

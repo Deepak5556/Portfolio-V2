@@ -108,7 +108,7 @@ export default function BookingPage() {
           
           <div className="p-6 rounded-2xl border border-dashed border-border bg-muted/30 text-center animate-pulse-slow">
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed italic">
-              "Let's bridge the gap between ideas and execution. Looking forward to our session!"
+              &quot;Let&apos;s bridge the gap between ideas and execution. Looking forward to our session!&quot;
             </p>
           </div>
         </div>
